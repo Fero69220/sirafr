@@ -1,0 +1,32 @@
+NOUVEAUTÉ v16.4 — FICHES DES SOURATES 70 → 79
+Ajout réalisé sur la v16.3 (menu, cours 1-16 et fiches 80-114
+inchangés).
+
+1. CE QUI A ÉTÉ AJOUTÉ
+- 10 nouvelles fiches dans la section « Les sourates courtes » :
+  Al-Ma'ârij (70), Nûh (71), Al-Jinn (72), Al-Muzzammil (73),
+  Al-Muddaththir (74), Al-Qiyâma (75), Al-Insân (76),
+  Al-Mursalât (77), An-Naba' (78), An-Nâzi'ât (79).
+- La liste déroulante couvre désormais 45 sourates, d'Al-Ma'ârij (70)
+  à An-Nâs (114). Intitulés de la page et du menu mis à jour.
+- Renvoi vers les cours : la fiche Al-Muddaththir renvoie aux
+  cours 15-16 (al-Walîd ibn al-Mughîra et le « sihrun yu'thar »).
+- Mérites appuyés sur des sources authentiques uniquement (Bukhârî,
+  Muslim…) : récit des djinns de Nakhla, correction des lèvres du
+  Prophète ﷺ dans al-Qiyâma, as-Sajda et al-Insân au fajr du
+  vendredi, al-Mursalât au maghrib (dernière prière publique),
+  l'allègement du qiyâm dans al-Muzzammil, etc.
+
+2. HORS LIGNE
+Toutes les fiches (comme les résumés de cours) sont intégrées dans
+index.html, que le service worker précache dès la première visite :
+l'intégralité des sourates est donc consultable hors ligne, au même
+titre que les résumés. Seuls les lecteurs audio Google Drive exigent
+une connexion (les MP3 téléchargés restent, eux, disponibles hors
+ligne dans le cache "sira-audio").
+
+3. VERSION ET VÉRIFICATIONS
+- sw.js : VERSION passée à "v16.4".
+- Vérifié : node --check sur sw.js et le script de la page ; LESSONS
+  (156 entrées, résumés 1-16 intacts) et SURAS (45 fiches, numérotation
+  continue 70 → 114, 861 versets couverts, tous champs remplis).

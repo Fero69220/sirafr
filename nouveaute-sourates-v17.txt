@@ -1,0 +1,105 @@
+NOUVEAUTÉ v17 — FICHES DES SOURATES COURTES (Ad-Duhâ → An-Nâs)
+Ajout réalisé sur le site v16 (cours 1-16 et corrections audio inchangés).
+
+========================================================
+1. CE QUI A ÉTÉ AJOUTÉ
+========================================================
+Une nouvelle section « Fiches des sourates courtes » a été intégrée au
+site, entre la liste des cours et le pied de page :
+
+- Une LISTE DÉROULANTE pour choisir une sourate, encadrée par deux
+  flèches ‹ › (sourate précédente / suivante).
+- 22 FICHES complètes : toutes les sourates d'Ad-Duhâ (93) à An-Nâs
+  (114).
+- Chaque fiche reprend exactement la structure du modèle envoyé
+  (le schéma « Sourate Ad Duha ») :
+    • un panneau central : nom arabe (سورة الضحى), nom translittéré,
+      traduction, numéro, nombre de versets, classification ;
+    • 5 cartes thématiques, chacune avec sa couleur :
+        - Contexte de la révélation           (teinte crème)
+        - Informations générales              (teinte verte)
+        - Mérites et bienfaits de la récitation (teinte saumon)
+        - Signification et enseignements principaux (teinte bleue)
+        - Dimension sociale et spirituelle    (teinte rose)
+    • le cas échéant, un verset mis en avant sous le contexte
+      (ex. « Ton Seigneur ne t'a ni abandonné, ni détesté. »).
+- Un lien d'accès rapide sous la barre de recherche :
+  « ۞ Fiches des sourates courtes (Ad-Duhâ → An-Nâs) ↓ ».
+- La dernière sourate consultée est mémorisée (localStorage) : au
+  retour sur le site, la fiche se rouvre là où vous l'aviez laissée.
+
+========================================================
+2. INTÉGRATION HARMONIEUSE AU DESIGN
+========================================================
+Le modèle envoyé était en pastels clairs sur fond blanc ; le site est
+en vert-nuit et or. Les 5 couleurs du schéma (vert, crème, saumon,
+bleu, rose) ont donc été reprises mais ADAPTÉES au thème sombre :
+fonds légèrement teintés, bordures et titres colorés, puces de la
+couleur de chaque carte, panneau central doré dans le style des
+médaillons du site. Polices, ornements ۞ et espacements identiques au
+reste de la page. Sur téléphone : une colonne ; sur écran large :
+deux colonnes (le contexte occupe toute la largeur).
+
+Rien n'a été modifié dans la liste des cours, les résumés 1-16, les
+lecteurs audio, la progression, ni le design existant.
+
+========================================================
+3. CONTENU DES FICHES
+========================================================
+- La fiche Ad-Duhâ reprend le contenu de votre schéma (complété).
+- Les 21 autres ont été rédigées sur le même modèle.
+- Les mérites cités s'appuient sur des hadiths authentiques avec
+  leurs sources (Bukhârî, Muslim, Abû Dâwûd, Tirmidhî…) : tiers du
+  Coran pour al-Ikhlâs, mu'awwidhatân matin/soir, récitation
+  d'al-Kâfirûn et al-Ikhlâs dans les rak'as de fajr, hadith d'Ubayy
+  pour al-Bayyina, etc. Les mérites faibles ou controversés (par ex.
+  « az-Zalzala = moitié du Coran ») n'ont volontairement PAS été
+  repris.
+- Les classifications discutées sont signalées (al-Bayyina,
+  az-Zalzala, al-Falaq, an-Nâs : « selon la majorité / d'autres »).
+- L'« ordre de révélation » suit l'ordre traditionnel (celui du
+  mushaf égyptien) — donné à titre indicatif (≈).
+- Deux fiches renvoient aux cours du site : al-Masad (cours 15-16,
+  l'appel sur as-Safâ) et al-Kâfirûn (cours 16, les marchandages de
+  Quraysh).
+
+========================================================
+4. COMMENT MODIFIER OU COMPLÉTER UNE FICHE
+========================================================
+Dans index.html, cherchez « const SURAS = [ » (juste au-dessus de
+l'enregistrement du service worker). Chaque sourate est un bloc
+{ ... } avec les champs :
+  n, ar, fr, trad, type, versets, ordre,
+  contexte: [puces], citation (facultatif),
+  merites: [puces], sens: [puces], social: [puces]
+- Chaque élément entre guillemets doubles = une puce.
+- Vous pouvez mettre du gras avec <b>…</b> à l'intérieur des puces.
+- N'utilisez pas de guillemets doubles " dans le texte : utilisez
+  les guillemets français « ».
+- Après toute modification, incrémentez VERSION dans sw.js pour que
+  les visiteurs reçoivent la mise à jour.
+
+========================================================
+5. TECHNIQUE ET VÉRIFICATIONS
+========================================================
+- sw.js : VERSION passée de "v16" à "v17" (le cache "sira-audio" des
+  cours téléchargés n'est jamais purgé, rien ne change pour l'audio
+  hors ligne).
+- Syntaxe vérifiée : node --check sur sw.js et sur le script de la
+  page ; tableaux LESSONS (156 entrées, résumés 1-16 intacts) et
+  SURAS (22 entrées, 157 versets au total, tous les champs remplis)
+  évalués avec succès.
+- Aucune dépendance externe ajoutée : tout est dans index.html, le
+  site reste une seule page, installable et consultable hors ligne.
+- Déploiement : glisser-déposer le contenu du zip sur Netlify comme
+  d'habitude.
+
+Fichiers du zip v17 :
+  index.html                  (cours + nouvelles fiches des sourates)
+  sw.js                       (VERSION v17)
+  manifest.webmanifest, icon-192.png, icon-512.png,
+  apple-touch-icon.png        (inchangés)
+  GUIDE-AUDIO.md              (inchangé)
+  correction-audio-15.txt     (inchangé)
+  correction-audio-16.txt     (inchangé)
+  nouveaute-sourates-v17.txt  (ce fichier)

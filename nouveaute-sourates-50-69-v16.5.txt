@@ -1,0 +1,32 @@
+NOUVEAUTÉ v16.5 — FICHES DES SOURATES 50 → 69
+Ajout réalisé sur la v16.4 (menu, cours 1-16 et fiches 70-114
+inchangés).
+
+1. CE QUI A ÉTÉ AJOUTÉ
+- 20 nouvelles fiches : Qâf (50), Adh-Dhâriyât (51), At-Tûr (52),
+  An-Najm (53), Al-Qamar (54), Ar-Rahmân (55), Al-Wâqi'a (56),
+  Al-Hadîd (57), Al-Mujâdila (58), Al-Hashr (59), Al-Mumtahana (60),
+  As-Saff (61), Al-Jumu'a (62), Al-Munâfiqûn (63), At-Taghâbun (64),
+  At-Talâq (65), At-Tahrîm (66), Al-Mulk (67), Al-Qalam (68),
+  Al-Hâqqa (69).
+- La section couvre désormais 65 sourates, de Qâf (50) à An-Nâs
+  (114) : c'est l'intégralité du MUFASSAL (selon l'avis qui le fait
+  commencer à Qâf) — mention ajoutée au sous-titre de la page.
+- Renvoi vers les cours : la fiche Al-Qalam renvoie au cours 16
+  (verset 9, les marchandages de Quraysh).
+- Mérites authentiques uniquement : Qâf sur le minbar chaque vendredi
+  (Muslim), la prosternation collective d'An-Najm (Bukhârî), la fente
+  de la lune (Bukhârî/Muslim), Al-Mulk qui intercède (Abû Dâwûd,
+  Tirmidhî), le verset 16 d'Al-Hadîd (Muslim), Jubayr ibn Mut'im et
+  At-Tûr, Al-Jumu'a/Al-Munâfiqûn du vendredi (Muslim), etc.
+  Le hadith faible « Al-Wâqi'a chaque nuit protège de la pauvreté »
+  est explicitement signalé comme faible dans la fiche, pour couper
+  court à sa diffusion.
+
+2. VERSION ET VÉRIFICATIONS
+- sw.js : VERSION passée à "v16.5". Toutes les fiches restent
+  intégrées à index.html, donc disponibles hors ligne comme les
+  résumés dès la première visite.
+- Vérifié : node --check sur sw.js et le script de la page ; LESSONS
+  (156 entrées, résumés 1-16 intacts) et SURAS (65 fiches, numérotation
+  continue 50 → 114, 1606 versets couverts, tous champs remplis).

@@ -1,0 +1,68 @@
+NOUVEAUTÉ v18 — MENU LATÉRAL ET SECTIONS DU SITE
+Ajout réalisé sur le site v17 (cours, fiches des sourates et
+corrections audio inchangés).
+
+========================================================
+1. CE QUI A ÉTÉ AJOUTÉ
+========================================================
+- Un BOUTON MENU (3 barres, en haut à gauche, toujours visible) qui
+  ouvre un panneau latéral coulissant depuis la gauche, comme dans
+  l'application Claude. On le ferme en touchant le fond assombri, la
+  touche Échap, ou en choisissant une section.
+- Le panneau « Sommaire » (الفهرس) contient trois sections :
+    1. La Sīra du Prophète ﷺ — 155 cours (la page d'origine,
+       INCHANGÉE : recherche, filtres, progression, audio, résumés) ;
+    2. Les sourates courtes — les fiches d'Ad-Duhâ (93) à An-Nâs
+       (114), qui deviennent une page à part entière (elles ne sont
+       plus en bas de la page des cours) ;
+    3. Le fiqh de la prière — marqué « à venir » dans le menu, avec
+       une page d'attente élégante (فقه الصلاة — « À venir, in shâ'
+       Allâh »).
+- La section active est surlignée en or dans le menu.
+- À l'ouverture du site, on arrive comme avant sur la page des cours.
+
+========================================================
+2. COMMENT AJOUTER UNE FUTURE SECTION (quand un sujet arrive)
+========================================================
+Tout est prévu et commenté dans index.html (chercher « MENU LATÉRAL
+ET NAVIGATION ») :
+  1. Dans le <nav id="menu">, copiez un bouton .drawer-item existant
+     et changez son data-view="monsujet", son titre français, son
+     sous-titre et son titre arabe ;
+  2. Avant le <footer>, ajoutez le contenu de la section dans un bloc
+     <div class="vue" id="vue-monsujet" hidden> … </div> ;
+  3. Dans le script, ajoutez l'entrée   monsujet: "vue-monsujet"
+     dans le tableau VUES ;
+  4. Incrémentez VERSION dans sw.js et redéployez.
+La page d'attente du fiqh de la prière (id="vue-fiqh") pourra être
+remplacée par le vrai contenu le moment venu, sans rien changer au
+menu.
+
+========================================================
+3. TECHNIQUE ET VÉRIFICATIONS
+========================================================
+- La page des cours est enveloppée dans une vue (id="vue-sira") sans
+  aucune modification de son contenu ni de son design ; le pied de
+  page reste commun à toutes les sections.
+- Le lien « Fiches des sourates courtes ↓ » sous la recherche a été
+  retiré : on y accède désormais par le menu.
+- sw.js : VERSION passée de "v17" à "v18" (cache "sira-audio" des
+  audios téléchargés toujours préservé).
+- Vérifié : node --check sur sw.js et le script de la page ;
+  structure des vues contrôlée (en-tête, recherche et liste des cours
+  bien dans la vue Sīra ; fiches et page fiqh bien séparées) ;
+  tableaux LESSONS (156 entrées, résumés 1-16 intacts) et SURAS
+  (22 fiches) évalués avec succès.
+- Aucune dépendance externe ; le site reste une page unique,
+  installable et utilisable hors ligne.
+
+Fichiers du zip v18 :
+  index.html                  (menu + 3 sections)
+  sw.js                       (VERSION v18)
+  manifest.webmanifest, icon-192.png, icon-512.png,
+  apple-touch-icon.png        (inchangés)
+  GUIDE-AUDIO.md              (inchangé)
+  correction-audio-15.txt     (inchangé)
+  correction-audio-16.txt     (inchangé)
+  nouveaute-sourates-v17.txt  (inchangé)
+  nouveaute-menu-v18.txt      (ce fichier)

@@ -1,0 +1,266 @@
+CORRECTIONS DE LA TRANSCRIPTION AUTOMATIQUE — COURS 17
+« L'appel généralisé : la torture » (الدعوة الجهرية: التعذيب)
+Corrections apportées lors de la rédaction du résumé (livraison v17).
+
+========================================================
+1. MENTIONS DU PROPHÈTE ﷺ
+========================================================
+- « le prophète sallallahu alayhi wa sallam / alayhi salatu wassalam »
+  = le Prophète ﷺ (transcriptions correctes mais hétérogènes,
+  uniformisées en ﷺ).
+- « Abou Sofyan ibn Harb, a-salam » : « a-salam » n'est pas une
+  mention du Prophète ﷺ mais « aslama » (il s'est converti) —
+  voir section 3.
+- Boucle finale : « sallallahu alayhi alayhi alayhi alayhi… »
+  = صلى الله عليه وسلم (doxologie de clôture).
+
+========================================================
+2. NOMS PROPRES DÉFORMÉS
+========================================================
+- « Qurayshites / Qurayshid / Kouréchi / les Khouraïchites » → Quraysh
+- « Abnou Ishaq » → Ibn Ishâq ; « l'umni Kassir / le kassir / il
+  termine le kassir » → Ibn Kathîr
+- « El hakam ibn Abil'as » → al-Hakam ibn Abî al-'Âs
+- « Ubaïa ibn Khalf / Oubay » → Ubayy ibn Khalaf ;
+  « Umaïa ibn Khalf » → Umayya ibn Khalaf (deux hommes distincts,
+  correctement distingués dans l'audio mais confondus par l'ASR)
+- « Abu al-Bakhtari ibn Hisham » → Abû al-Bakhtarî ibn Hishâm
+- « Abou Jahl » → Abû Jahl ; « fer'aoun / فرعون هذه الأمة » →
+  « le Pharaon de cette communauté »
+- « Othmane » → 'Uthmân ibn 'Affân
+- « Zubayr ibn Awwa / Zubair » → az-Zubayr ibn al-'Awwâm
+- « Zniera / زنيرة » → Zinnîra
+- « Mus'hab ibn Umayr / mus'hab / صعب / كامل المك أبكي مير » →
+  Mus'ab ibn 'Umayr
+- « Omar ibn al khattab » → 'Umar ibn al-Khattâb ;
+  « Saïd ibn Zayyid » → Sa'îd ibn Zayd
+- « Bilal ibn Rabah » → Bilâl ibn Rabâh
+- « Ammar ibn Yasir » → 'Ammâr ibn Yâsir ; « Soumaïa » → Sumayya ;
+  « Ebanou Makhzoum » → Banû Makhzûm
+- « Khalid bin Sa'id bin al-'As » → Khâlid ibn Sa'îd ibn al-'Âs ;
+  « Abou Ahiha / فبوحيحة » → Abû Uhayha (son père)
+- « Souhaib Ibn Sinan Rumi » → Suhayb ibn Sinân ar-Rûmî
+- « Sa'ad ibn Abiyakas / Saad ibn al-Biwakas » → Sa'd ibn Abî Waqqâs
+- « khabab / Khabbab » → Khabbâb ibn al-Aratt
+- « Habib ibn Zayyid l'Anصari / l'Antarien / Habib du Zayyid » →
+  Habîb ibn Zayd al-Ansârî
+- « Musaylam al-Keddaab » → Musaylima al-Kadhdhâb
+- « Bader » → Badr ; « l'Habasha / l'Abyssin » → al-Habasha
+  (l'Abyssinie) ; « San'a / Hadramaut » → San'â' / Hadramawt
+- « surat An-Kaboud / sourate Al-Ankabout » → sourate al-'Ankabût ;
+  « surat Al-Buruj / la boule rouge (!) » → sourate al-Burûj ;
+  « surat le nahl la baie » → sourate an-Nahl, le verset (al-âya)
+- « ilal abduh » → إلى الأبطح (vers al-Abtah) ; « ronda » →
+  الرمضاء (ar-ramdâ', le sol brûlant)
+
+========================================================
+3. CITATIONS ARABES CORROMPUES, RÉTABLIES D'APRÈS LES SOURCES
+   (Bukhârî, Muslim, Musnad d'Ahmad, Ibn Ishâq, Ibn Kathîr)
+========================================================
+- « l'asalib allati istambalataha Qureyche fi muharabat l'islam al
+  muslimi fazakarnamin ha khamsa » → « الأساليب التي استعملتها قريش
+  في محاربة الإسلام والمسلمين، فذكرنا منها خمسة ».
+- « Isara Tshubuhat Hawl Masdara Al-Qur'an Hawl Shakhsiyyat
+  Ar-Rasoul » → « إثارة الشبهات حول مصدر القرآن وحول شخصية
+  الرسول ﷺ ».
+- Le passage d'Ibn Ishâq « فمضى رسول الله ﷺ يدعو إلى الله ويئست قريش
+  منه… فاجتمع رؤوس المشركين وقرروا اللجوء إلى العنف » est bien
+  transcrit (conservé tel quel).
+- « الله لبرتجرى برسول الله عليه وسلم لأنه كان شريفاً معظماً في قريش
+  مطاعاً في أهله وأهل مكة لا يتجاسرون على مكاشفته بشيء من الأذى »
+  → « أما رسول الله ﷺ فلم يتجرأ عليه أحد، لأن أبا طالب كان شريفا
+  معظما في قريش، مطاعا في أهله، وأهل مكة لا يتجاسرون على مكاشفته
+  بشيء من الأذى » (le sujet de la phrase est Abû Tâlib).
+- « a-salam, badafait Maka, ou fifait Maka, ou qabla habika lila
+  a-tile fariwayed kamasayati » → « أسلم بعد فتح مكة، أو في فتح مكة،
+  أو قبل ذلك بقليل، على اختلاف الروايات » (au sujet d'Abû Sufyân).
+- Hadith du Musnad : « Kana ouwelle man adhara Islamahusab'ah »
+  → « أول من أظهر إسلامه سبعة: رسول الله ﷺ وأبو بكر وعمار وأمه سمية
+  وصهيب وبلال والمقداد. فأما رسول الله ﷺ فمنعه الله بعمه أبي طالب،
+  وأما أبو بكر فمنعه الله بقومه، وأما سائرهم فأخذهم المشركون
+  فألبسوهم أدراع الحديد وصهروهم في الشمس، فما منهم من أحد إلا وقد
+  واتاهم على ما أرادوا، إلا بلالا فإنه هانت عليه نفسه في الله وهان
+  على قومه، فأعطوه الولدان فجعلوا يطوفون به في شعاب مكة وهو يقول:
+  أحد أحد ».
+- « à qu'à l'aïe-la-mouchericouna yablogouna min ashabi rasoulillahi
+  ﷺ min al-adabima yu'uzarouna fi tarkidinihim » → « أكان المشركون
+  يبلغون من أصحاب رسول الله ﷺ من العذاب ما يُعذرون به في ترك دينهم؟
+  قال: نعم والله… » (Sa'îd ibn Jubayr interrogeant Ibn 'Abbâs).
+- Zinnîra : « فذهب بصرها حين أعتقها فقالت قريش ما أذهب بصرها إلا
+  اللات والعزة فتفهم لا أعلم لا أعلم… » → « أعتقها أبو بكر، فذهب
+  بصرها، فقالت قريش: ما أذهب بصرها إلا اللات والعزى! فقالت: كذبوا
+  وبيت الله، ما تضر اللات والعزى وما تنفعان. فرد الله بصرها »
+  (la boucle « لا أعلم » recouvre sa réponse).
+- Mus'ab : « كانت أمه مليئة كثيرة المال تكسوه أحسن ما يكون من السياب
+  وأرقه وكان أعطار أهل مكة إلي تيل سيدي كابل المير بخفن لماك… ما
+  رأيت بمكة أحسن لماكة جي جميعي فيو… ولا أرق حلتا ولا أنعم نعمة من
+  صعب » → « كانت أمه مليئة كثيرة المال، تكسوه أحسن ما يكون من
+  الثياب وأرقه، وكان أعطر أهل مكة… فكان رسول الله ﷺ يذكره ويقول:
+  ما رأيت بمكة أحدا أحسن لِمّة، ولا أرق حُلّة، ولا أنعم نعمة من
+  مصعب بن عمير » (la limma est la chevelure qui descend sous
+  l'oreille).
+- Sa'îd ibn Zayd (Bukhârî) : « je me revois encore ligoté par Omar »
+  → « لقد رأيتني وإن عمر لموثقي على الإسلام قبل أن يسلم عمر ».
+- « J'arrête de être frappé que par lassitude… Kadafa ala
+  Allahoubik » → « إني أعتذر إليك، إني لم أتركك إلا ملالة.
+  فتقول: كذلك فعل الله بك » (« c'est ainsi qu'Allah agira avec
+  toi ») — l'esclave que 'Umar frappait avant son islam.
+- Bilâl : « ثم يقول له لا تزال هكذا حتى تموت أو تكفر بمحمد وتعبود
+  الله والعزة » → « لا تزال هكذا حتى تموت أو تكفر بمحمد وتعبد اللات
+  والعزى. فيقول وهو في ذلك البلاء: أحد أحد ».
+- Famille de Yâsir : « yakhrujou nabihim ilal abduh idha hamiyat
+  ronda… fa yu'adhibouna hum biharriha fa marrabihim rasoululallah »
+  → « كان أبو جهل يخرج بهم إلى الأبطح إذا حميت الرمضاء فيعذبونهم
+  بحرها، فمر بهم رسول الله ﷺ وهم يُعذَّبون فقال: صبرا آل ياسر،
+  فإن موعدكم الجنة ».
+- 'Ammâr : « فأتى النبي ﷺ فلوغان فجعل رسول الله ﷺ يمسح عن عينيه ما
+  ورأك قال شر يا رسول الله ما تركت حتى نلت منك وذكرت آلهته بخير »
+  → « فأتى النبي ﷺ وهو يبكي، فجعل رسول الله ﷺ يمسح عن عينيه ويقول:
+  ما وراءك؟ قال: شر يا رسول الله، ما تُركت حتى نلت منك وذكرت
+  آلهتهم بخير. قال: كيف تجد قلبك؟ قال: مطمئنا بالإيمان. قال:
+  فإن عادوا فعد ».
+- An-Nahl 106 : « il m'écronna l'après sa foi sauf exception sauf
+  celui qui est forcé alors que son coeur croit fermement » →
+  « من كفر بالله من بعد إيمانه إلا من أُكره وقلبه مطمئن بالإيمان،
+  ولكن من شرح بالكفر صدرا فعليهم غضب من الله ولهم عذاب عظيم. ذلك
+  بأنهم استحبوا الحياة الدنيا على الآخرة ».
+- Habîb ibn Zayd : « Il lui dirait Est-ce que tu es un homme ? »
+  (boucle) → « أتشهد أن محمدا رسول الله؟ فيقول: نعم. فيقول: أتشهد
+  أني رسول الله؟ فيقول: لا أسمع. فجعل يقطعه عضوا عضوا » —
+  « Témoignes-tu que Muhammad est le Messager d'Allah ? — Oui. —
+  Témoignes-tu que je suis le messager d'Allah ? — Je n'entends
+  pas. » Et il fut découpé membre par membre.
+- Khâlid ibn Sa'îd : « فقال خالد لا أدعو دين محمد حتى أمت عليك…
+  فضربه بقرعة في يده حتى كسرها على رأسه » → « فقال خالد: لا أدَعُ
+  دين محمد حتى أموت عليه… فضربه بمقرعة في يده حتى كسرها على
+  رأسه » (une miqra'a : un bâton).
+- Sa'd et sa mère : « فأبا سعد بقيت ثلاث سعد نسيبت لكوافير… والله
+  لو كان لك مئة نفسي فخرجت نفسا نفسا ما تركت ديني هذا لشيء » →
+  « فمكثت ثلاثا [لا تأكل ولا تشرب حتى غُشي عليها]… فقال: يا أمه،
+  والله لو كانت لك مئة نفس فخرجت نفسا نفسا ما تركت ديني هذا لشيء،
+  فإن شئت فكلي وإن شئت فلا تأكلي » ; « نزلت فيه أرض آيات » →
+  « نزلت فيّ أربع آيات » (quatre versets — Muslim).
+- Luqmân 15 / al-'Ankabût 8 : « وصينا الإنسان بوالديه حسنا وإن
+  جاهداك لتشرك بما ليس لك به علم ولا تطعهما » → « ووصينا الإنسان
+  بوالديه حسنا، وإن جاهداك لتشرك بي ما ليس لك به علم فلا تطعهما » ;
+  « والتي في رقبان وصاحبهما في الدنيا معروفة » → « والتي في لقمان:
+  وصاحبهما في الدنيا معروفا ».
+- Al-'Ankabût 1-3 : « M'a t'la'uha Alif la'am mim Ahasib al nasu an
+  yotraku An yakulu amanna Aum la'if ta'am » → « الم. أحسب الناس
+  أن يتركوا أن يقولوا آمنا وهم لا يفتنون. ولقد فتنا الذين من
+  قبلهم… ».
+- Al-'Ankabût 10 : « Il confond entre l'épreuve des gens et le
+  châtiment d'Allah » → « ومن الناس من يقول آمنا بالله فإذا أوذي
+  في الله جعل فتنة الناس كعذاب الله ».
+- Hadith de Khabbâb (Bukhârî) : « وهو متسود بردة له في ظل الكعبة…
+  أسكتن فابا أينفوكي الله بخال الله نسوكوك لبخوفة » → « شكونا إلى
+  رسول الله ﷺ وهو متوسِّد بردة له في ظل الكعبة، فقلنا: ألا تستنصر
+  لنا؟ ألا تدعو لنا؟ فقال: كان الرجل فيمن قبلكم يُحفر له في الأرض
+  فيُجعل فيه، فيُجاء بالمنشار فيوضع على رأسه فيُشق باثنتين، وما
+  يصده ذلك عن دينه، ويُمشط بأمشاط الحديد ما دون لحمه من عظم أو
+  عصب، وما يصده ذلك عن دينه. والله ليتمن الله هذا الأمر حتى يسير
+  الراكب من صنعاء إلى حضرموت لا يخاف إلا الله أو الذئب على غنمه،
+  ولكنكم تستعجلون ».
+- 'Alî sur la tombe de Khabbâb : « Rahimallahou khababan,
+  aslamaragiban, wahajara ta'ihan, wa'aacha mujahidan, wa
+  bituliyafi jismihi ahwalan, wa lan yudayyi Allahou atara » →
+  « رحم الله خبابا: أسلم راغبا، وهاجر طائعا، وعاش مجاهدا، وابتُلي
+  في جسمه أحوالا، ولن يضيع الله أجره ».
+- Doxologie finale : « subhanakallahu alhamdulillah assafru kato
+  bule » → « سبحانك اللهم وبحمدك، أشهد أن لا إله إلا أنت،
+  أستغفرك وأتوب إليك ».
+
+========================================================
+4. VOCABULAIRE / TERMES TECHNIQUES
+========================================================
+- « la dé'oua / dé'awa / la prédication » → la da'wa
+- « les mouchericunes / mushrikin » → les mushrikîn (associateurs)
+- « la mikras / la m'écrit / maïcréance / m'écroit » → la mécréance
+  (kufr) / mécroire
+- « le sèbeb / le musabib » → le sabab (la cause) / al-Musabbib
+  (Celui qui crée les causes)
+- « tijara » → la tijâra (le commerce)
+- « des cuirasses, des côtes de maille » → أدراع الحديد (cottes de
+  mailles) — transcription correcte, translittération ajoutée
+- « c'est à Allah l'excuse / une facilité » → la rukhsa (facilité
+  concédée) ; résister = la 'azîma (résolution, voie du mérite)
+- « hajra / hijra » → la hijra ; « la première hijra » = l'émigration
+  en Abyssinie
+- « Ahad » → أحد (« Un Seul ») — cri de Bilâl
+- « sourate de la Batîla » → sourate al-ibtilâ' (« sourate de
+  l'épreuve », surnom d'al-'Ankabût) — voir aussi section 6
+- « le Musnad » → le Musnad de l'imâm Ahmad
+- « il est le cas de l'Hadith » → probablement « al-Hakam » (début de
+  la revue des noms) — voir section 6
+
+========================================================
+5. BOUCLES ET ARTEFACTS DE L'ASR (supprimés)
+========================================================
+- « on a donné des exemples » ×6 — boucle (transition du rappel des
+  méthodes).
+- « Il y était placé. Il y était placé. » ×3 et « Et il s'est déçu »
+  ×3 — dans le hadith de la scie : « وما يصده ذلك عن دينه » (« cela
+  ne le détournait pas de sa religion »), que l'ASR a rendu par
+  « il s'est déçu ».
+- « Il lui dirait » ×6 — boucle (dialogue de Habîb ibn Zayd avec
+  Musaylima).
+- « Ils ont dit, ils ont dit… » ×7 — boucle avant le hadith de
+  l'ombre de la Ka'ba.
+- « Il est en train de se faire. Il est en train d'être… » ×4 —
+  boucle (détention de Khâlid ibn Sa'îd).
+- « لا أعلم لا أعلم أنه لا أعلم… » — boucle (réponse de Zinnîra,
+  rétablie en section 3).
+- « إلغا إلغا أمه إلغا أمه » — boucle (récit de Sa'd et de sa mère).
+- « alayhi alayhi alayhi… » ×8 — boucle finale sur la salât 'alâ
+  an-Nabî ﷺ.
+- « أمار أن العسام بقتله خفات الأرضان ركس وإنه منهم » — garble
+  irrécupérable au milieu de la liste des persécuteurs (voir
+  section 6, point 1).
+- « Damir, il est celui qui dit : كل ayah lait n'a-t-il a-t-il… » —
+  garble (le Sheikh demande où chaque nom apparaît dans le Coran ;
+  pour Abû Lahab : sourate al-Masad).
+- « barabarou » / « Ma cassa de salat » (= فمكثت ثلاثا ?) /
+  « tu as fait Omae » — garbles isolés.
+- « raconté par Tzermidy : Je lui dis ce que je savais à l'aider » —
+  garble (passage où Khabbâb montre son dos, vraisemblablement à
+  'Umar, rapporté par at-Tirmidhî ?) — non repris, voir section 6.
+
+========================================================
+6. POINTS AMBIGUS NON TRANCHÉS (à vérifier à l'écoute)
+========================================================
+1. La « quinzaine » de persécuteurs annoncée : seuls huit noms sont
+   audibles (Abû Lahab, al-Hakam, 'Uqba ibn Abî Mu'ayt, Abû Sufyân,
+   Abû al-Bakhtarî, Abû Jahl, Umayya et Ubayy ibn Khalaf). Les
+   autres (an-Nadr ibn al-Hârith, al-'Âs ibn Wâ'il, al-Aswad ibn
+   'Abd Yaghûth, al-Walîd ibn al-Mughîra…) sont probables d'après
+   Ibn Kathîr mais noyés dans les garbles : ils n'ont pas été
+   ajoutés au résumé.
+2. « 'Uqba ibn Abî Mu'ayt » : le nom est pratiquement inaudible
+   (« Un homme qui s'appelle… ce qu'il s'est en prison à la bataille
+   de Bader et le prophète ordonnera pour l'exécuter ») ; identifié
+   par le destin décrit (capturé à Badr, exécuté). À confirmer.
+3. Ubayy ibn Khalaf « tué de la main du Prophète ﷺ » : l'audio
+   semble situer l'épisode vers Badr (« il va arriver, il s'agit de
+   la taille » ?) ; les sources placent sa mort à Uhud — le résumé
+   dit « à Uhud ».
+4. Le compagnon au rocher sur le dos « jusqu'à perdre connaissance »
+   puis émigré en Abyssinie : le nom est inaudible (le passage
+   arrive sans transition avant Khâlid ibn Sa'îd) ; il s'agit
+   probablement d'Abû Fukayha d'après les sources — le résumé dit
+   « un autre compagnon ».
+5. L'oncle qui ligote 'Uthmân n'est pas nommé dans l'audio (al-Hakam
+   ibn Abî al-'Âs d'après les sources) — le résumé dit « son oncle ».
+6. L'esclave que 'Umar frappait « jusqu'à la lassitude » : l'audio
+   enchaîne depuis Sa'îd ibn Zayd sans transition ; selon Ibn Ishâq
+   il s'agit d'une esclave (jâriya) des Banû Mu'ammal — le résumé
+   dit « une esclave convertie ».
+7. « Il passe près de la tombe de Khabbâb » : le locuteur n'est pas
+   nommé dans l'audio ; il s'agit de 'Alî ibn Abî Tâlib d'après les
+   sources — retenu ainsi dans le résumé.
+8. Celui qui surprit Mus'ab en prière et le dénonça n'est pas nommé
+   ('Uthmân ibn Talha selon Ibn Ishâq) — le résumé dit « un homme ».
+9. « سورة البتيلة » : très probablement « سورة الابتلاء » (la sourate
+   de l'épreuve, surnom d'al-'Ankabût) — retenu ainsi.
+10. Le passage « raconté par Tirmidhî… » sur Khabbâb montrant son
+    dos ('Umar lui demandant de raconter ?) est irrécupérable en
+    l'état : non repris dans le résumé.

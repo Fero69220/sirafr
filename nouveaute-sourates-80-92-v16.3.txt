@@ -1,0 +1,42 @@
+NOUVEAUTÉ v16.3 — FICHES DES SOURATES 80 → 92
+Ajout réalisé sur la version précédente (menu latéral, cours 1-16 et
+fiches 93-114 inchangés).
+
+1. CE QUI A ÉTÉ AJOUTÉ
+- 13 nouvelles fiches dans la section « Les sourates courtes » :
+  'Abasa (80), At-Takwîr (81), Al-Infitâr (82), Al-Mutaffifîn (83),
+  Al-Inshiqâq (84), Al-Burûj (85), At-Târiq (86), Al-A'lâ (87),
+  Al-Ghâshiya (88), Al-Fajr (89), Al-Balad (90), Ash-Shams (91),
+  Al-Layl (92).
+- La liste déroulante couvre désormais 35 sourates, de 'Abasa (80)
+  à An-Nâs (114), dans l'ordre du mushaf. Les intitulés de la page
+  et du menu ont été mis à jour en conséquence.
+- Même structure que les fiches existantes : panneau central + les
+  5 cartes colorées (contexte, informations, mérites, enseignements,
+  dimension sociale), avec verset mis en avant.
+- Renvois vers les cours du site : la fiche 'Abasa renvoie au
+  cours 16 (récit d'Ibn Umm Maktûm) et la fiche Al-Layl au cours 18
+  (les libérations d'esclaves par Abû Bakr).
+- Mérites appuyés sur des sources authentiques (Bukhârî, Muslim,
+  Tirmidhî, Abû Dâwûd, Nasâ'î…) ; les mérites faibles ou inventés
+  n'ont pas été repris. Les classements chronologiques discutés sont
+  donnés à titre indicatif (≈).
+
+2. AMÉLIORATION TECHNIQUE
+- La mémorisation de la dernière sourate consultée se fait désormais
+  par NUMÉRO de sourate (et non par position dans la liste) : les
+  visiteurs qui avaient une fiche mémorisée retrouveront exactement
+  la même après la mise à jour.
+
+3. VERSION ET VÉRIFICATIONS
+- sw.js : VERSION passée à "v16.3" (cache "sira-audio" des audios
+  téléchargés toujours préservé).
+- Vérifié : node --check sur sw.js et le script de la page ;
+  LESSONS (156 entrées, résumés 1-16 intacts) et SURAS (35 fiches,
+  numérotation continue 80 → 114, 478 versets couverts, tous champs
+  remplis) évalués avec succès.
+
+Fichiers du zip v16.3 : index.html, sw.js, manifest.webmanifest,
+icon-192.png, icon-512.png, apple-touch-icon.png, GUIDE-AUDIO.md,
+correction-audio-15.txt, correction-audio-16.txt,
+nouveaute-sourates-v17.txt, nouveaute-menu-v18.txt, et ce fichier.

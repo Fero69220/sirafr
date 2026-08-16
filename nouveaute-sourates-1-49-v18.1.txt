@@ -1,0 +1,38 @@
+NOUVEAUTÉ v18.1 — FICHES DES SOURATES 1 → 49 : LE CORAN COMPLET
+Ajout réalisé sur la v18 (menu, cours 1-18 et fiches 50-114
+inchangés).
+
+1. CE QUI A ÉTÉ AJOUTÉ
+- 49 nouvelles fiches : d'Al-Fâtiha (1) à Al-Hujurât (49), y compris
+  les grandes sourates (Al-Baqara, Âl 'Imrân, An-Nisâ'…).
+- La section couvre désormais LES 114 SOURATES DU CORAN. Intitulés
+  mis à jour : page (« Fiches des sourates — Les 114 sourates du
+  Coran »), menu (« Les sourates du Coran / سور القرآن — Fiches des
+  114 sourates, d'Al-Fâtiha à An-Nâs »).
+- Vérification d'intégrité : 114 fiches continues, et la somme des
+  versets des fiches fait exactement 6236 — le compte du mushaf.
+- Renvois croisés avec la Sīra du site : al-Anfâl → Badr (cours 17),
+  ash-Shu'arâ' v. 214 → Safâ (cours 15), al-Hijr v. 6 et an-Nahl
+  v. 103/106 → cours 16-17, al-'Ankabût et Luqmân v. 15 → cours
+  17-18, Maryam → Ja'far chez le Najâshî, Tâ-Hâ → conversion de
+  'Umar, Sâd v. 6 → la délégation chez Abû Tâlib, Fussilat → 'Utba
+  ibn Rabî'a, al-Ahqâf → les djinns (fiche 72), ad-Dukhân → la
+  famine de Quraysh.
+- Mérites authentiques uniquement (Bukhârî, Muslim, Tirmidhî…) :
+  Fâtiha plus grande sourate + hadith qudsî de la prière, Âyat
+  al-Kursî et les deux derniers versets d'al-Baqara, les zahrâwân,
+  les larmes du Prophète ﷺ sur an-Nisâ' 41, les sept ahruf
+  (al-Furqân), al-Kahf contre le Dajjâl, az-Zumar 53, al-Fath
+  « plus aimée que tout ce sur quoi le soleil se lève », le du'â de
+  Dhû-n-Nûn, etc. Deux hadiths célèbres mais FAIBLES sont
+  explicitement signalés comme tels dans les fiches : « Yâ-Sîn est
+  le cœur du Coran » et (déjà en v16.5) « al-Wâqi'a protège de la
+  pauvreté ».
+
+2. VERSION ET VÉRIFICATIONS
+- sw.js : VERSION passée à "v18.1". Les 114 fiches sont intégrées à
+  index.html : tout reste disponible hors ligne dès la première
+  visite, comme les résumés de cours.
+- Vérifié : node --check sur sw.js et le script de la page ; LESSONS
+  (156 entrées, résumés 1-18 intacts) et SURAS (114 fiches,
+  numérotation continue 1 → 114, tous champs remplis, 6236 versets).
