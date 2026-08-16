@@ -1697,7 +1697,7 @@ function render(filter = "") {
       /* Double-clic (ou double-tap) sur un résumé déployé : le réduire */
       const p = card.querySelector(".resume");
       if (p) {
-        p.addEventListener("dblclick", () => {
+        const reduire = () => {
           if (p.classList.contains("clamp")) return; // déjà réduit
           p.classList.add("clamp");
           toggle.textContent = "Lire le résumé";
@@ -1705,7 +1705,33 @@ function render(filter = "") {
           const sel = window.getSelection();
           if (sel) sel.removeAllRanges(); // enlève la sélection du double-clic
           card.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
+        };
+        p.addEventListener("dblclick", reduire); // souris (ordinateur)
+        /* iPhone/iPad : Safari ne déclenche pas "dblclick" au toucher.
+           Détection manuelle du double-tap : 2 taps en moins de 400 ms,
+           quasiment au même endroit, en ignorant les gestes de défilement. */
+        let lastTap = 0, lastX = 0, lastY = 0, startX = 0, startY = 0;
+        p.addEventListener("touchstart", (e) => {
+          if (e.touches.length === 1) {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+          }
+        }, { passive: true });
+        p.addEventListener("touchend", (e) => {
+          if (e.changedTouches.length !== 1 || e.touches.length > 0) return; // multi-touch : ignorer
+          const t = e.changedTouches[0];
+          if (Math.abs(t.clientX - startX) > 10 || Math.abs(t.clientY - startY) > 10) {
+            lastTap = 0; // c'était un défilement, pas un tap
+            return;
+          }
+          const now = Date.now();
+          if (now - lastTap < 400 && Math.abs(t.clientX - lastX) < 40 && Math.abs(t.clientY - lastY) < 40) {
+            lastTap = 0;
+            reduire();
+          } else {
+            lastTap = now; lastX = t.clientX; lastY = t.clientY;
+          }
+        }, { passive: true });
       }
     }
     list.appendChild(card);
