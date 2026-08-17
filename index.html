@@ -268,6 +268,237 @@
   }
   .coming-text{color:var(--muted);max-width:480px;margin:20px auto 0;font-size:.95rem}
 
+  /* ---------- 'Umra & Hajj — guide pas à pas (v19.2) ---------- */
+  #vue-manasik{padding-bottom:70px}
+  /* Thème « Émeraude & Or » : les couleurs du site, version néon */
+  #vue-manasik.mk-or{
+    --mk-a:#E8C776;          /* accent principal (or lumineux) */
+    --mk-a-dim:#8A7340;
+    --mk-a2:#58E0A6;         /* accent secondaire (émeraude) */
+    --mk-glow:rgba(232,199,118,.35);
+    --mk-glow2:rgba(88,224,166,.25);
+    --mk-card:rgba(22,48,40,.55);
+    --mk-line:rgba(201,164,85,.35);
+    --mk-ink:var(--cream);
+    --mk-muted:var(--muted);
+    background:
+      radial-gradient(ellipse 90% 40% at 50% 0%, rgba(201,164,85,.08), transparent 70%),
+      radial-gradient(ellipse 70% 50% at 50% 100%, rgba(88,224,166,.05), transparent 70%);
+  }
+  /* Thème « Azur néon » : rupture bleu tech sombre */
+  #vue-manasik.mk-azur{
+    --mk-a:#5EE7F5;          /* cyan électrique */
+    --mk-a-dim:#2A6E77;
+    --mk-a2:#A78BFA;         /* violet */
+    --mk-glow:rgba(94,231,245,.35);
+    --mk-glow2:rgba(167,139,250,.25);
+    --mk-card:rgba(10,22,38,.72);
+    --mk-line:rgba(94,231,245,.30);
+    --mk-ink:#EAF6FF;
+    --mk-muted:#8FB0C9;
+    background:
+      radial-gradient(ellipse 90% 45% at 50% 0%, rgba(94,231,245,.10), transparent 70%),
+      radial-gradient(ellipse 70% 50% at 15% 80%, rgba(167,139,250,.10), transparent 70%),
+      #050B14;
+    color:var(--mk-ink);
+  }
+  #vue-manasik.mk-azur .suras-sub{color:var(--mk-muted)}
+  #vue-manasik.mk-azur .ornament, #vue-manasik.mk-azur .fr-title{color:var(--mk-a)}
+  #vue-manasik .fr-title{color:var(--mk-ink)}
+  #vue-manasik .mk-title-ar{
+    font-family:'Amiri',serif;font-weight:700;direction:rtl;
+    font-size:clamp(1.7rem,5.5vw,2.5rem);color:var(--mk-a);line-height:1.6;
+    text-shadow:0 0 22px var(--mk-glow);
+  }
+
+  /* sélecteur de thème */
+  .mk-themes{display:flex;gap:8px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+  .mk-theme-chip{
+    font-family:'Lora',serif;font-size:.78rem;letter-spacing:.06em;
+    padding:6px 14px;border-radius:999px;cursor:pointer;
+    border:1px solid var(--mk-line);background:transparent;color:var(--mk-muted);
+  }
+  .mk-theme-chip.active{color:var(--mk-a);border-color:var(--mk-a);box-shadow:0 0 12px var(--mk-glow)}
+  .mk-theme-chip:focus-visible{outline:2px solid var(--mk-a);outline-offset:2px}
+
+  /* barre de réglages (rite, profil, école) */
+  .mk-controls{
+    position:sticky;top:60px;z-index:40;
+    margin-top:22px;padding:12px;border-radius:16px;
+    background:var(--mk-card);border:1px solid var(--mk-line);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    box-shadow:0 8px 30px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.05);
+  }
+  .mk-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .mk-row + .mk-row{margin-top:10px}
+  .mk-lab{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mk-muted);flex:none;width:52px}
+  .mk-tab{
+    flex:1;min-width:90px;text-align:center;cursor:pointer;
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.02rem;
+    padding:9px 10px;border-radius:10px;
+    border:1px solid var(--mk-line);background:transparent;color:var(--mk-muted);
+  }
+  .mk-tab.active{
+    color:#0A1410;background:linear-gradient(135deg,var(--mk-a),var(--mk-a2));
+    border-color:transparent;box-shadow:0 0 16px var(--mk-glow);font-weight:700;
+  }
+  #vue-manasik.mk-azur .mk-tab.active{color:#03121A}
+  .mk-tab:focus-visible,.mk-chip:focus-visible{outline:2px solid var(--mk-a);outline-offset:2px}
+  .mk-chip{
+    flex:1;min-width:80px;text-align:center;cursor:pointer;
+    font-family:'Lora',serif;font-size:.88rem;padding:8px 10px;border-radius:10px;
+    border:1px solid var(--mk-line);background:transparent;color:var(--mk-muted);
+  }
+  .mk-chip.active{color:var(--mk-a);border-color:var(--mk-a);box-shadow:inset 0 0 14px var(--mk-glow2),0 0 10px var(--mk-glow)}
+  .mk-select{
+    flex:1;min-width:0;background:transparent;border:1px solid var(--mk-line);border-radius:10px;
+    padding:9px 12px;color:var(--mk-ink);font-family:'Lora',serif;font-size:.92rem;
+  }
+  .mk-select option{background:#10231D;color:var(--cream)}
+  #vue-manasik.mk-azur .mk-select option{background:#081625;color:#EAF6FF}
+  .mk-select:focus{outline:2px solid var(--mk-a);outline-offset:1px;border-color:var(--mk-a)}
+
+  /* légende des statuts */
+  .mk-legend{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+  .mk-key{font-size:.7rem;letter-spacing:.05em;padding:3px 10px;border-radius:999px;border:1px solid}
+
+  /* couleurs des statuts */
+  .mk-s-rukn{color:var(--mk-a);border-color:var(--mk-a);background:transparent;box-shadow:0 0 10px var(--mk-glow)}
+  .mk-s-wajib{color:#F0A35E;border-color:#F0A35E;background:rgba(240,163,94,.08)}
+  .mk-s-sunna{color:var(--mk-a2);border-color:var(--mk-a2);background:transparent}
+  .mk-s-shart{color:#C9A0F5;border-color:#C9A0F5;background:rgba(201,160,245,.08)}
+  .mk-s-info{color:var(--mk-muted);border-color:var(--mk-line);background:transparent}
+
+  /* carte récapitulative de l'école */
+  .mk-recap{
+    margin-top:18px;padding:16px 18px;border-radius:16px;
+    background:var(--mk-card);border:1px solid var(--mk-line);
+    -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  }
+  .mk-recap h3{
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.08rem;color:var(--mk-a);
+    border-bottom:1px solid var(--mk-line);padding-bottom:6px;margin-bottom:9px;
+  }
+  .mk-recap p{color:var(--mk-ink);font-size:.9rem;line-height:1.65;margin-top:6px}
+  .mk-recap b{color:var(--mk-a)}
+  .mk-recap .mk-muted{color:var(--mk-muted);font-size:.84rem}
+
+  /* frise verticale futuriste */
+  .mk-tl{position:relative;margin-top:26px;padding-bottom:10px}
+  .mk-tl::before{
+    content:"";position:absolute;top:0;bottom:0;left:23px;width:2px;
+    background:linear-gradient(180deg,transparent,var(--mk-a) 12%,var(--mk-a2) 55%,var(--mk-a) 88%,transparent);
+    background-size:100% 220%;
+    box-shadow:0 0 12px var(--mk-glow);
+    animation:mkFlow 7s linear infinite;
+  }
+  @keyframes mkFlow{from{background-position:0 0}to{background-position:0 220%}}
+
+  .mk-lieu{
+    position:relative;margin:30px 0 6px 58px;
+    font-family:'Cormorant Garamond',serif;font-weight:700;
+    font-size:clamp(1.15rem,4vw,1.45rem);letter-spacing:.35em;text-transform:uppercase;
+    background:linear-gradient(90deg,var(--mk-a),var(--mk-a2));
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .mk-lieu .mk-lieu-ar{
+    font-family:'Amiri',serif;letter-spacing:0;font-size:1.05rem;
+    color:var(--mk-muted);-webkit-background-clip:border-box;background:none;margin-left:10px;
+  }
+
+  .mk-step{position:relative;padding-left:58px;margin-top:14px}
+  .mk-node{
+    position:absolute;left:2px;top:8px;width:44px;height:44px;z-index:1;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Amiri',serif;font-weight:700;font-size:1.15rem;color:var(--mk-a);
+    clip-path:polygon(30% 0,70% 0,100% 30%,100% 70%,70% 100%,30% 100%,0 70%,0 30%);
+    background:rgba(0,0,0,.4);border:1.5px solid var(--mk-a-dim);
+    box-shadow:0 0 14px var(--mk-glow), inset 0 0 12px var(--mk-glow2);
+    animation:mkPulse 3.6s ease-in-out infinite;
+  }
+  @keyframes mkPulse{0%,100%{box-shadow:0 0 10px var(--mk-glow), inset 0 0 10px var(--mk-glow2)}50%{box-shadow:0 0 20px var(--mk-glow), inset 0 0 16px var(--mk-glow2)}}
+
+  .mk-card{
+    border-radius:16px;border:1px solid var(--mk-line);
+    background:var(--mk-card);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+    box-shadow:0 10px 26px rgba(0,0,0,.30);
+    overflow:hidden;
+  }
+  .mk-card-h{
+    width:100%;text-align:left;cursor:pointer;background:transparent;border:0;
+    padding:14px 16px;display:block;color:inherit;
+  }
+  .mk-card-h:focus-visible{outline:2px solid var(--mk-a);outline-offset:-2px}
+  .mk-t-fr{
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.12rem;
+    color:var(--mk-a);line-height:1.35;padding-right:22px;position:relative;
+  }
+  .mk-t-fr::after{
+    content:"▾";position:absolute;right:0;top:2px;color:var(--mk-muted);
+    transition:transform .25s ease;font-size:.85rem;
+  }
+  .mk-step.open .mk-t-fr::after{transform:rotate(180deg);color:var(--mk-a)}
+  .mk-t-ar{font-family:'Amiri',serif;font-weight:700;direction:rtl;text-align:right;color:var(--mk-ink);font-size:1.05rem;margin-top:2px}
+  .mk-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px;align-items:center}
+  .mk-time{
+    font-size:.7rem;letter-spacing:.08em;color:var(--mk-muted);
+    border:1px dashed var(--mk-line);border-radius:999px;padding:3px 10px;
+  }
+  .mk-badge{font-size:.7rem;letter-spacing:.05em;padding:3px 10px;border-radius:999px;border:1px solid;font-weight:600}
+
+  .mk-body{padding:2px 16px 16px;border-top:1px solid var(--mk-line)}
+  .mk-h4{
+    font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--mk-a2);margin:14px 0 6px;
+  }
+  .mk-body ul{list-style:none}
+  .mk-body li{
+    color:var(--mk-ink);font-size:.92rem;line-height:1.65;
+    padding-left:18px;position:relative;margin-top:7px;
+  }
+  .mk-body li::before{content:"◆";font-size:.55rem;color:var(--mk-a);position:absolute;left:2px;top:7px}
+  .mk-body li.mk-g::before{content:"⬧";color:var(--mk-a2)}
+  .mk-body b{color:var(--mk-a)}
+  .mk-gtag{
+    font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mk-a2);
+    border:1px solid var(--mk-a2);border-radius:999px;padding:1px 7px;margin-right:6px;vertical-align:1px;
+  }
+
+  .mk-dua{
+    margin-top:10px;padding:12px 14px;border-radius:12px;
+    background:rgba(0,0,0,.25);border:1px solid var(--mk-line);
+    border-left:3px solid var(--mk-a);
+  }
+  .mk-dua-t{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--mk-a);margin-bottom:6px}
+  .mk-dua-ar{font-family:'Amiri',serif;font-weight:700;direction:rtl;text-align:right;color:var(--mk-ink);font-size:1.28rem;line-height:2.1}
+  .mk-dua-ph{font-style:italic;color:var(--mk-a2);font-size:.86rem;line-height:1.6;margin-top:7px}
+  .mk-dua-fr{color:var(--mk-muted);font-size:.86rem;line-height:1.6;margin-top:6px}
+  .mk-dua-src{color:var(--mk-muted);font-size:.72rem;margin-top:6px;letter-spacing:.04em}
+
+  .mk-ec{
+    margin-top:12px;padding:10px 13px;border-radius:12px;font-size:.87rem;line-height:1.6;
+    color:var(--mk-ink);background:rgba(0,0,0,.18);
+    border:1px solid var(--mk-line);border-left:3px solid var(--mk-a2);
+  }
+  .mk-ec b{color:var(--mk-a2)}
+  .mk-div{color:var(--mk-muted);font-size:.8rem;line-height:1.7;margin-top:10px}
+  .mk-div b{color:var(--mk-ink);font-weight:500}
+  .mk-note{color:var(--mk-muted);font-size:.85rem;font-style:italic;line-height:1.6;margin-top:12px}
+
+  .mk-foot{color:var(--mk-muted);font-size:.8rem;text-align:center;margin-top:34px;line-height:1.7}
+  .mk-foot .ornament{font-size:1rem;margin-bottom:6px}
+
+  @media (max-width:520px){
+    .mk-step{padding-left:52px}
+    .mk-lieu{margin-left:52px}
+    .mk-node{width:40px;height:40px;font-size:1.05rem}
+    .mk-lab{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .mk-tl::before,.mk-node{animation:none}
+  }
+
   footer{
     border-top:1px solid var(--line);
     text-align:center;color:var(--muted);
@@ -310,6 +541,13 @@
       <span class="di-sub">Fiches des 114 sourates, d'Al-Fâtiha à An-Nâs</span>
     </span>
     <span class="di-ar">سور القرآن</span>
+  </button>
+  <button class="drawer-item" data-view="manasik">
+    <span class="di-txt">
+      <span class="di-fr">'Umra &amp; Hajj — pas à pas <span class="badge">Nouveau</span></span>
+      <span class="di-sub">Guide interactif : étapes, invocations, écoles</span>
+    </span>
+    <span class="di-ar">المناسك</span>
   </button>
   <button class="drawer-item" data-view="fiqh">
     <span class="di-txt">
@@ -376,6 +614,54 @@
     <p class="fr-title">Le fiqh de la prière</p>
     <p class="coming-badge">À venir, in shâ' Allâh</p>
     <p class="coming-text">Cette section accueillera prochainement les cours sur le fiqh de la prière : ses conditions, ses piliers et obligations, et sa description complète, du takbîr au salâm.</p>
+  </div>
+</div>
+
+<div class="vue" id="vue-manasik" hidden>
+  <div class="wrap">
+    <div class="suras-head">
+      <div class="ornament" aria-hidden="true">۞</div>
+      <div class="mk-title-ar">مناسك العمرة والحج</div>
+      <h2 class="fr-title">'Umra &amp; Hajj — guide pas à pas</h2>
+      <p class="suras-sub">Le voyage étape par étape : quoi faire, quoi réciter, à quel moment — selon votre profil et votre école.</p>
+    </div>
+
+    <div class="mk-themes" role="group" aria-label="Choisir le thème visuel">
+      <button class="mk-theme-chip" data-mktheme="or">◈ Émeraude &amp; Or</button>
+      <button class="mk-theme-chip" data-mktheme="azur">◈ Azur néon</button>
+    </div>
+
+    <div class="mk-controls">
+      <div class="mk-row" role="group" aria-label="Choisir le rite">
+        <span class="mk-lab">Rite</span>
+        <button class="mk-tab" data-mkrite="omra">La 'Umra</button>
+        <button class="mk-tab" data-mkrite="hajj">Le Hajj</button>
+      </div>
+      <div class="mk-row" role="group" aria-label="Choisir le profil">
+        <span class="mk-lab">Profil</span>
+        <button class="mk-chip" data-mkgenre="h">Homme</button>
+        <button class="mk-chip" data-mkgenre="f">Femme</button>
+      </div>
+      <div class="mk-row">
+        <span class="mk-lab"><label for="mk-ecole">École</label></span>
+        <select id="mk-ecole" class="mk-select" aria-label="Choisir l'école de fiqh">
+          <option value="t">Avis prépondérant des savants</option>
+          <option value="h">École hanafite</option>
+          <option value="m">École mâlikite</option>
+          <option value="c">École châfi'ite</option>
+          <option value="b">École hanbalite</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mk-legend" id="mk-legend" aria-hidden="true"></div>
+    <div id="mk-recap"></div>
+    <div class="mk-tl" id="mk-path"></div>
+
+    <div class="mk-foot">
+      <div class="ornament" aria-hidden="true">۞</div>
+      <p>Guide établi d'après les ouvrages de fiqh des quatre écoles et la description du pèlerinage du Prophète ﷺ (hadith de Jâbir, Muslim).<br>En cas de doute sur votre situation, interrogez les gens de science.</p>
+    </div>
   </div>
 </div>
 
@@ -4463,6 +4749,635 @@ const SURAS = [
 })();
 
 /* ============================================================
+   ★ 'UMRA & HAJJ — GUIDE PAS À PAS (nouveauté v19.2) ★
+
+   Deux parcours (MANASIK.omra / MANASIK.hajj), affichés en frise
+   verticale. Chaque étape :
+     lieu / lieuAr : grand jalon affiché quand le lieu change
+     titre / titreAr / temps
+     st     : statut — soit une chaîne unique ("sunna", "info"…),
+              soit un objet { h, m, c, b, t } par école
+              (h hanafite, m mâlikite, c châfi'ite, b hanbalite,
+               t avis prépondérant)
+     faire  : liste de puces { t: texte, g: "h"|"f" (facultatif :
+              réservé hommes/femmes), e: lettres d'écoles
+              concernées (facultatif, ex. "hm") }
+     reciter: invocations { t: titre, ar, ph (phonétique),
+              fr (traduction), src (source), g, e (facultatifs) }
+     ec     : note « selon l'école » { h: "…", m: "…", … } —
+              seule celle de l'école choisie s'affiche
+     note   : remarque finale en italique
+   Le gras est autorisé avec <b>…</b>.
+   Les réglages du lecteur (rite, profil, école, thème) sont
+   mémorisés dans ce navigateur (localStorage "sira-manasik").
+   ============================================================ */
+
+const MK_STATUTS = {
+  rukn:  { l: "Pilier",      c: "mk-s-rukn"  },
+  wajib: { l: "Obligatoire", c: "mk-s-wajib" },
+  sunna: { l: "Recommandé",  c: "mk-s-sunna" },
+  shart: { l: "Condition",   c: "mk-s-shart" },
+  info:  { l: "Repère",      c: "mk-s-info"  }
+};
+const MK_ECOLES = { h: "Hanafite", m: "Mâlikite", c: "Châfi'ite", b: "Hanbalite", t: "Avis prépondérant" };
+
+/* Récapitulatif affiché en tête, selon le rite et l'école */
+const MK_RECAP = {
+  omra: {
+    h: "<b>Piliers :</b> le tawâf. <b>Condition :</b> l'ihrâm. <b>Devoirs (wâjib) :</b> le sa'y, puis le rasage ou la coupe.<br><span class=\"mk-muted\">Statut de la 'umra : sunna mu'akkada. Qui délaisse un devoir le répare par un sacrifice (dam) ; un pilier ne se remplace pas.</span>",
+    m: "<b>Piliers :</b> l'ihrâm, le tawâf, le sa'y. <b>Devoir (wâjib) :</b> le rasage ou la coupe.<br><span class=\"mk-muted\">Statut de la 'umra : sunna mu'akkada (au moins une fois dans la vie). Qui délaisse un devoir le répare par un sacrifice (dam) ; un pilier ne se remplace pas.</span>",
+    c: "<b>Piliers :</b> l'ihrâm, le tawâf, le sa'y, le rasage ou la coupe, et leur ordre.<br><span class=\"mk-muted\">Statut de la 'umra : obligatoire une fois dans la vie, comme le hajj. Un pilier ne se remplace pas : le rite reste inachevé tant qu'il n'est pas accompli.</span>",
+    b: "<b>Piliers :</b> l'ihrâm, le tawâf, le sa'y. <b>Devoir (wâjib) :</b> le rasage ou la coupe.<br><span class=\"mk-muted\">Statut de la 'umra : obligatoire une fois dans la vie. Qui délaisse un devoir le répare par un sacrifice (dam) ; un pilier ne se remplace pas.</span>",
+    t: "<b>Piliers :</b> l'ihrâm, le tawâf, le sa'y (avis de la majorité). <b>Devoir (wâjib) :</b> le rasage ou la coupe.<br><span class=\"mk-muted\">Statut de la 'umra : obligatoire une fois dans la vie pour qui en a la capacité — « Et accomplissez pour Allah le hajj et la 'umra » (al-Baqara, v. 196). Qui délaisse un devoir le répare par un sacrifice (dam) ; un pilier ne se remplace pas.</span>"
+  },
+  hajj: {
+    h: "<b>Piliers :</b> la station à 'Arafât et le tawâf al-ifâda. <b>Condition :</b> l'ihrâm. <b>Devoirs (wâjib) :</b> le sa'y, la présence à Muzdalifa, les lapidations, le rasage ou la coupe, le tawâf d'adieu.<br><span class=\"mk-muted\">Qui délaisse un devoir le répare par un sacrifice (dam) distribué aux pauvres du Haram ; un pilier ne se remplace pas.</span>",
+    m: "<b>Piliers :</b> l'ihrâm, la station à 'Arafât (une partie de la nuit), le tawâf al-ifâda, le sa'y. <b>Devoirs (entre autres) :</b> la halte à Muzdalifa, les lapidations, le rasage ou la coupe, les nuits à Minâ.<br><span class=\"mk-muted\">Qui délaisse un devoir le répare par un sacrifice (dam) ; un pilier ne se remplace pas.</span>",
+    c: "<b>Piliers :</b> l'ihrâm, la station à 'Arafât, le tawâf al-ifâda, le sa'y, le rasage ou la coupe, et l'ordre entre eux. <b>Devoirs :</b> l'ihrâm depuis le miqât, Muzdalifa, les nuits à Minâ, les lapidations, le tawâf d'adieu.<br><span class=\"mk-muted\">Qui délaisse un devoir le répare par un sacrifice (dam) ; un pilier ne se remplace pas.</span>",
+    b: "<b>Piliers :</b> l'ihrâm, la station à 'Arafât, le tawâf al-ifâda, le sa'y. <b>Devoirs (7) :</b> l'ihrâm depuis le miqât, la station jusqu'au coucher, la nuit à Muzdalifa, les nuits à Minâ, les lapidations, le rasage ou la coupe, le tawâf d'adieu.<br><span class=\"mk-muted\">Qui délaisse un devoir le répare par un sacrifice (dam) ; un pilier ne se remplace pas.</span>",
+    t: "<b>Piliers (majorité) :</b> l'ihrâm, la station à 'Arafât, le tawâf al-ifâda, le sa'y. <b>Devoirs :</b> l'ihrâm depuis le miqât, la station jusqu'au coucher, la nuit à Muzdalifa, les nuits à Minâ, les lapidations, le rasage ou la coupe, le tawâf d'adieu.<br><span class=\"mk-muted\">Qui délaisse un devoir le répare par un sacrifice (dam) distribué aux pauvres du Haram ; un pilier ne se remplace pas — « Le hajj, c'est 'Arafa » (at-Tirmidhî).</span>"
+  }
+};
+
+const MANASIK = {
+/* ══════════════════════ LA 'UMRA ══════════════════════ */
+omra: [
+  {
+    lieu: "Départ", lieuAr: "السفر",
+    titre: "Le départ — maison, route, aéroport", titreAr: "الخروج من البيت والسفر",
+    temps: "Avant et pendant le voyage",
+    st: "sunna",
+    faire: [
+      { t: "Avant de partir : se repentir, restituer les droits et régler ses dettes ou litiges, choisir une dépense licite (halâl) et apprendre les rites de la 'umra." },
+      { t: "Laisser à sa famille de quoi subvenir à ses besoins et faire ses adieux aux proches." },
+      { t: "Réciter l'invocation de sortie de la maison, puis celle du voyage en montant en voiture ou dans l'avion." },
+      { t: "En voyage, les prières de quatre rak'ât (dhuhr, 'asr, 'ichâ') se raccourcissent à deux." }
+    ],
+    reciter: [
+      { t: "En sortant de chez soi",
+        ar: "بِسْمِ اللهِ، تَوَكَّلْتُ عَلَى اللهِ، وَلَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللهِ",
+        ph: "Bismi Llâh, tawakkaltu 'alâ Llâh, wa lâ hawla wa lâ quwwata illâ bi-Llâh.",
+        fr: "« Au nom d'Allah, je place ma confiance en Allah ; il n'y a de force ni de puissance que par Allah. »",
+        src: "Abû Dâwûd et at-Tirmidhî" },
+      { t: "L'invocation du voyage (en montant dans le véhicule)",
+        ar: "اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، اللهُ أَكْبَرُ، ﴿سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ﴾ اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى، اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ",
+        ph: "Allâhu akbar (3 fois). Subhâna lladhî sakhkhara lanâ hâdhâ wa mâ kunnâ lahu muqrinîn, wa innâ ilâ rabbinâ la-munqalibûn. Allâhumma innâ nas'aluka fî safarinâ hâdhâ l-birra wa t-taqwâ, wa mina l-'amali mâ tardâ. Allâhumma hawwin 'alaynâ safaranâ hâdhâ wa twi 'annâ bu'dah.",
+        fr: "« Gloire à Celui qui a mis ceci à notre service alors que nous n'étions pas capables de le dominer ; c'est vers notre Seigneur que nous retournerons. Ô Allah, nous Te demandons dans ce voyage la bonté et la piété, et des œuvres que Tu agrées. Ô Allah, facilite-nous ce voyage et raccourcis-en la distance. »",
+        src: "Muslim" }
+    ],
+    note: "Le voyage est déjà une adoration : il compte dans la 'umra dont le Prophète ﷺ a dit qu'elle efface les péchés commis depuis la précédente (Bukhârî et Muslim)."
+  },
+  {
+    lieu: "Miqât", lieuAr: "الميقات",
+    titre: "Se préparer à l'ihrâm", titreAr: "الاستعداد للإحرام",
+    temps: "Avant d'atteindre le miqât",
+    st: "sunna",
+    faire: [
+      { t: "Faire la grande ablution (ghusl) — recommandée à toute personne qui se sacralise, y compris la femme en menstrues ou en lochies (elle se sacralise mais reporte le tawâf)." },
+      { t: "Couper ongles et moustache, épiler aisselles et pubis si besoin : tout cela devient interdit une fois en ihrâm." },
+      { t: "Se parfumer le corps (tête, barbe) — mais pas les vêtements d'ihrâm.", g: "h" },
+      { t: "Revêtir l'izâr (pagne) et le ridâ' (cape) — blancs de préférence — avec des sandales laissant apparaître les chevilles.", g: "h" },
+      { t: "Garder ses vêtements habituels : amples et couvrants, sans parure ni parfum ; aucune couleur particulière n'est imposée.", g: "f" },
+      { t: "<b>En avion :</b> se changer avant l'embarquement ou dans l'avion, car le miqât se franchit en vol — le pilote l'annonce environ 20 minutes avant. On peut prononcer l'intention un peu avant le survol par précaution." },
+      { t: "Retenir que l'ihrâm est l'état de sacralisation par l'intention du cœur : le vêtement n'en est que la marque extérieure." }
+    ],
+    note: "Les miqâts fixés par le Prophète ﷺ : Dhûl-Hulayfa (Médine), al-Juhfa (route du nord et de l'ouest — la plupart des vols venant d'Europe), Qarn al-Manâzil, Yalamlam, Dhât 'Irq. Il est interdit de les franchir vers Mekkah sans ihrâm quand on vient pour le rite."
+  },
+  {
+    lieu: "Miqât", lieuAr: "الميقات",
+    titre: "L'entrée en ihrâm et l'intention", titreAr: "الإحرام والنية",
+    temps: "Au passage du miqât",
+    st: { h: "shart", m: "rukn", c: "rukn", b: "rukn", t: "rukn" },
+    faire: [
+      { t: "Si c'est l'heure d'une prière obligatoire, se sacraliser après elle ; sinon, deux rak'ât après les ablutions sont recommandées par beaucoup de savants, sans qu'il existe de « prière de l'ihrâm » spécifique." },
+      { t: "Former l'intention <b>dans le cœur</b> d'entrer dans le rite, puis dire : « Labbayka Llâhumma 'umratan »." },
+      { t: "En cas de crainte (maladie, empêchement, refoulement) : ajouter la condition (ishtirât) — si un empêchement survient, on se désacralise alors sans compensation." },
+      { t: "Ne pas dépasser le miqât sans ihrâm : celui qui l'a fait revient s'y sacraliser, sinon il doit un sacrifice compensatoire (dam)." }
+    ],
+    reciter: [
+      { t: "L'intention de la 'umra",
+        ar: "لَبَّيْكَ اللَّهُمَّ عُمْرَةً",
+        ph: "Labbayka Llâhumma 'umratan.",
+        fr: "« Me voici, ô Allah, pour une 'umra. »",
+        src: "Bukhârî et Muslim" },
+      { t: "La condition, en cas de crainte d'empêchement",
+        ar: "اللَّهُمَّ مَحِلِّي حَيْثُ حَبَسْتَنِي",
+        ph: "Allâhumma mahillî haythu habastanî.",
+        fr: "« Ô Allah, mon lieu de désacralisation sera là où Tu m'auras retenu. »",
+        src: "Bukhârî et Muslim — hadith de Dubâ'a bint az-Zubayr" }
+    ],
+    ec: {
+      h: "Chez les Hanafites, l'ihrâm est une <b>condition</b> de la 'umra, non un pilier, et il n'est conclu qu'en joignant à l'intention la talbiya (ou un dhikr qui en tient lieu). La 'umra elle-même est une sunna mu'akkada.",
+      m: "Chez les Mâlikites, l'ihrâm est un <b>pilier</b> de la 'umra ; la 'umra elle-même est une sunna mu'akkada, au moins une fois dans la vie.",
+      c: "Chez les Châfi'ites, l'ihrâm est un <b>pilier</b>, et la 'umra est obligatoire une fois dans la vie, au même titre que le hajj.",
+      b: "Chez les Hanbalites, l'ihrâm est un <b>pilier</b>, et la 'umra est obligatoire une fois dans la vie.",
+      t: "L'ihrâm est un <b>pilier</b> selon la majorité, et la 'umra est due une fois dans la vie pour qui en a la capacité : « Et accomplissez pour Allah le hajj et la 'umra » (al-Baqara, v. 196)."
+    }
+  },
+  {
+    lieu: "Miqât", lieuAr: "الميقات",
+    titre: "La talbiya", titreAr: "التلبية",
+    temps: "Du miqât jusqu'au début du tawâf",
+    st: "sunna",
+    faire: [
+      { t: "Multiplier la talbiya tout au long du trajet — debout, assis, en véhicule — ainsi que le dhikr et les invocations." },
+      { t: "La prononcer à voix haute : c'est la sunna pour les hommes — « Jibrîl m'a ordonné d'ordonner à mes compagnons d'élever la voix avec la talbiya » (Abû Dâwûd, at-Tirmidhî).", g: "h" },
+      { t: "La prononcer à voix basse, audible de soi-même seulement.", g: "f" },
+      { t: "Pour la 'umra, on cesse la talbiya en arrivant à la Kaaba, au début du tawâf." }
+    ],
+    reciter: [
+      { t: "La talbiya du Prophète ﷺ",
+        ar: "لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ",
+        ph: "Labbayka Llâhumma labbayk, labbayka lâ sharîka laka labbayk, inna l-hamda wa n-ni'mata laka wa l-mulk, lâ sharîka lak.",
+        fr: "« Me voici, ô Allah, me voici ! Me voici, Tu n'as aucun associé, me voici ! La louange, le bienfait et la royauté T'appartiennent : Tu n'as aucun associé. »",
+        src: "Bukhârî et Muslim" }
+    ],
+    ec: {
+      h: "Chez les Hanafites, la talbiya prononcée au moment de l'intention fait partie intégrante de l'entrée en ihrâm : sans elle (ou un dhikr en tenant lieu), l'ihrâm n'est pas conclu."
+    }
+  },
+  {
+    lieu: "Miqât", lieuAr: "الميقات",
+    titre: "Les interdits de l'ihrâm", titreAr: "محظورات الإحرام",
+    temps: "Tant que dure la sacralisation",
+    st: "wajib",
+    faire: [
+      { t: "Ne pas couper ni arracher cheveux, poils ou ongles." },
+      { t: "Ne pas se parfumer (corps, vêtements, savons et lingettes parfumés) — le parfum mis sur le corps <b>avant</b> l'ihrâm ne nuit pas." },
+      { t: "Ne pas chasser le gibier terrestre ni aider à le chasser." },
+      { t: "Ne pas conclure ni demander de mariage." },
+      { t: "Pas de rapports ni de préliminaires : le rapport avant la fin du rite l'annule et impose de le refaire, avec une compensation." },
+      { t: "Ne pas porter de vêtement cousu à la forme du corps (qamîs, t-shirt, pantalon, sous-vêtement) ni de chaussures couvrantes ; ceinture, montre, lunettes et sandales sont permises.", g: "h" },
+      { t: "Ne pas se couvrir la tête d'un couvre-chef posé (casquette, capuche, turban) ; s'abriter sous un parapluie, un toit ou une tente est permis.", g: "h" },
+      { t: "Ne pas porter le niqâb ni les gants pendant l'ihrâm ; devant des hommes étrangers, rabattre simplement un pan de voile sur le visage, comme le faisaient les compagnes ('Â'isha, Abû Dâwûd).", g: "f" },
+      { t: "En cas d'infraction par oubli ou ignorance : pas de péché ni de compensation pour la plupart de ces interdits, selon l'avis le plus fort ; commise volontairement, elle impose une expiation (fidya)." }
+    ]
+  },
+  {
+    lieu: "Mekkah", lieuAr: "مكة",
+    titre: "L'arrivée à Mekkah et l'entrée dans la Mosquée sacrée", titreAr: "دخول مكة والمسجد الحرام",
+    temps: "À l'arrivée",
+    st: "sunna",
+    faire: [
+      { t: "Se laver (ghusl) avant d'entrer dans Mekkah si possible, comme le faisait le Prophète ﷺ." },
+      { t: "Entrer dans la mosquée du pied droit avec l'invocation d'entrée." },
+      { t: "Se diriger directement vers la pierre noire pour commencer le tawâf : il tient lieu de salutation de la Mosquée sacrée pour celui qui arrive en 'umra." }
+    ],
+    reciter: [
+      { t: "En entrant dans la mosquée",
+        ar: "بِسْمِ اللهِ، وَالصَّلَاةُ وَالسَّلَامُ عَلَى رَسُولِ اللهِ، اللَّهُمَّ افْتَحْ لِي أَبْوَابَ رَحْمَتِكَ",
+        ph: "Bismi Llâh, wa s-salâtu wa s-salâmu 'alâ rasûli Llâh. Allâhumma ftah lî abwâba rahmatik.",
+        fr: "« Au nom d'Allah ; que la prière et le salut soient sur le Messager d'Allah. Ô Allah, ouvre-moi les portes de Ta miséricorde. »",
+        src: "Muslim ; Abû Dâwûd" }
+    ]
+  },
+  {
+    lieu: "Mekkah", lieuAr: "مكة",
+    titre: "Le tawâf de la 'umra — 7 tours", titreAr: "طواف العمرة",
+    temps: "Premier rite à l'arrivée",
+    st: "rukn",
+    faire: [
+      { t: "Être en état d'ablutions, la 'awra couverte ; tourner la Kaaba à sa <b>gauche</b>, 7 tours complets, en passant à l'<b>extérieur</b> du muret du Hijr (il fait partie de la Kaaba)." },
+      { t: "Se mettre en idtibâ' pour tout ce tawâf uniquement : le milieu du ridâ' sous l'aisselle droite, les deux pans sur l'épaule gauche.", g: "h" },
+      { t: "Commencer aligné sur la pierre noire : l'embrasser ou la toucher si c'est possible <b>sans bousculer personne</b>, sinon lui faire un signe de la main de loin en disant « Allâhu akbar » — à chaque tour." },
+      { t: "Faire le raml (pas rapides et rapprochés) sur les 3 premiers tours, puis marcher normalement — uniquement dans ce tawâf d'arrivée.", g: "h" },
+      { t: "Ni raml ni idtibâ' : la femme marche normalement, à l'écart de la bousculade.", g: "f" },
+      { t: "Au coin yéménite : le toucher de la main droite si c'est facile, sans l'embrasser ni faire de signe de loin ; sinon poursuivre simplement." },
+      { t: "Entre le coin yéménite et la pierre noire : réciter « Rabbanâ âtinâ… » à chaque tour." },
+      { t: "Pendant le reste du tour : dhikr, invocations libres et Coran — aucune invocation particulière n'est imposée tour par tour." }
+    ],
+    reciter: [
+      { t: "Au passage de la pierre noire",
+        ar: "بِسْمِ اللهِ وَاللهُ أَكْبَرُ",
+        ph: "Bismi Llâhi wa Llâhu akbar (aux tours suivants : Allâhu akbar).",
+        fr: "« Au nom d'Allah, et Allah est le plus grand. »",
+        src: "Rapporté d'Ibn 'Umar ; Bukhârî (le takbîr)" },
+      { t: "Entre le coin yéménite et la pierre noire",
+        ar: "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+        ph: "Rabbanâ âtinâ fi d-dunyâ hasanah, wa fi l-âkhirati hasanah, wa qinâ 'adhâba n-nâr.",
+        fr: "« Seigneur, accorde-nous belle part ici-bas et belle part dans l'au-delà, et protège-nous du châtiment du Feu. »",
+        src: "Abû Dâwûd — hadith de 'Abdullâh ibn as-Sâ'ib" }
+    ],
+    ec: {
+      h: "Chez les Hanafites, la pureté rituelle n'est pas une condition du tawâf mais une <b>obligation</b> : un tawâf sans ablutions est valide mais impose une compensation — mieux vaut évidemment le refaire en état de pureté.",
+      m: "Chez les Mâlikites, les ablutions sont une <b>condition de validité</b> du tawâf, comme pour la prière.",
+      c: "Chez les Châfi'ites, les ablutions sont une <b>condition de validité</b> du tawâf, comme pour la prière.",
+      b: "Chez les Hanbalites, les ablutions sont une <b>condition de validité</b> du tawâf, comme pour la prière.",
+      t: "Les ablutions pour le tawâf sont requises selon la majorité — « Le tawâf autour de la Maison est une prière » ; la femme en menstrues attend d'être purifiée pour l'accomplir."
+    }
+  },
+  {
+    lieu: "Mekkah", lieuAr: "مكة",
+    titre: "Le maqâm Ibrâhîm et l'eau de Zamzam", titreAr: "مقام إبراهيم وماء زمزم",
+    temps: "Juste après le tawâf",
+    st: { h: "wajib", m: "sunna", c: "sunna", b: "sunna", t: "sunna" },
+    faire: [
+      { t: "Se diriger vers le maqâm en récitant le verset : « Prenez donc du maqâm d'Ibrâhîm un lieu de prière » (al-Baqara, v. 125)." },
+      { t: "Prier deux rak'ât derrière le maqâm si la place le permet — sinon n'importe où dans la mosquée — en récitant al-Kâfirûn dans la première et al-Ikhlâs dans la seconde." },
+      { t: "Boire de l'eau de Zamzam à satiété : « L'eau de Zamzam vaut pour ce pour quoi on la boit » (Ibn Mâja, jugé bon)." },
+      { t: "Revenir toucher la pierre noire si c'est facile, avant de sortir vers Safâ (sunna)." }
+    ],
+    ec: {
+      h: "Chez les Hanafites, les deux rak'ât du tawâf sont un <b>devoir (wâjib)</b>.",
+      t: "Les deux rak'ât du tawâf sont fortement recommandées ; le Prophète ﷺ ne les a jamais délaissées après un tawâf."
+    }
+  },
+  {
+    lieu: "Safâ — Marwa", lieuAr: "الصفا والمروة",
+    titre: "Le sa'y — 7 trajets", titreAr: "السعي بين الصفا والمروة",
+    temps: "Après le tawâf et ses deux rak'ât",
+    st: { h: "wajib", m: "rukn", c: "rukn", b: "rukn", t: "rukn" },
+    faire: [
+      { t: "En approchant de Safâ, réciter le verset : « As-Safâ et al-Marwa font partie des rites d'Allah » puis dire « Je commence par ce par quoi Allah a commencé » — une seule fois, au départ, pas à chaque passage." },
+      { t: "Monter sur Safâ jusqu'à voir la Kaaba (si possible), lui faire face, lever les mains : louer Allah, dire trois fois le dhikr rapporté, en invoquant longuement entre chaque fois." },
+      { t: "Marcher vers Marwa : Safâ → Marwa compte pour un trajet, Marwa → Safâ pour un deuxième — on termine le 7e sur Marwa." },
+      { t: "Presser le pas en courant légèrement entre les deux repères verts, comme le Prophète ﷺ.", g: "h" },
+      { t: "Marcher normalement sur tout le parcours, sans courir entre les repères verts.", g: "f" },
+      { t: "Sur Marwa : refaire face à la Kaaba le même dhikr et les mêmes invocations." },
+      { t: "Pendant les trajets : dhikr, dou'a et Coran librement — rien d'imposé. Les ablutions sont recommandées pour le sa'y, non obligatoires." }
+    ],
+    reciter: [
+      { t: "En abordant Safâ (une fois)",
+        ar: "﴿إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللهِ﴾ أَبْدَأُ بِمَا بَدَأَ اللهُ بِهِ",
+        ph: "Inna s-Safâ wa l-Marwata min sha'â'iri Llâh. Abda'u bimâ bada'a Llâhu bih.",
+        fr: "« As-Safâ et al-Marwa font vraiment partie des rites d'Allah. » — « Je commence par ce par quoi Allah a commencé. »",
+        src: "al-Baqara, v. 158 ; Muslim — hadith de Jâbir" },
+      { t: "Sur Safâ puis sur Marwa, face à la Kaaba (3 fois)",
+        ar: "لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ، لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ، أَنْجَزَ وَعْدَهُ، وَنَصَرَ عَبْدَهُ، وَهَزَمَ الْأَحْزَابَ وَحْدَهُ",
+        ph: "Lâ ilâha illa Llâhu wahdahu lâ sharîka lah, lahu l-mulku wa lahu l-hamdu wa huwa 'alâ kulli shay'in qadîr. Lâ ilâha illa Llâhu wahdah, anjaza wa'dah, wa nasara 'abdah, wa hazama l-ahzâba wahdah.",
+        fr: "« Nul n'est digne d'adoration en dehors d'Allah, Seul, sans associé ; à Lui la royauté, à Lui la louange, et Il est capable de toute chose. Nul n'est digne d'adoration en dehors d'Allah, Seul : Il a tenu Sa promesse, secouru Son serviteur et vaincu Seul les coalisés. »",
+        src: "Muslim — hadith de Jâbir" }
+    ],
+    ec: {
+      h: "Chez les Hanafites, le sa'y est un <b>devoir (wâjib)</b>, non un pilier : son omission se répare par un sacrifice.",
+      t: "Pilier selon la majorité : « Accomplissez le sa'y, car Allah vous a prescrit le sa'y » (Musnad d'Ahmad)."
+    }
+  },
+  {
+    lieu: "Safâ — Marwa", lieuAr: "الصفا والمروة",
+    titre: "Le rasage ou la coupe", titreAr: "الحلق أو التقصير",
+    temps: "En terminant sur Marwa",
+    st: { h: "wajib", m: "wajib", c: "rukn", b: "wajib", t: "wajib" },
+    faire: [
+      { t: "Se raser la tête entièrement — le meilleur : le Prophète ﷺ a invoqué trois fois pour ceux qui rasent, une fois pour ceux qui coupent — ou raccourcir sur l'ensemble de la tête.", g: "h" },
+      { t: "Si le hajj suit de peu (tamattu') : mieux vaut raccourcir à la 'umra pour garder de quoi raser au hajj.", g: "h" },
+      { t: "Couper l'équivalent d'une phalange (anmoula) au bout de ses tresses ou de ses pointes — la femme ne se rase jamais.", g: "f" }
+    ],
+    ec: {
+      c: "Chez les Châfi'ites, le rasage ou la coupe est un <b>pilier</b> : la 'umra n'est achevée qu'avec lui.",
+      t: "Devoir (wâjib) selon la majorité, dernier acte de la 'umra."
+    }
+  },
+  {
+    lieu: "Safâ — Marwa", lieuAr: "الصفا والمروة",
+    titre: "La 'umra est achevée", titreAr: "تمام العمرة",
+    temps: "Désacralisation complète",
+    st: "info",
+    faire: [
+      { t: "Tout redevient permis : vêtements, parfum, et le reste des interdits de l'ihrâm." },
+      { t: "Récapitulatif du rite accompli : ihrâm → tawâf → deux rak'ât → sa'y → rasage ou coupe." },
+      { t: "Celui qui enchaîne avec le hajj (tamattu') reste désacralisé à Mekkah et se sacralisera de nouveau le 8 Dhûl-Hijja." },
+      { t: "Profiter du séjour : tawâf surérogatoires et prières dans la Mosquée sacrée — une prière y vaut cent mille prières (Musnad d'Ahmad, Ibn Mâja)." }
+    ],
+    note: "« La 'umra jusqu'à la 'umra suivante est une expiation de ce qu'il y a entre elles, et le hajj accepté (mabrûr) n'a d'autre récompense que le Paradis » (Bukhârî et Muslim)."
+  }
+],
+/* ══════════════════════ LE HAJJ ══════════════════════ */
+hajj: [
+  {
+    lieu: "Préparation", lieuAr: "الاستعداد",
+    titre: "Les trois formes du hajj", titreAr: "أنواع النسك : تمتع، قران، إفراد",
+    temps: "À choisir avant l'ihrâm",
+    st: "info",
+    faire: [
+      { t: "<b>At-tamattu'</b> : une 'umra pendant les mois du hajj, désacralisation, puis le hajj la même année — un sacrifice (hady) est dû." },
+      { t: "<b>Al-qirân</b> : la 'umra et le hajj dans un seul et même ihrâm — un sacrifice est dû ; les actes sont ceux du hajj seul." },
+      { t: "<b>Al-ifrâd</b> : le hajj seul — aucun sacrifice n'est dû." },
+      { t: "Ce guide suit le <b>tamattu'</b>, le cas de la quasi-totalité des pèlerins d'aujourd'hui : la 'umra (voir l'onglet « La 'Umra ») puis les étapes ci-dessous." }
+    ],
+    ec: {
+      h: "Le meilleur des trois chez les Hanafites est le <b>qirân</b>, puis le tamattu'.",
+      m: "Le meilleur chez les Mâlikites est l'<b>ifrâd</b>.",
+      c: "Le meilleur chez les Châfi'ites est l'<b>ifrâd</b> (à condition d'accomplir la 'umra la même année), puis le tamattu'.",
+      b: "Le meilleur chez les Hanbalites est le <b>tamattu'</b>.",
+      t: "Le <b>tamattu'</b> : c'est ce que le Prophète ﷺ a ordonné à ses compagnons — « Si j'avais devant moi ce que j'ai laissé derrière, je n'aurais pas amené le hady et me serais désacralisé avec vous » (Bukhârî et Muslim)."
+    }
+  },
+  {
+    lieu: "Mekkah", lieuAr: "مكة",
+    titre: "8 Dhûl-Hijja (Tarwiya) — l'ihrâm du hajj", titreAr: "يوم التروية : الإحرام بالحج",
+    temps: "8 Dhûl-Hijja, dans la matinée",
+    st: { h: "shart", m: "rukn", c: "rukn", b: "rukn", t: "rukn" },
+    faire: [
+      { t: "Se sacraliser depuis son logement à Mekkah — inutile de retourner au miqât ou d'aller à la Mosquée sacrée." },
+      { t: "Mêmes préparatifs qu'à la 'umra : ghusl, parfum sur le corps pour les hommes, vêtements d'ihrâm." },
+      { t: "Dire : « Labbayka Llâhumma hajjan », avec l'ishtirât en cas de crainte, puis multiplier la talbiya jusqu'à la lapidation du 10." }
+    ],
+    reciter: [
+      { t: "L'intention du hajj",
+        ar: "لَبَّيْكَ اللَّهُمَّ حَجًّا",
+        ph: "Labbayka Llâhumma hajjan.",
+        fr: "« Me voici, ô Allah, pour un hajj. »",
+        src: "Muslim — hadith de Jâbir" }
+    ],
+    note: "Les interdits de l'ihrâm (voir la 'umra, étape 5) s'appliquent de nouveau intégralement."
+  },
+  {
+    lieu: "Minâ", lieuAr: "منى",
+    titre: "8 Dhûl-Hijja — la journée et la nuit à Minâ", titreAr: "المبيت بمنى",
+    temps: "Du 8 au matin au 9 après le fajr",
+    st: "sunna",
+    faire: [
+      { t: "Rejoindre Minâ dans la matinée et y prier dhuhr, 'asr, maghrib, 'ichâ et le fajr du 9 — chaque prière à son heure, celles de quatre rak'ât raccourcies à deux, sans les regrouper." },
+      { t: "Passer la nuit sur place, comme le Prophète ﷺ : nuit de repos, de talbiya et de dhikr avant le grand jour." }
+    ]
+  },
+  {
+    lieu: "'Arafât", lieuAr: "عرفات",
+    titre: "9 Dhûl-Hijja — la station à 'Arafât", titreAr: "الوقوف بعرفة",
+    temps: "Du zawâl au coucher du soleil",
+    st: "rukn",
+    faire: [
+      { t: "Après le lever du soleil, se mettre en route vers 'Arafât ; s'arrêter à Namira jusqu'au zawâl si possible (sunna)." },
+      { t: "Après le zawâl : écouter le sermon, puis prier dhuhr et 'asr regroupées et raccourcies (2 + 2), avec un adhân et deux iqâma." },
+      { t: "S'assurer d'être <b>dans les limites de 'Arafât</b> (panneaux) : la vallée de 'Urana, près de Namira, n'en fait pas partie — « Le hajj, c'est 'Arafa » (at-Tirmidhî)." },
+      { t: "Consacrer l'après-midi entière à l'invocation, face à la qibla, mains levées — debout, assis ou en véhicule ; le Prophète ﷺ invoqua ainsi jusqu'au coucher. Ne pas jeûner ce jour-là : le Prophète ﷺ but du lait devant les gens à 'Arafa." },
+      { t: "Ne quitter 'Arafât qu'après le coucher du soleil." }
+    ],
+    reciter: [
+      { t: "La meilleure invocation du jour de 'Arafa",
+        ar: "لَا إِلَهَ إِلَّا اللهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ",
+        ph: "Lâ ilâha illa Llâhu wahdahu lâ sharîka lah, lahu l-mulku wa lahu l-hamdu wa huwa 'alâ kulli shay'in qadîr.",
+        fr: "« La meilleure invocation est celle du jour de 'Arafa, et la meilleure parole que j'aie dite, moi et les prophètes avant moi : nul n'est digne d'adoration en dehors d'Allah, Seul, sans associé ; à Lui la royauté, à Lui la louange, et Il est capable de toute chose. »",
+        src: "at-Tirmidhî, jugé bon" }
+    ],
+    ec: {
+      h: "Temps du wuqûf chez les Hanafites : du zawâl du 9 à l'aube du 10 — y être ne serait-ce qu'un instant suffit ; rester jusqu'au coucher est un <b>devoir</b> pour qui s'y est tenu de jour.",
+      m: "Chez les Mâlikites, se tenir à 'Arafât <b>une partie de la nuit</b> est le pilier : qui quitte définitivement avant le coucher sans y revenir de nuit manque son hajj ; la station de jour est un devoir.",
+      c: "Temps du wuqûf chez les Châfi'ites : du zawâl du 9 à l'aube du 10 ; rester jusqu'au coucher est une <b>sunna</b> — qui part avant, son hajj reste valide selon l'avis le plus fort de l'école.",
+      b: "Chez les Hanbalites, le temps du wuqûf commence dès l'<b>aube du 9</b> et court jusqu'à l'aube du 10 ; rester jusqu'au coucher est un devoir.",
+      t: "Du zawâl du 9 à l'aube du 10 ; rester jusqu'au coucher est un <b>devoir</b> — le Prophète ﷺ ne partit qu'après le coucher. Tout 'Arafât est lieu de station, sauf la vallée de 'Urana."
+    },
+    note: "« Il n'est pas de jour où Allah affranchit plus de serviteurs du Feu que le jour de 'Arafa » (Muslim)."
+  },
+  {
+    lieu: "Muzdalifa", lieuAr: "مزدلفة",
+    titre: "La nuit à Muzdalifa", titreAr: "المبيت بمزدلفة",
+    temps: "Nuit du 9 au 10",
+    st: "wajib",
+    faire: [
+      { t: "Quitter 'Arafât après le coucher, dans le calme — le Prophète ﷺ répétait : « As-sakîna, as-sakîna » (du calme !)." },
+      { t: "À l'arrivée : prier maghrib et 'ichâ regroupées ('ichâ raccourcie à deux), puis dormir tôt — le Prophète ﷺ n'a pas veillé cette nuit-là." },
+      { t: "Prier le fajr dès sa première heure, puis rester en dhikr et en invocation, face à la qibla, jusqu'à la grande clarté — tout Muzdalifa tient lieu du Mach'ar al-Harâm." },
+      { t: "Ramasser les 7 cailloux de la lapidation du jour (taille d'un pois chiche) — on peut aussi les ramasser à Minâ." },
+      { t: "Les personnes faibles, les femmes et leurs accompagnateurs peuvent partir vers Minâ en fin de nuit, après le coucher de la lune — comme le Prophète ﷺ l'a permis à Sawda (Bukhârî et Muslim).", },
+      { t: "Se mettre en route vers Minâ avant le lever du soleil." }
+    ],
+    ec: {
+      h: "Chez les Hanafites, le devoir est la <b>présence à Muzdalifa entre l'aube et le lever du soleil</b> (le wuqûf du Mach'ar) ; la nuit elle-même est une sunna.",
+      m: "Chez les Mâlikites, le devoir est de <b>faire halte</b> à Muzdalifa (le temps de s'y poser, de prier et de manger) ; y passer la nuit entière est recommandé.",
+      c: "Chez les Châfi'ites, passer à Muzdalifa après la moitié de la nuit est un <b>devoir</b> ; s'y attarder jusqu'au fajr est la sunna.",
+      b: "Chez les Hanbalites, la nuit à Muzdalifa jusqu'à l'aube est un <b>devoir</b>, sauf pour les faibles autorisés à partir en fin de nuit.",
+      t: "La nuit à Muzdalifa est un <b>devoir</b>, avec la permission donnée aux faibles et aux femmes de partir en fin de nuit."
+    }
+  },
+  {
+    lieu: "Minâ", lieuAr: "منى",
+    titre: "10 Dhûl-Hijja — la lapidation de Jamrat al-'Aqaba", titreAr: "رمي جمرة العقبة",
+    temps: "Jour du 'Îd, après le lever du soleil",
+    st: "wajib",
+    faire: [
+      { t: "En arrivant à Minâ, lapider <b>uniquement la grande stèle</b> (al-'Aqaba, la plus proche de Mekkah) : 7 cailloux, un par un, en disant « Allâhu akbar » à chacun." },
+      { t: "Cesser la talbiya au premier caillou." },
+      { t: "Moment : après le lever du soleil (sunna) ; permis tout le jour et, en cas de besoin ou de foule, jusque dans la nuit — les faibles partis tôt de Muzdalifa peuvent lapider en fin de nuit." },
+      { t: "Viser le bassin : il suffit que le caillou tombe dedans ; inutile — et interdit — de jeter chaussures ou gros objets : on lapide par adoration, non par colère." }
+    ]
+  },
+  {
+    lieu: "Minâ", lieuAr: "منى",
+    titre: "10 Dhûl-Hijja — le sacrifice (hady)", titreAr: "ذبح الهدي",
+    temps: "Du 10 au coucher du 13",
+    st: "wajib",
+    faire: [
+      { t: "Le sacrifice est dû par le mutamatti' et le qârin : un mouton ou une chèvre, ou un septième de chameau ou de bovin." },
+      { t: "Aujourd'hui, il s'acquitte le plus simplement par les coupons officiels (banques du hady) qui égorgent dans le Haram et distribuent aux pauvres ; en manger soi-même est une sunna si on y a accès." },
+      { t: "Qui n'en a pas les moyens jeûne <b>trois jours pendant le hajj</b> (avant ou pendant les jours de tashrîq) <b>et sept au retour</b> (al-Baqara, v. 196)." }
+    ]
+  },
+  {
+    lieu: "Minâ", lieuAr: "منى",
+    titre: "10 Dhûl-Hijja — le rasage ou la coupe", titreAr: "الحلق أو التقصير",
+    temps: "Après la lapidation (et le sacrifice)",
+    st: { h: "wajib", m: "wajib", c: "rukn", b: "wajib", t: "wajib" },
+    faire: [
+      { t: "Se raser la tête — le meilleur : « Ô Allah, fais miséricorde à ceux qui se rasent » (trois fois, contre une pour la coupe — Bukhârî et Muslim) — ou raccourcir sur l'ensemble.", g: "h" },
+      { t: "Couper l'équivalent d'une phalange au bout des tresses ou des pointes — jamais de rasage.", g: "f" }
+    ],
+    ec: {
+      c: "Pilier chez les Châfi'ites : le hajj n'est complet qu'avec lui.",
+      t: "Devoir (wâjib) selon la majorité."
+    }
+  },
+  {
+    lieu: "Minâ", lieuAr: "منى",
+    titre: "La première désacralisation (tahallul)", titreAr: "التحلل الأصغر",
+    temps: "Le 10, après lapidation + rasage",
+    st: "info",
+    faire: [
+      { t: "Après la lapidation et le rasage (deux des trois actes du jour), c'est le <b>tahallul mineur</b> : tout redevient permis — vêtements, parfum — sauf les rapports conjugaux." },
+      { t: "Le <b>tahallul complet</b> s'obtient en y ajoutant le tawâf al-ifâda (avec son sa'y pour le mutamatti')." },
+      { t: "L'ordre du jour (lapider → sacrifier → raser → tawâf) est la sunna, mais toute interversion est tolérée : à chacun qui l'interrogea ce jour-là, le Prophète ﷺ répondit « Fais, et pas de mal » (Bukhârî et Muslim)." }
+    ]
+  },
+  {
+    lieu: "Mekkah", lieuAr: "مكة",
+    titre: "Le tawâf al-ifâda et le sa'y du hajj", titreAr: "طواف الإفاضة وسعي الحج",
+    temps: "Le 10 de préférence, ou les jours suivants",
+    st: "rukn",
+    faire: [
+      { t: "Descendre à Mekkah et accomplir le tawâf al-ifâda : 7 tours, <b>sans idtibâ' ni raml</b>, puis les deux rak'ât derrière le maqâm." },
+      { t: "Le mutamatti' accomplit ensuite le <b>sa'y du hajj</b> — son deuxième sa'y, le premier était celui de la 'umra.", },
+      { t: "Le qârin et le mufrid qui ont déjà fait le sa'y après le tawâf d'arrivée n'ont pas à le refaire." },
+      { t: "Ce tawâf est un pilier sans lequel le hajj reste inachevé ; il peut être retardé, mais doit être fait avant de quitter Mekkah. La femme en menstrues attend d'être purifiée pour l'accomplir." },
+      { t: "De retour à Minâ ce jour-là si possible : le Prophète ﷺ y revint prier dhuhr." }
+    ],
+    ec: {
+      h: "Chez les Hanafites, le tawâf al-ifâda (tawâf az-ziyâra) est l'un des deux piliers du hajj ; le sa'y qui le suit est un <b>devoir</b>. Son temps prescrit s'étend sur les jours du 10 au 12.",
+      t: "Tawâf pilier, sa'y pilier pour la majorité — c'est le rite qu'Allah nomme : « Qu'ils accomplissent ensuite leurs rites… et qu'ils fassent le tawâf de la Maison antique » (al-Hajj, v. 29)."
+    }
+  },
+  {
+    lieu: "Minâ", lieuAr: "منى",
+    titre: "11, 12 (13) — les jours de tashrîq", titreAr: "أيام التشريق : المبيت والرمي",
+    temps: "Après le zawâl de chaque jour",
+    st: "wajib",
+    faire: [
+      { t: "Passer les nuits du 11 et du 12 à Minâ (et celle du 13 pour qui reste)." },
+      { t: "Chaque jour, <b>après le zawâl</b>, lapider les trois stèles dans l'ordre : la petite (7 cailloux), la moyenne (7), puis la grande (7) — takbîr à chaque caillou." },
+      { t: "Après la petite et la moyenne : s'écarter, face à la qibla, et invoquer longuement mains levées, comme le Prophète ﷺ ; après la grande, repartir sans s'arrêter." },
+      { t: "Ta'ajjul : qui veut écourter quitte Minâ le 12 <b>avant le coucher du soleil</b>, après la lapidation — « Quiconque se hâte en deux jours, nul péché sur lui, et quiconque reste, nul péché sur lui » (al-Baqara, v. 203) ; sinon on reste lapider le 13." },
+      { t: "Ces jours sont « des jours de manger, de boire et de dhikr » (Muslim) : multiplier le takbîr." }
+    ],
+    ec: {
+      h: "Chez les Hanafites, les nuits à Minâ sont une <b>sunna</b>, non un devoir ; et lapider avant le zawâl est toléré le 13 (le jour du départ).",
+      m: "Nuits à Minâ et lapidation après le zawâl : <b>devoirs</b> chez les Mâlikites.",
+      c: "Nuits à Minâ et lapidation après le zawâl : <b>devoirs</b> chez les Châfi'ites.",
+      b: "Nuits à Minâ et lapidation après le zawâl : <b>devoirs</b> chez les Hanbalites.",
+      t: "Nuits à Minâ et lapidation après le zawâl : <b>devoirs</b> selon la majorité — le Prophète ﷺ n'a jamais lapidé ces jours-là avant le zawâl."
+    }
+  },
+  {
+    lieu: "Mekkah", lieuAr: "مكة",
+    titre: "Le tawâf d'adieu (al-wadâ')", titreAr: "طواف الوداع",
+    temps: "Dernier acte avant de quitter Mekkah",
+    st: { h: "wajib", m: "sunna", c: "wajib", b: "wajib", t: "wajib" },
+    faire: [
+      { t: "Sept tours sans raml ni idtibâ', puis deux rak'ât : « Que le dernier engagement de chacun soit avec la Maison » (Bukhârî et Muslim)." },
+      { t: "Qu'il soit réellement le dernier acte : après lui, on ne s'attarde que pour les préparatifs du départ." },
+      { t: "La femme en menstrues ou en lochies en est dispensée et part sans lui, d'après le hadith de Safiyya (Bukhârî et Muslim).", g: "f" }
+    ],
+    ec: {
+      m: "Chez les Mâlikites, le tawâf d'adieu est <b>recommandé</b> : aucune compensation pour qui le délaisse.",
+      t: "Devoir selon la majorité, avec la dispense expresse de la femme en menstrues."
+    }
+  },
+  {
+    lieu: "Madînah", lieuAr: "المدينة",
+    titre: "(Optionnel) La visite de Madînah", titreAr: "زيارة المدينة النبوية",
+    temps: "Avant ou après le hajj — voyage à part",
+    st: "info",
+    faire: [
+      { t: "La visite de Madînah n'est <b>pas un rite du hajj</b> : c'est un voyage recommandé en lui-même, à tout moment de l'année, vers la mosquée du Prophète ﷺ — une prière y vaut mille prières (Bukhârî et Muslim)." },
+      { t: "On voyage pour la mosquée, et une fois sur place on salue le Prophète ﷺ puis Abû Bakr et 'Umar, avec calme et voix basse." },
+      { t: "Prier deux rak'ât à la mosquée de Qubâ' : cela équivaut à une 'umra (at-Tirmidhî, Ibn Mâja)." },
+      { t: "Visiter le cimetière d'al-Baqî' et les martyrs d'Uhud pour saluer et invoquer en leur faveur.", g: "h" },
+      { t: "La visite des cimetières est réservée aux hommes ; la femme salue les gens des tombes en passant, et tout le reste de la visite lui est ouvert.", g: "f" }
+    ]
+  }
+]
+};
+
+/* ---- état, thème et rendu de la section manasik ---- */
+(function () {
+  const vue = document.getElementById("vue-manasik");
+  const path = document.getElementById("mk-path");
+  if (!vue || !path) return;
+
+  const MK_KEY = "sira-manasik";
+  const mk = { rite: "omra", genre: "h", ecole: "t", theme: "or" };
+  try { Object.assign(mk, JSON.parse(localStorage.getItem(MK_KEY) || "{}")); } catch (e) {}
+  if (!MANASIK[mk.rite]) mk.rite = "omra";
+  if (mk.genre !== "h" && mk.genre !== "f") mk.genre = "h";
+  if (!MK_ECOLES[mk.ecole]) mk.ecole = "t";
+  if (mk.theme !== "azur") mk.theme = "or";
+  function mkSave() { try { localStorage.setItem(MK_KEY, JSON.stringify(mk)); } catch (e) {} }
+
+  const legend = document.getElementById("mk-legend");
+  legend.innerHTML = ["rukn", "wajib", "sunna", "shart", "info"]
+    .map(k => `<span class="mk-key ${MK_STATUTS[k].c}">${MK_STATUTS[k].l}</span>`).join("");
+
+  function stOf(step) {
+    return typeof step.st === "string" ? step.st : (step.st[mk.ecole] || step.st.t);
+  }
+  function visible(item) {
+    if (item.g && item.g !== mk.genre) return false;
+    if (item.e && item.e.indexOf(mk.ecole) === -1) return false;
+    return true;
+  }
+  function divergent(step) {
+    if (typeof step.st === "string") return "";
+    const vals = ["h", "m", "c", "b", "t"].map(k => step.st[k]);
+    if (vals.every(v => v === vals[0])) return "";
+    return `<p class="mk-div">⚖ Statut selon les écoles — ` +
+      ["h", "m", "c", "b", "t"].map(k =>
+        `<b>${MK_ECOLES[k]}</b> : ${MK_STATUTS[step.st[k]].l.toLowerCase()}`).join(" · ") + `.</p>`;
+  }
+
+  function renderManasik() {
+    vue.classList.toggle("mk-or", mk.theme === "or");
+    vue.classList.toggle("mk-azur", mk.theme === "azur");
+    document.querySelectorAll(".mk-theme-chip").forEach(b =>
+      b.classList.toggle("active", b.dataset.mktheme === mk.theme));
+    document.querySelectorAll(".mk-tab").forEach(b =>
+      b.classList.toggle("active", b.dataset.mkrite === mk.rite));
+    document.querySelectorAll(".mk-chip").forEach(b =>
+      b.classList.toggle("active", b.dataset.mkgenre === mk.genre));
+    document.getElementById("mk-ecole").value = mk.ecole;
+
+    document.getElementById("mk-recap").innerHTML =
+      `<div class="mk-recap"><h3>${mk.rite === "omra" ? "La 'umra" : "Le hajj"} selon l'école : ${MK_ECOLES[mk.ecole]}</h3>` +
+      `<p>${MK_RECAP[mk.rite][mk.ecole]}</p></div>`;
+
+    path.innerHTML = "";
+    let prevLieu = "";
+    MANASIK[mk.rite].forEach((step, i) => {
+      if (step.lieu !== prevLieu) {
+        const lab = document.createElement("div");
+        lab.className = "mk-lieu";
+        lab.innerHTML = `${escapeHtml(step.lieu)}<span class="mk-lieu-ar">${escapeHtml(step.lieuAr)}</span>`;
+        path.appendChild(lab);
+        prevLieu = step.lieu;
+      }
+      const st = stOf(step);
+      const el = document.createElement("div");
+      el.className = "mk-step";
+
+      const faire = (step.faire || []).filter(visible).map(it =>
+        `<li${it.g ? ' class="mk-g"' : ""}>${it.g ? `<span class="mk-gtag">${it.g === "h" ? "Hommes" : "Femmes"}</span>` : ""}${it.t}</li>`).join("");
+      const duas = (step.reciter || []).filter(visible).map(d =>
+        `<div class="mk-dua"><div class="mk-dua-t">۩ ${d.t}</div>` +
+        `<div class="mk-dua-ar">${d.ar}</div>` +
+        `<div class="mk-dua-ph">${d.ph}</div>` +
+        `<div class="mk-dua-fr">${d.fr}</div>` +
+        (d.src ? `<div class="mk-dua-src">— ${d.src}</div>` : "") + `</div>`).join("");
+      const ec = step.ec && step.ec[mk.ecole] ? `<div class="mk-ec"><b>${MK_ECOLES[mk.ecole]} :</b> ${step.ec[mk.ecole]}</div>` : "";
+
+      el.innerHTML =
+        `<div class="mk-node" aria-hidden="true">${arDigits(i + 1)}</div>` +
+        `<div class="mk-card">` +
+          `<button class="mk-card-h" aria-expanded="false">` +
+            `<div class="mk-t-fr">${i + 1}. ${step.titre}</div>` +
+            `<div class="mk-t-ar">${step.titreAr}</div>` +
+            `<div class="mk-meta">` +
+              (step.temps ? `<span class="mk-time">◷ ${step.temps}</span>` : "") +
+              `<span class="mk-badge ${MK_STATUTS[st].c}">${MK_STATUTS[st].l}</span>` +
+            `</div>` +
+          `</button>` +
+          `<div class="mk-body" hidden>` +
+            (faire ? `<div class="mk-h4">À faire</div><ul>${faire}</ul>` : "") +
+            (duas ? `<div class="mk-h4">À réciter</div>${duas}` : "") +
+            ec + divergent(step) +
+            (step.note ? `<p class="mk-note">${step.note}</p>` : "") +
+          `</div>` +
+        `</div>`;
+
+      const head = el.querySelector(".mk-card-h");
+      const body = el.querySelector(".mk-body");
+      head.addEventListener("click", () => {
+        const open = body.hidden;
+        body.hidden = !open;
+        el.classList.toggle("open", open);
+        head.setAttribute("aria-expanded", open);
+      });
+      path.appendChild(el);
+    });
+  }
+
+  document.querySelectorAll(".mk-theme-chip").forEach(b =>
+    b.addEventListener("click", () => { mk.theme = b.dataset.mktheme; mkSave(); renderManasik(); }));
+  document.querySelectorAll(".mk-tab").forEach(b =>
+    b.addEventListener("click", () => { mk.rite = b.dataset.mkrite; mkSave(); renderManasik(); window.scrollTo({ top: 0 }); }));
+  document.querySelectorAll(".mk-chip").forEach(b =>
+    b.addEventListener("click", () => { mk.genre = b.dataset.mkgenre; mkSave(); renderManasik(); }));
+  document.getElementById("mk-ecole").addEventListener("change", e => {
+    mk.ecole = e.target.value; mkSave(); renderManasik();
+  });
+
+  renderManasik();
+})();
+
+
+/* ============================================================
    ★ MENU LATÉRAL ET NAVIGATION ENTRE SECTIONS ★
    Pour ajouter une future section :
    1. Ajoutez un bouton .drawer-item avec data-view="monsujet"
@@ -4471,7 +5386,7 @@ const SURAS = [
       avant le <footer> ;
    3. Ajoutez l'entrée monsujet: "vue-monsujet" dans VUES ci-dessous.
    ============================================================ */
-const VUES = { sira: "vue-sira", sourates: "sourates", fiqh: "vue-fiqh" };
+const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", fiqh: "vue-fiqh" };
 
 (function () {
   const btn = document.getElementById("menu-btn");

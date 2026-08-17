@@ -1,0 +1,73 @@
+════════════════════════════════════════════════════════════════
+  NOUVEAUTÉ v19.2 — 'UMRA & HAJJ, GUIDE PAS À PAS
+════════════════════════════════════════════════════════════════
+
+FICHIERS À METTRE EN LIGNE (github.com/Fero69220/sirafr/upload/main)
+  • index.html   (remplace l'ancien)
+  • sw.js        (VERSION passée de v19.1 à v19.2)
+Rien d'autre ne change. Le cache audio "sira-audio" n'est pas touché.
+
+────────────────────────────────────────────────────────────────
+CE QUE ÇA AJOUTE
+────────────────────────────────────────────────────────────────
+Nouvelle entrée dans le menu latéral : « 'Umra & Hajj — pas à pas »
+(badge "Nouveau"), inspirée de la carte de voyage du livre :
+
+• Deux parcours en frise verticale animée :
+    – 'UMRA : 11 étapes, depuis l'aéroport à l'étranger
+      (invocations de sortie et de voyage) → ihrâm → talbiya →
+      entrée à Mekkah → tawâf → maqâm & Zamzam → sa'y →
+      rasage/coupe → fin de la 'umra.
+    – HAJJ : 13 étapes, des 3 formes (tamattu'/qirân/ifrâd)
+      jusqu'au tawâf d'adieu, avec Madînah en option.
+
+• Choix du profil : Homme / Femme.
+  Les consignes s'adaptent (talbiya à voix haute ou basse,
+  raml et idtibâ' réservés aux hommes, rasage vs coupe d'une
+  phalange, vêtements d'ihrâm, dispense du tawâf d'adieu pour
+  la femme menstruée, etc.).
+
+• Choix de l'école : Hanafite / Mâlikite / Châfi'ite / Hanbalite
+  + un 5ᵉ choix par défaut « Avis prépondérant des savants ».
+  – Une carte récapitulative en tête liste piliers et devoirs
+    selon l'école choisie.
+  – Le badge de statut de chaque étape s'adapte (Pilier /
+    Obligatoire / Recommandé / Condition / Repère).
+  – Une ligne ⚖ « Divergences » apparaît quand les écoles
+    diffèrent (ex. : wuqûf à Muzdalifa, temps de 'Arafât,
+    statut du sa'y ou du rasage…).
+
+• Chaque étape s'ouvre en accordéon : quoi FAIRE, quoi RÉCITER
+  (arabe + phonétique + traduction + source du hadith), et
+  les notes propres à l'école choisie.
+
+• Deux thèmes futuristes au choix (mémorisés sur l'appareil) :
+    – « Émeraude & Or » : reprend l'identité du site.
+    – « Azur néon »     : bleu tech sombre.
+  → Dis-moi si tu préfères garder les deux, ou n'en fixer
+    qu'un seul (je peux retirer l'autre dans une v19.3).
+
+Tous les réglages (rite, profil, école, thème) sont retenus
+d'une visite à l'autre (localStorage), comme le suivi d'écoute.
+
+────────────────────────────────────────────────────────────────
+⚠️ IMPORTANT — VALIDATION RELIGIEUSE
+────────────────────────────────────────────────────────────────
+Le contenu (statuts par école, invocations, divergences) a été
+rédigé avec soin et sourcé, mais il DOIT être relu et validé par
+ton Sheikh avant d'être considéré comme référence. Un bandeau en
+bas de page invite déjà à interroger les gens de science. Si le
+Sheikh demande des corrections, envoie-les-moi : chaque étape est
+une simple fiche dans le tableau MANASIK du fichier index.html
+(cherche « const MANASIK »), très facile à modifier.
+
+────────────────────────────────────────────────────────────────
+VÉRIFICATIONS EFFECTUÉES
+────────────────────────────────────────────────────────────────
+✔ node --check : sw.js et script inline sans erreur de syntaxe
+✔ LESSONS (156 entrées) et SURAS (114) intacts, résumés inchangés
+✔ Test de rendu complet (jsdom) : 156 cartes de cours, 11 étapes
+  'umra / 13 étapes hajj, bascules rite + profil + école + thème,
+  accordéons et navigation retour Sīra — aucune erreur JS
+✔ diff contre v19.1 : seuls les ajouts prévus diffèrent
+  (une seule ligne existante modifiée : la table des vues du menu)
