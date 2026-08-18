@@ -514,6 +514,101 @@
     html{scroll-behavior:auto}
     .progress-bar i{transition:none}
   }
+
+  /* ============================================================
+     ★ PARCOURS ANIMÉ 'UMRA & HAJJ (vue-parcours) ★
+     Carte-route façon livre illustré : le pèlerin avance
+     d'étape en étape le long d'un chemin qui se dore.
+     ============================================================ */
+  #vue-parcours .pc-intro{text-align:center;max-width:640px;margin:0 auto}
+  #vue-parcours .pc-talbiya{
+    margin:14px auto 0;max-width:560px;text-align:center;
+    font-family:'Amiri',serif;
+    color:var(--gold);font-size:1.22rem;line-height:2;direction:rtl;
+  }
+  #vue-parcours .pc-talbiya small{
+    display:block;direction:ltr;font-family:inherit;
+    color:var(--muted);font-size:.78rem;letter-spacing:.4px;line-height:1.5;margin-top:2px;
+  }
+  .pc-tabs{display:flex;gap:10px;justify-content:center;margin:20px 0 6px}
+  .pc-tab{
+    background:var(--surface);border:1px solid var(--line);color:var(--cream);
+    padding:9px 20px;border-radius:999px;cursor:pointer;font-size:.92rem;
+    transition:border-color .2s,background .2s,color .2s;
+  }
+  .pc-tab.active{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:700}
+  .pc-tab:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  .pc-head{
+    position:sticky;top:10px;z-index:5;
+    background:linear-gradient(180deg,var(--surface-2),var(--surface));
+    border:1px solid var(--line);border-radius:16px;
+    padding:14px 16px;margin:14px 0 4px;
+    box-shadow:0 10px 28px rgba(0,0,0,.42);
+  }
+  .pc-eyebrow{
+    display:flex;align-items:center;gap:10px;
+    color:var(--gold);font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;
+  }
+  .pc-eyebrow .pc-num{
+    flex:none;width:26px;height:26px;border-radius:50%;
+    background:var(--gold);color:var(--ink);font-weight:800;font-size:.85rem;
+    display:flex;align-items:center;justify-content:center;letter-spacing:0;
+  }
+  .pc-step-title{color:var(--cream);font-size:1.06rem;font-weight:700;margin:7px 0 4px}
+  .pc-step-desc{color:var(--muted);font-size:.88rem;line-height:1.65;margin:0}
+  .pc-ctrls{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .pc-btn{
+    background:var(--ink);border:1px solid var(--line);color:var(--cream);
+    padding:8px 14px;border-radius:10px;cursor:pointer;font-size:.86rem;
+    transition:border-color .2s;
+  }
+  .pc-btn:hover{border-color:var(--gold)}
+  .pc-btn:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .pc-btn.pc-play{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:700}
+  .pc-btn[disabled]{opacity:.35;cursor:default}
+  .pc-guide-link{margin-left:auto;background:transparent;border-style:dashed}
+
+  .pc-mapwrap{
+    margin-top:16px;border:1px solid var(--line);border-radius:18px;
+    background:
+      radial-gradient(circle at 78% 6%, rgba(201,164,85,.10), transparent 34%),
+      radial-gradient(circle at 12% 55%, rgba(201,164,85,.05), transparent 40%),
+      linear-gradient(180deg,#0D1B16,var(--ink));
+    overflow:hidden;
+  }
+  .pc-map{display:block;width:100%;height:auto}
+  .pc-road{stroke:#233F35;stroke-width:26;fill:none;stroke-linecap:round}
+  .pc-dash{stroke:rgba(201,164,85,.4);stroke-width:2.4;fill:none;stroke-dasharray:5 13;stroke-linecap:round}
+  .pc-prog{stroke:var(--gold);stroke-width:5;fill:none;stroke-linecap:round;filter:drop-shadow(0 0 5px rgba(201,164,85,.75))}
+  .pc-station{cursor:pointer}
+  .pc-station .pc-disc{fill:var(--surface);stroke:var(--gold-dim);stroke-width:1.6;transition:stroke .3s,fill .3s}
+  .pc-station .pc-ico{fill:var(--gold);opacity:.85}
+  .pc-station .pc-badge{fill:var(--ink);stroke:var(--gold-dim);stroke-width:1.2;transition:fill .3s}
+  .pc-station .pc-badge-t{fill:var(--muted);font-size:10px;font-weight:800;transition:fill .3s}
+  .pc-station .pc-lieu{fill:var(--cream);font-size:11.5px;font-weight:800;letter-spacing:.12em}
+  .pc-station .pc-jour{fill:var(--muted);font-size:8.6px;letter-spacing:.04em}
+  .pc-station.done .pc-disc{stroke:var(--gold)}
+  .pc-station.done .pc-badge{fill:var(--gold)}
+  .pc-station.done .pc-badge-t{fill:var(--ink)}
+  .pc-station.now .pc-disc{fill:#22443A;stroke:var(--gold);stroke-width:2.4}
+  .pc-halo{fill:none;stroke:var(--gold);opacity:0;transform-box:fill-box;transform-origin:center}
+  .pc-station.now .pc-halo{opacity:.55;animation:pcHalo 2.2s ease-out infinite}
+  @keyframes pcHalo{
+    0%{stroke-width:2;transform:scale(1);opacity:.55}
+    100%{stroke-width:.4;transform:scale(1.55);opacity:0}
+  }
+  .pc-walker-core{fill:var(--gold)}
+  .pc-walker-glow{fill:var(--gold);opacity:.22}
+  .pc-star{fill:var(--gold);opacity:.3}
+  .pc-moon{fill:var(--gold);opacity:.5}
+  .pc-note{
+    text-align:center;color:var(--muted);font-size:.78rem;margin:12px 4px 0;line-height:1.6;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .pc-station.now .pc-halo{animation:none;opacity:.45}
+  }
+
 </style>
 </head>
 <body>
@@ -544,10 +639,17 @@
   </button>
   <button class="drawer-item" data-view="manasik">
     <span class="di-txt">
-      <span class="di-fr">'Umra &amp; Hajj — pas à pas <span class="badge">Nouveau</span></span>
+      <span class="di-fr">'Umra &amp; Hajj — pas à pas</span>
       <span class="di-sub">Guide interactif : étapes, invocations, écoles</span>
     </span>
     <span class="di-ar">المناسك</span>
+  </button>
+  <button class="drawer-item" data-view="parcours">
+    <span class="di-txt">
+      <span class="di-fr">'Umra &amp; Hajj — le parcours animé <span class="badge">Nouveau</span></span>
+      <span class="di-sub">La carte du pèlerinage : suivez le pèlerin étape par étape</span>
+    </span>
+    <span class="di-ar">رحلة الحج</span>
   </button>
   <button class="drawer-item" data-view="fiqh">
     <span class="di-txt">
@@ -661,6 +763,46 @@
     <div class="mk-foot">
       <div class="ornament" aria-hidden="true">۞</div>
       <p>Guide établi d'après les ouvrages de fiqh des quatre écoles et la description du pèlerinage du Prophète ﷺ (hadith de Jâbir, Muslim).<br>En cas de doute sur votre situation, interrogez les gens de science.</p>
+    </div>
+  </div>
+</div>
+
+<div class="vue" id="vue-parcours" hidden>
+  <div class="wrap">
+    <div class="pc-intro">
+      <div class="ornament" aria-hidden="true">۞</div>
+      <div class="fr-title-ar" style="font-family:'Amiri',serif;color:var(--gold);font-size:1.5rem">رحلة الحج والعمرة</div>
+      <h2 class="fr-title">'Umra &amp; Hajj — le parcours animé</h2>
+      <p class="suras-sub">La carte du pèlerinage comme dans un livre illustré : suivez le pèlerin d'étape en étape, du miqât jusqu'au tawâf d'adieu.</p>
+      <p class="pc-talbiya">لَبَّيْكَ اللَّهُمَّ لَبَّيْكَ، لَبَّيْكَ لَا شَرِيكَ لَكَ لَبَّيْكَ، إِنَّ الْحَمْدَ وَالنِّعْمَةَ لَكَ وَالْمُلْكَ، لَا شَرِيكَ لَكَ
+        <small>Labbayka-Llâhumma labbayk, labbayka lâ sharîka laka labbayk, inna-l-hamda wa-n-ni'mata laka wa-l-mulk, lâ sharîka lak.</small>
+      </p>
+    </div>
+
+    <div class="pc-tabs" role="group" aria-label="Choisir le parcours">
+      <button class="pc-tab" data-pcrite="omra">La 'Umra</button>
+      <button class="pc-tab active" data-pcrite="hajj">Le Hajj (tamattu')</button>
+    </div>
+
+    <div class="pc-head">
+      <div class="pc-eyebrow"><span class="pc-num" id="pc-num">1</span><span id="pc-jour">—</span></div>
+      <div class="pc-step-title" id="pc-titre"></div>
+      <p class="pc-step-desc" id="pc-desc"></p>
+      <div class="pc-ctrls">
+        <button class="pc-btn" id="pc-prev" aria-label="Étape précédente">‹ Précédent</button>
+        <button class="pc-btn pc-play" id="pc-play">▶ Lancer le parcours</button>
+        <button class="pc-btn" id="pc-next" aria-label="Étape suivante">Suivant ›</button>
+        <button class="pc-btn pc-guide-link" id="pc-guide">Guide détaillé</button>
+      </div>
+    </div>
+
+    <div class="pc-mapwrap"><svg class="pc-map" id="pc-map" role="img" aria-label="Carte animée des étapes du pèlerinage"></svg></div>
+
+    <p class="pc-note">Touchez une étape sur la carte pour vous y rendre. Pour les invocations, les avis des écoles et les détails de chaque rite, ouvrez le guide « 'Umra &amp; Hajj — pas à pas ».</p>
+
+    <div class="mk-foot">
+      <div class="ornament" aria-hidden="true">۞</div>
+      <p>Parcours du rite tamattu' d'après la description du pèlerinage du Prophète ﷺ (hadith de Jâbir, Muslim).</p>
     </div>
   </div>
 </div>
@@ -5378,6 +5520,237 @@ hajj: [
 
 
 /* ============================================================
+   ★ PARCOURS ANIMÉ 'UMRA & HAJJ ★
+   Carte-route générée en SVG : stations en serpentin,
+   pèlerin lumineux qui avance, chemin qui se dore.
+   ============================================================ */
+(function () {
+  const svg = document.getElementById("pc-map");
+  if (!svg) return;
+  const NS = "http://www.w3.org/2000/svg";
+  const RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  const PC_DATA = {
+    omra: [
+      { lieu: "MIQÂT", jour: "L'entrée en rite", titre: "L'ihrâm et la talbiya",
+        desc: "Se laver, se parfumer le corps, revêtir l'izâr et le ridâ' (la femme garde ses vêtements amples habituels), puis formuler l'intention : « Labbayka 'Umratan » — et multiplier la talbiya jusqu'à la Ka'ba.", ico: "ihram" },
+      { lieu: "AL-HARAM", jour: "Autour de la Ka'ba", titre: "Le Tawâf : sept tours",
+        desc: "Sept tours autour de la Ka'ba en commençant à la Pierre noire, qu'on salue à chaque passage ; puis deux rak'a derrière le Maqâm Ibrâhîm si possible, et boire de l'eau de Zamzam.", ico: "kaaba" },
+      { lieu: "SAFÂ – MARWA", jour: "Sur les pas de Hâjar", titre: "Le Sa'y : sept trajets",
+        desc: "Sept trajets entre Safâ et Marwa, en commençant par Safâ ; sur chaque mont, se tourner vers la Ka'ba, dire le tahlîl et le takbîr, et invoquer longuement.", ico: "monts" },
+      { lieu: "AL-HARAM", jour: "Fin de la 'Umra", titre: "Rasage ou coupe, puis désacralisation",
+        desc: "L'homme se rase la tête — ou coupe court — ; la femme coupe l'équivalent d'une phalange. La 'Umra est achevée : tout ce que l'ihrâm interdisait redevient permis.", ico: "ciseaux" }
+    ],
+    hajj: [
+      { lieu: "MIQÂT", jour: "L'arrivée", titre: "Entrer en état de sacralisation",
+        desc: "Au miqât, se laver, revêtir l'ihrâm et formuler l'intention de la 'Umra : « Labbayka 'Umratan » — c'est le rite tamattu' : la 'Umra d'abord, le Hajj ensuite.", ico: "ihram" },
+      { lieu: "MEKKAH", jour: "Dans les mois du Hajj", titre: "Accomplir la 'Umra, puis se désacraliser",
+        desc: "Tawâf de sept tours, Sa'y entre Safâ et Marwa, coupe des cheveux : la 'Umra du tamattu' est faite. On se désacralise et l'on attend, à Mekkah, le 8 Dhul-Hijjah.", ico: "kaaba" },
+      { lieu: "MINA", jour: "Le 8 Dhul-Hijjah — jour de Tarwiyah", titre: "Reprendre l'ihrâm et gagner Mina",
+        desc: "Depuis son logement, entrer en ihrâm pour le Hajj : « Labbayka Hajjan », puis se rendre à Mina : y prier dhuhr, 'asr, maghrib, 'ishâ' et fajr — raccourcies, non regroupées — et y passer la nuit.", ico: "tentes" },
+      { lieu: "'ARAFÂT", jour: "Le 9 Dhul-Hijjah — le grand jour", titre: "La journée à 'Arafât",
+        desc: "Écouter le prêche, prier dhuhr et 'asr regroupées et raccourcies, puis rester en invocation, mains levées, jusqu'au coucher du soleil : « Le Hajj, c'est 'Arafa. »", ico: "mont" },
+      { lieu: "MUZDALIFAH", jour: "La nuit du 9 au 10", titre: "La nuit à la belle étoile",
+        desc: "Après le coucher du soleil, quitter 'Arafât ; à Muzdalifah, prier maghrib et 'ishâ' regroupées, dormir, prier fajr puis invoquer — et partir vers Mina avant le lever du soleil.", ico: "lune" },
+      { lieu: "JAMRAT AL-'AQABAH", jour: "Le 10 Dhul-Hijjah — jour de l'Aïd", titre: "Lapider la grande stèle",
+        desc: "Lapider la grande stèle de sept cailloux, « Allâhu akbar » à chaque jet ; la talbiya cesse au premier caillou. L'ordre des actes de ce jour est souple : « Fais, et pas de mal. »", ico: "stele" },
+      { lieu: "MEKKAH", jour: "Le 10 Dhul-Hijjah — jour de l'Aïd", titre: "Tawâf al-ifâdah et Sa'y du Hajj",
+        desc: "Se rendre à la Ka'ba : Tawâf al-ifâdah — un pilier du Hajj — puis le Sa'y du Hajj ; se raser la tête ou couper les cheveux, puis se désacraliser.", ico: "tawaf" },
+      { lieu: "MINA", jour: "Les nuits des 11 et 12", titre: "Le sacrifice et les nuits de Mina",
+        desc: "Sacrifier la bête du tamattu' (hady) — ou mandater pour cela — et passer à Mina les nuits des jours de tashrîq.", ico: "sacrifice" },
+      { lieu: "JAMARÂT", jour: "Les 11, 12 (et 13) Dhul-Hijjah", titre: "Lapider les trois stèles",
+        desc: "Chaque jour après le zénith : la petite, la moyenne puis la grande stèle — sept cailloux chacune. Qui veut hâter quitte Mina avant le coucher du 12 ; sinon, on lapide encore le 13.", ico: "steles" },
+      { lieu: "MEKKAH", jour: "Avant le départ", titre: "Le Tawâf d'adieu",
+        desc: "Avant de quitter Mekkah, sept derniers tours autour de la Ka'ba : que l'adieu à la Maison soit le dernier acte du pèlerin.", ico: "kaaba" },
+      { lieu: "MADÎNAH", jour: "Optionnel — hors Hajj", titre: "La visite de Madînah",
+        desc: "Visiter la mosquée du Prophète ﷺ et le saluer, prier à Qubâ', saluer les gens du Baqî' et les martyrs d'Uhud — une visite recommandée, qui ne fait pas partie du Hajj.", ico: "mosquee" }
+    ]
+  };
+
+  const ICONS = {
+    ihram: '<rect x="-8" y="-6" width="6.4" height="13" rx="2"/><rect x="1.6" y="-6" width="6.4" height="13" rx="2"/>',
+    kaaba: '<rect x="-7" y="-7" width="14" height="14" rx="1.2"/><rect x="-7" y="-3.4" width="14" height="2.8" fill="#0F1F1A"/>',
+    tawaf: '<rect x="-5.5" y="-5.5" width="11" height="11" rx="1"/><path d="M 0 -10 A 10 10 0 1 1 -9.6 2.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M -12 4.4 L -9.6 2.6 L -6.9 4.8 Z"/>',
+    tentes: '<path d="M -10 7 L -5 -3 L 0 7 Z"/><path d="M 0 7 L 5 -5 L 10 7 Z"/>',
+    mont: '<path d="M -9 7 Q 0 -8 9 7 Z"/><rect x="-1.1" y="-7.5" width="2.2" height="6"/>',
+    monts: '<path d="M -10 7 Q -5 -4 0 7 Z"/><path d="M 0 7 Q 5 -4 10 7 Z"/><path d="M -5 -6 L 5 -6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-dasharray="2.4 2.2"/>',
+    lune: '<path d="M 2 -8 A 8 8 0 1 0 8 3 A 6.4 6.4 0 1 1 2 -8 Z"/><circle cx="-6" cy="-5" r="1.1"/><circle cx="-2" cy="-8.4" r=".9"/>',
+    stele: '<path d="M -3.4 -8 L 3.4 -8 L 5.4 6 L -5.4 6 Z"/><circle cx="-7.5" cy="7.6" r="1.2"/><circle cx="-4.2" cy="8.6" r="1.2"/><circle cx="-.8" cy="7.9" r="1.2"/>',
+    steles: '<path d="M -9.4 -3 L -5.6 -3 L -4.6 7 L -10.4 7 Z"/><path d="M -1.9 -5.5 L 1.9 -5.5 L 2.9 7 L -2.9 7 Z"/><path d="M 5.6 -8 L 9.4 -8 L 10.4 7 L 4.6 7 Z"/>',
+    sacrifice: '<path d="M -10 7 L -5 -3 L 0 7 Z"/><circle cx="5.6" cy="2.6" r="4.2"/><circle cx="9.2" cy="-.4" r="1.9"/>',
+    ciseaux: '<circle cx="-6.5" cy="4.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="-6.5" cy="-4.5" r="2.6" fill="none" stroke="currentColor" stroke-width="1.7"/><path d="M -4.4 3.2 L 9 -5.4 M -4.4 -3.2 L 9 5.4" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>',
+    mosquee: '<path d="M -8.5 7 L -8.5 1 A 8.5 7.6 0 0 1 8.5 1 L 8.5 7 Z"/><rect x="-11.6" y="-6" width="2.3" height="13"/><circle cx="0" cy="-7.6" r="1.3"/>'
+  };
+
+  const STARS = [[34,40],[318,66],[196,30],[86,150],[300,208],[42,300],[330,352],[150,96],[262,120],[70,470],[310,540],[160,640],[40,760],[320,830],[120,940],[290,1060]];
+
+  const el = {
+    num: document.getElementById("pc-num"),
+    jour: document.getElementById("pc-jour"),
+    titre: document.getElementById("pc-titre"),
+    desc: document.getElementById("pc-desc"),
+    prev: document.getElementById("pc-prev"),
+    next: document.getElementById("pc-next"),
+    play: document.getElementById("pc-play"),
+    guide: document.getElementById("pc-guide")
+  };
+
+  let rite = "hajj", steps = [], pts = [], lens = [], dPrefix = [];
+  let road = null, prog = null, walker = null, total = 0, measured = false;
+  let idx = 0, playing = false, timer = null, raf = null, built = false;
+
+  const W = 360, XL = 100, XR = 260, Y0 = 66, DY = 140;
+  const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+  const mk = (tag, attrs) => { const n = document.createElementNS(NS, tag); for (const k in attrs) n.setAttribute(k, attrs[k]); return n; };
+
+  function build() {
+    built = true;
+    steps = PC_DATA[rite];
+    const H = Y0 + (steps.length - 1) * DY + 84;
+    svg.setAttribute("viewBox", "0 0 " + W + " " + H);
+    svg.innerHTML = "";
+
+    for (const s of STARS) if (s[1] < H - 40) svg.appendChild(mk("circle", { cx: s[0], cy: s[1], r: 1.4, "class": "pc-star" }));
+    const moon = mk("path", { d: "M 332 26 A 13 13 0 1 0 342 44 A 10.4 10.4 0 1 1 332 26 Z", "class": "pc-moon" });
+    svg.appendChild(moon);
+
+    pts = steps.map((s, i) => ({ x: i % 2 ? XR : XL, y: Y0 + i * DY }));
+    let d = "M " + pts[0].x + " " + pts[0].y;
+    dPrefix = [d];
+    for (let i = 1; i < pts.length; i++) {
+      const a = pts[i - 1], b = pts[i], xm = (a.x + b.x) / 2;
+      d += " C " + xm + " " + a.y + ", " + xm + " " + b.y + ", " + b.x + " " + b.y;
+      dPrefix.push(d);
+    }
+    road = mk("path", { d: d, "class": "pc-road" }); svg.appendChild(road);
+    svg.appendChild(mk("path", { d: d, "class": "pc-dash" }));
+    prog = mk("path", { d: d, "class": "pc-prog" }); svg.appendChild(prog);
+
+    try {
+      total = road.getTotalLength();
+      measured = total > 0;
+    } catch (e) { measured = false; }
+    if (measured) {
+      const tmp = mk("path", { fill: "none", stroke: "none" }); svg.appendChild(tmp);
+      lens = dPrefix.map(p => { tmp.setAttribute("d", p); return tmp.getTotalLength(); });
+      tmp.remove();
+      prog.setAttribute("stroke-dasharray", "0 " + (total + 10));
+    } else {
+      prog.setAttribute("d", dPrefix[0]);
+    }
+
+    steps.forEach((s, i) => {
+      const g = mk("g", { "class": "pc-station", transform: "translate(" + pts[i].x + " " + pts[i].y + ")", tabindex: "0", role: "button", "aria-label": "Étape " + (i + 1) + " : " + s.titre });
+      g.appendChild(mk("circle", { r: 19, "class": "pc-halo" }));
+      g.appendChild(mk("circle", { r: 18, "class": "pc-disc" }));
+      const ico = mk("g", { "class": "pc-ico", fill: "currentColor", color: "#C9A455" });
+      ico.innerHTML = ICONS[s.ico] || "";
+      g.appendChild(ico);
+      g.appendChild(mk("circle", { cx: 16, cy: -14, r: 9.5, "class": "pc-badge" }));
+      const bt = mk("text", { x: 16, y: -10.6, "text-anchor": "middle", "class": "pc-badge-t" }); bt.textContent = i + 1; g.appendChild(bt);
+      const lt = mk("text", { y: 37, "text-anchor": "middle", "class": "pc-lieu" }); lt.textContent = s.lieu; g.appendChild(lt);
+      const jt = mk("text", { y: 50, "text-anchor": "middle", "class": "pc-jour" }); jt.textContent = s.jour; g.appendChild(jt);
+      g.addEventListener("click", () => { stop(); goTo(i, !RM); });
+      g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); stop(); goTo(i, !RM); } });
+      svg.appendChild(g);
+    });
+
+    walker = mk("g", { "class": "pc-walker" });
+    walker.appendChild(mk("circle", { r: 12, "class": "pc-walker-glow" }));
+    walker.appendChild(mk("circle", { r: 5.5, "class": "pc-walker-core" }));
+    svg.appendChild(walker);
+
+    idx = 0;
+    setWalker(0);
+    setProg(0);
+    paint();
+  }
+
+  function setWalker(i, L) {
+    let x = pts[i].x, y = pts[i].y;
+    if (measured && L != null) { const p = road.getPointAtLength(L); x = p.x; y = p.y; }
+    walker.setAttribute("transform", "translate(" + x + " " + y + ")");
+  }
+  function setProg(i, L) {
+    if (measured) prog.setAttribute("stroke-dasharray", (L != null ? L : lens[i]) + " " + (total + 10));
+    else prog.setAttribute("d", dPrefix[i]);
+  }
+  function paint() {
+    const st = svg.querySelectorAll(".pc-station");
+    st.forEach((g, i) => {
+      g.classList.toggle("done", i < idx);
+      g.classList.toggle("now", i === idx);
+    });
+    const s = steps[idx];
+    el.num.textContent = idx + 1;
+    el.jour.textContent = s.jour;
+    el.titre.textContent = s.titre;
+    el.desc.textContent = s.desc;
+    el.prev.disabled = idx === 0;
+    el.next.disabled = idx === steps.length - 1;
+    el.play.textContent = playing ? "⏸ Pause" : (idx === steps.length - 1 ? "↺ Recommencer" : "▶ Lancer le parcours");
+    const g = st[idx];
+    if (g && g.scrollIntoView) g.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "center" });
+  }
+
+  function goTo(i, animate, done) {
+    i = Math.max(0, Math.min(steps.length - 1, i));
+    if (raf) { cancelAnimationFrame(raf); raf = null; }
+    const from = idx; idx = i;
+    if (!animate || !measured || from === i) {
+      setWalker(i); setProg(i); paint();
+      if (done) done();
+      return;
+    }
+    const L0 = lens[from], L1 = lens[i], t0 = performance.now();
+    const dur = Math.min(1400 * Math.abs(i - from), 2600);
+    svg.querySelectorAll(".pc-station").forEach(g => g.classList.remove("now"));
+    function frame(now) {
+      const t = Math.min(1, (now - t0) / dur), L = L0 + (L1 - L0) * ease(t);
+      setWalker(i, L); setProg(i, L);
+      if (t < 1) raf = requestAnimationFrame(frame);
+      else { raf = null; paint(); if (done) done(); }
+    }
+    raf = requestAnimationFrame(frame);
+  }
+
+  function stop() {
+    playing = false;
+    if (timer) { clearTimeout(timer); timer = null; }
+    if (el.play) el.play.textContent = idx === steps.length - 1 ? "↺ Recommencer" : "▶ Lancer le parcours";
+  }
+  function chain() {
+    if (!playing) return;
+    if (idx >= steps.length - 1) { stop(); paint(); return; }
+    goTo(idx + 1, !RM, () => { timer = setTimeout(chain, 3400); });
+  }
+  function play() {
+    if (playing) { stop(); paint(); return; }
+    if (idx >= steps.length - 1) { idx = 0; setWalker(0); setProg(0); }
+    playing = true; paint();
+    timer = setTimeout(chain, 1100);
+  }
+
+  el.play.addEventListener("click", play);
+  el.prev.addEventListener("click", () => { stop(); goTo(idx - 1, !RM); });
+  el.next.addEventListener("click", () => { stop(); goTo(idx + 1, !RM); });
+  el.guide.addEventListener("click", () => {
+    const b = document.querySelector('.drawer-item[data-view="manasik"]');
+    if (b) b.click();
+  });
+  document.querySelectorAll(".pc-tab").forEach(b => b.addEventListener("click", () => {
+    document.querySelectorAll(".pc-tab").forEach(x => x.classList.toggle("active", x === b));
+    rite = b.dataset.pcrite; stop(); build();
+    window.scrollTo({ top: 0 });
+  }));
+  document.querySelectorAll(".drawer-item").forEach(b => b.addEventListener("click", () => {
+    if (b.dataset.view === "parcours") {
+      setTimeout(() => { if (!built) build(); }, 0);
+    } else stop();
+  }));
+})();
+
+/* ============================================================
    ★ MENU LATÉRAL ET NAVIGATION ENTRE SECTIONS ★
    Pour ajouter une future section :
    1. Ajoutez un bouton .drawer-item avec data-view="monsujet"
@@ -5386,7 +5759,7 @@ hajj: [
       avant le <footer> ;
    3. Ajoutez l'entrée monsujet: "vue-monsujet" dans VUES ci-dessous.
    ============================================================ */
-const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", fiqh: "vue-fiqh" };
+const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", parcours: "vue-parcours", fiqh: "vue-fiqh" };
 
 (function () {
   const btn = document.getElementById("menu-btn");

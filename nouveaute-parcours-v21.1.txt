@@ -1,0 +1,65 @@
+NOUVEAUTÉ v21.1 — 'Umra & Hajj : le parcours animé (رحلة الحج)
+================================================================
+
+Une nouvelle section a été ajoutée dans le menu latéral (☰), entre
+« 'Umra & Hajj — pas à pas » et « Le fiqh de la prière » :
+
+    'Umra & Hajj — le parcours animé  [Nouveau]
+    La carte du pèlerinage : suivez le pèlerin étape par étape
+
+Le guide « pas à pas » existant n'a pas été modifié : la nouvelle
+section le complète. Elle s'en inspire pour le fond, mais reprend la
+forme des cartes illustrées des livres pédagogiques : un chemin qui
+serpente de lieu en lieu, et un pèlerin qui le parcourt.
+
+CE QUE CONTIENT LA SECTION
+--------------------------
+• La talbiya complète (arabe + translittération) en tête de page.
+
+• Deux parcours au choix (onglets) :
+    — La 'Umra : 4 étapes (miqât/ihrâm, tawâf, sa'y, rasage/coupe) ;
+    — Le Hajj (tamattu') : 11 étapes, du miqât à la visite optionnelle
+      de Madînah, avec pour chacune le jour correspondant
+      (8 Dhul-Hijjah/Tarwiyah, 9/'Arafât, nuit à Muzdalifah,
+      10/jour de l'Aïd, 11-12-13/tashrîq, tawâf d'adieu).
+
+• Une carte-route dessinée en SVG : route sombre, pointillés dorés,
+  ciel étoilé et croissant de lune ; chaque étape est une pastille
+  numérotée avec un pictogramme dessiné (ihrâm, Ka'ba, tentes de Mina,
+  mont de 'Arafât, croissant de Muzdalifah, stèles, mosquée…), le nom
+  du lieu et le jour.
+
+• L'ANIMATION : le bouton « ▶ Lancer le parcours » fait avancer un
+  pèlerin lumineux le long de la route, étape par étape ; le chemin
+  déjà parcouru se dore derrière lui, l'étape atteinte s'illumine
+  (halo pulsé) et la page suit automatiquement sa progression.
+  Le panneau d'étape — numéro, jour, titre, description du rite —
+  reste collé en haut de l'écran pendant tout le trajet.
+
+• Navigation libre : boutons « ‹ Précédent / Suivant › », pause à tout
+  moment, et l'on peut toucher n'importe quelle pastille de la carte
+  pour envoyer le pèlerin directement à cette étape.
+
+• Un bouton « Guide détaillé » bascule vers la section « pas à pas »
+  existante (invocations, avis des quatre écoles, profils homme/femme).
+
+ACCESSIBILITÉ ET CONFORT
+------------------------
+• Les pastilles de la carte sont accessibles au clavier (Tab + Entrée).
+• Si le téléphone est réglé sur « réduire les animations », le pèlerin
+  se déplace sans interpolation et la page ne défile pas toute seule.
+• Aucune bibliothèque externe : tout est dessiné et animé dans la page,
+  et fonctionne donc hors ligne comme le reste du site.
+
+CE QUI NE CHANGE PAS
+--------------------
+• Les 21 résumés de la Sīra, les fiches de sourates, le guide
+  « 'Umra & Hajj — pas à pas » et la section fiqh sont inchangés.
+• Le cache audio (« sira-audio ») n'est pas touché : les audios déjà
+  téléchargés restent disponibles hors ligne.
+
+MISE EN LIGNE
+-------------
+Comme d'habitude : uploader index.html et sw.js sur
+github.com/Fero69220/sirafr/upload/main → Commit → attendre 1-2 min
+→ fermer puis rouvrir le site (la version passe en v21.1).
