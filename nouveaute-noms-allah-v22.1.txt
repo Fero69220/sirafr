@@ -1,0 +1,26 @@
+NOUVEAUTÉ v22.1 — Section « Les noms d'Allah » (أسماء الله الحسنى)
+================================================================
+
+1. Nouvelle entrée dans le menu latéral : « Les noms d'Allah » (badge Nouveau).
+
+2. Nouvelle vue `vue-asma` :
+   - En-tête dans le style du site (ornement, titre arabe + français).
+   - Carte d'accès direct au dossier Google Drive de la série :
+     https://drive.google.com/drive/folders/1-qFa7ijRUxyhb_0zgeAJbPZU9mWrRheI
+   - Liste des cours individuels, rendue depuis le tableau `ASMA`
+     (même principe que LESSONS : lecteur Drive intégré dans la page).
+
+3. Pour ajouter chaque cours : chercher « LES NOMS D'ALLAH » dans
+   index.html et remplir le tableau ASMA (numero, titreAr, titreFr,
+   audio = lien Drive du fichier). Tant que le tableau est vide, la
+   page affiche le bouton du dossier + une note « à venir ».
+
+4. sw.js : VERSION passée à "v22" (à faire à chaque republication).
+
+5. v22.1 : les 7 cours de la série sont désormais listés avec leur
+   lecteur Drive intégré, le bouton « Lire le résumé » (résumés en
+   préparation pour l'instant), et « Marquer comme écouté »
+   (progression sauvegardée localement, clé "asma-ecoutes",
+   indépendante de celle de la Sīra).
+   → Pour renseigner un titre ou un résumé : chercher « LES NOMS
+     D'ALLAH » dans index.html et compléter titreAr / titreFr / resume.

@@ -651,6 +651,13 @@
     </span>
     <span class="di-ar">رحلة الحج</span>
   </button>
+  <button class="drawer-item" data-view="asma">
+    <span class="di-txt">
+      <span class="di-fr">Les noms d'Allah <span class="badge">Nouveau</span></span>
+      <span class="di-sub">Cours audio sur les plus beaux noms d'Allah</span>
+    </span>
+    <span class="di-ar">أسماء الله</span>
+  </button>
   <button class="drawer-item" data-view="fiqh">
     <span class="di-txt">
       <span class="di-fr">Le fiqh de la prière <span class="badge">à venir</span></span>
@@ -804,6 +811,20 @@
       <div class="ornament" aria-hidden="true">۞</div>
       <p>Parcours du rite tamattu' d'après la description du pèlerinage du Prophète ﷺ (hadith de Jâbir, Muslim).</p>
     </div>
+  </div>
+</div>
+
+<div class="vue" id="vue-asma" hidden>
+  <div class="wrap">
+    <div class="suras-head">
+      <div class="ornament" aria-hidden="true">۞</div>
+      <div class="mk-title-ar">أسماء الله الحسنى</div>
+      <h2 class="fr-title">Les noms d'Allah</h2>
+      <p class="suras-sub">Série de cours audio consacrée aux plus beaux noms d'Allah : leur sens, leurs effets sur le cœur et leur invocation.</p>
+    </div>
+
+    <div id="asma-list"></div>
+    <p id="asma-empty" class="count-line" style="text-align:center;margin-top:18px" hidden>Les cours individuels apparaîtront ici prochainement, in shâ' Allâh.</p>
   </div>
 </div>
 
@@ -5759,7 +5780,7 @@ hajj: [
       avant le <footer> ;
    3. Ajoutez l'entrée monsujet: "vue-monsujet" dans VUES ci-dessous.
    ============================================================ */
-const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", parcours: "vue-parcours", fiqh: "vue-fiqh" };
+const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", parcours: "vue-parcours", asma: "vue-asma", fiqh: "vue-fiqh" };
 
 (function () {
   const btn = document.getElementById("menu-btn");
@@ -5799,6 +5820,118 @@ if ("serviceWorker" in navigator) {
       console.warn("Service worker non enregistré :", err));
   });
 }
+</script>
+
+<script>
+/* ============================================================
+   ★ LES NOMS D'ALLAH — AJOUTEZ ICI CHAQUE COURS DE LA SÉRIE ★
+
+   Pour ajouter un cours : copiez un bloc { ... }, (avec la
+   virgule), collez-le à la suite, et remplissez :
+     numero   : le numéro du cours (1, 2, 3…)
+     titreAr  : le titre en arabe            (laisser "" si inconnu)
+     titreFr  : le titre en français (ex. "Ar-Rahmân — Le Tout Miséricordieux")
+     audio    : le lien Google Drive du fichier
+                (clic droit sur le fichier → Partager → Copier le lien)
+
+   Exemple :
+   {
+     numero: 1,
+     titreAr: "الرحمن",
+     titreFr: "Ar-Rahmân — Le Tout Miséricordieux",
+     audio: "https://drive.google.com/file/d/XXXXXXXX/view?usp=drive_link"
+   },
+   ============================================================ */
+const ASMA = [
+  { numero: 1, titreAr: "", titreFr: "Cours n° 1", resume: "", audio: "https://drive.google.com/file/d/1pjr6g_ejYG0YewzF6zkvAcj6BrRPYLKC/view?usp=drive_link" },
+  { numero: 2, titreAr: "", titreFr: "Cours n° 2", resume: "", audio: "https://drive.google.com/file/d/173ADj5rvSdkl4N5pCXEIvqVHIee4XS0J/view?usp=drive_link" },
+  { numero: 3, titreAr: "", titreFr: "Cours n° 3", resume: "", audio: "https://drive.google.com/file/d/1XPpCFLud2gqu9qf4XUp2qUOeExcgZa1_/view?usp=drive_link" },
+  { numero: 4, titreAr: "", titreFr: "Cours n° 4", resume: "", audio: "https://drive.google.com/file/d/10oxNMDAn5mA6gf6iksi7BWLnl43j2p4t/view?usp=drive_link" },
+  { numero: 5, titreAr: "", titreFr: "Cours n° 5", resume: "", audio: "https://drive.google.com/file/d/1fWEKpJLMy96E_4PKCqzKXE26M4MwZkCO/view?usp=drive_link" },
+  { numero: 6, titreAr: "", titreFr: "Cours n° 6", resume: "", audio: "https://drive.google.com/file/d/1MS7yJaIcDd6-SV_LTyhihUsimpjlZD8G/view?usp=drive_link" },
+  { numero: 7, titreAr: "", titreFr: "Cours n° 7", resume: "", audio: "https://drive.google.com/file/d/1LA-KnN6EpP9SlIzXWoOUcZbBzJ5_ffPk/view?usp=drive_link" },
+];
+
+(function () {
+  const list = document.getElementById("asma-list");
+  const empty = document.getElementById("asma-empty");
+  if (!list) return;
+
+  const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const AR = "٠١٢٣٤٥٦٧٨٩";
+  const arDig = (n) => String(n).replace(/\d/g, (d) => AR[d]);
+
+  /* écoutes de cette série — stockage séparé de la Sīra */
+  const KEY = "asma-ecoutes";
+  let vus = {};
+  try { vus = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { vus = {}; }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(vus)); } catch (e) {} };
+
+  if (!ASMA.length) { empty.hidden = false; return; }
+
+  ASMA.forEach((l) => {
+    const driveId = ((l.audio || "").match(/\/file\/d\/([^\/?]+)/) || [])[1];
+    const k = driveId || ("n" + l.numero);
+    const vu = !!vus[k];
+    const hasResume = !!(l.resume && l.resume.trim());
+    const resumeHtml = hasResume
+      ? `<p class="resume clamp">${esc(l.resume).replace(/\n/g, "<br>")}</p>`
+      : `<p class="resume pending">Résumé en préparation…</p>`;
+
+    const card = document.createElement("article");
+    card.className = "card" + (vu ? " done" : "");
+    card.innerHTML = `
+      <div class="medallion" aria-hidden="true">${arDig(l.numero)}</div>
+      <div class="card-body">
+        ${l.titreAr ? `<h2 class="t-ar">${esc(l.titreAr)}</h2>` : ""}
+        <p class="t-fr">${l.numero}. ${esc(l.titreFr || "")}</p>
+        ${resumeHtml}
+        <div class="actions">
+          ${hasResume ? `<button class="btn toggle" aria-expanded="false">Lire le résumé</button>` : ""}
+          ${driveId
+            ? `<button class="btn listen play" aria-expanded="false">▶ Écouter le cours</button>`
+            : l.audio ? `<a class="btn listen" href="${encodeURI(l.audio)}" target="_blank" rel="noopener">▶ Écouter le cours</a>` : ""}
+          <button class="btn check${vu ? " on" : ""}" aria-pressed="${vu}">${vu ? "✓ Écouté" : "Marquer comme écouté"}</button>
+        </div>
+        <div class="player"></div>
+      </div>`;
+
+    const play = card.querySelector(".play");
+    if (play) play.addEventListener("click", () => {
+      const box = card.querySelector(".player");
+      if (box.innerHTML) {
+        box.innerHTML = "";
+        play.textContent = "▶ Écouter le cours";
+        play.setAttribute("aria-expanded", "false");
+      } else {
+        box.innerHTML = `<iframe src="https://drive.google.com/file/d/${driveId}/preview" allow="autoplay" title="Audio : ${esc(l.titreFr || "cours")}" loading="lazy"></iframe>`;
+        play.textContent = "✕ Fermer le lecteur";
+        play.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    const toggle = card.querySelector(".toggle");
+    if (toggle) toggle.addEventListener("click", () => {
+      const p = card.querySelector(".resume");
+      const open = p.classList.toggle("clamp") === false;
+      toggle.textContent = open ? "Réduire" : "Lire le résumé";
+      toggle.setAttribute("aria-expanded", open);
+    });
+
+    const check = card.querySelector(".check");
+    check.addEventListener("click", () => {
+      const on = !vus[k];
+      if (on) vus[k] = true; else delete vus[k];
+      save();
+      check.classList.toggle("on", on);
+      check.textContent = on ? "✓ Écouté" : "Marquer comme écouté";
+      check.setAttribute("aria-pressed", on);
+      card.classList.toggle("done", on);
+    });
+
+    list.appendChild(card);
+  });
+})();
 </script>
 </body>
 </html>
