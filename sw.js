@@ -6,7 +6,7 @@
    ci-dessous avant de republier sur Netlify : cela force le remplacement
    de l'ancien cache. */
 
-const VERSION = "v22.2";
+const VERSION = "v22.3";
 const CACHE = "sira-" + VERSION;
 const FONT_CACHE = "sira-fonts";
 const AUDIO_CACHE = "sira-audio"; /* audios téléchargés — jamais purgé lors des mises à jour */
@@ -17,6 +17,7 @@ const PRECACHE = [
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",
+  "./icon-512-maskable.png",
   "./apple-touch-icon.png"
 ];
 

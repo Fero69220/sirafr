@@ -2,12 +2,28 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>La Sīra du Prophète ﷺ — 155 leçons</title>
 <meta name="description" content="Résumés des 155 leçons audio sur la biographie du Prophète ﷺ (as-Sīra an-Nabawiyya).">
+<link rel="canonical" href="https://fero69220.github.io/sirafr/">
+<!-- Aperçu lors du partage (WhatsApp, Telegram, réseaux sociaux) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="La Sīra du Prophète ﷺ">
+<meta property="og:title" content="La Sīra du Prophète ﷺ — 155 leçons">
+<meta property="og:description" content="Résumés des 155 leçons audio sur la Sīra, fiches des 114 sourates, guide interactif de la 'Umra et du Hajj, et cours sur les noms d'Allah.">
+<meta property="og:url" content="https://fero69220.github.io/sirafr/">
+<meta property="og:image" content="https://fero69220.github.io/sirafr/icon-512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="La Sīra du Prophète ﷺ — 155 leçons">
+<meta name="twitter:description" content="Résumés des 155 leçons audio sur la Sīra, fiches des 114 sourates, guide de la 'Umra et du Hajj.">
+<meta name="twitter:image" content="https://fero69220.github.io/sirafr/icon-512.png">
 <meta name="theme-color" content="#0F1F1A">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Sīra">
@@ -39,7 +55,7 @@
   /* ---------- En-tête ---------- */
   header{
     text-align:center;
-    padding:56px 0 36px;
+    padding:calc(56px + env(safe-area-inset-top,0px)) 0 36px;
     border-bottom:1px solid var(--line);
     background:
       radial-gradient(ellipse 70% 60% at 50% 0%, rgba(201,164,85,.07), transparent 70%);
@@ -216,7 +232,9 @@
   /* ---------- Menu latéral (3 barres) et sections ---------- */
   .vue[hidden]{display:none!important}
   .menu-btn{
-    position:fixed;top:14px;left:14px;z-index:60;
+    position:fixed;z-index:60;
+    top:calc(14px + env(safe-area-inset-top,0px));
+    left:calc(14px + env(safe-area-inset-left,0px));
     width:42px;height:42px;border-radius:10px;cursor:pointer;
     background:rgba(15,31,26,.82);border:1px solid var(--line);
     display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;
@@ -234,7 +252,7 @@
     overflow-y:auto;
   }
   .drawer.open{transform:none}
-  .drawer-head{padding:28px 22px 18px;border-bottom:1px solid var(--line);text-align:center}
+  .drawer-head{padding:calc(28px + env(safe-area-inset-top,0px)) 22px 18px;border-bottom:1px solid var(--line);text-align:center}
   .drawer-head .ornament{font-size:1.15rem;margin-bottom:8px}
   .drawer-title-ar{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:1.5rem;line-height:1.4}
   .drawer-title{font-family:'Cormorant Garamond',serif;color:var(--cream);font-size:1rem;letter-spacing:.06em}
@@ -502,7 +520,7 @@
   footer{
     border-top:1px solid var(--line);
     text-align:center;color:var(--muted);
-    font-size:.85rem;padding:30px 20px 40px;
+    font-size:.85rem;padding:30px 20px calc(40px + env(safe-area-inset-bottom,0px));
   }
   footer .ornament{font-size:1.1rem;margin-bottom:10px}
 
@@ -613,11 +631,18 @@
 </head>
 <body>
 
+<noscript>
+  <p style="text-align:center;padding:48px 24px;color:#F1EADA;font-size:1rem;line-height:1.7">
+    Ce site a besoin de JavaScript pour afficher les cours et les fiches.<br>
+    Activez JavaScript dans votre navigateur, puis rechargez la page.
+  </p>
+</noscript>
+
 <button id="menu-btn" class="menu-btn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
   <span></span><span></span><span></span>
 </button>
 <div id="menu-overlay" class="menu-overlay" hidden></div>
-<nav id="menu" class="drawer" aria-hidden="true" aria-label="Sections du site">
+<nav id="menu" class="drawer" aria-hidden="true" inert aria-label="Sections du site">
   <div class="drawer-head">
     <div class="ornament" aria-hidden="true">۞</div>
     <div class="drawer-title-ar">الفهرس</div>
@@ -677,9 +702,9 @@
     <p class="subtitle">Résumés des 155 leçons audio — as-Sīra an-Nabawiyya</p>
     <div class="progress">
       <div class="progress-label" id="progress-label">… / 155 résumés en ligne</div>
-      <div class="progress-bar" role="progressbar" aria-labelledby="progress-label"><i id="progress-fill" style="width:0%"></i></div>
+      <div class="progress-bar" role="progressbar" aria-labelledby="progress-label" aria-valuemin="0" aria-valuemax="155" aria-valuenow="0"><i id="progress-fill" style="width:0%"></i></div>
       <div class="progress-label" id="progress-ecoute-label" style="margin-top:14px">… / 155 cours écoutés</div>
-      <div class="progress-bar" role="progressbar" aria-labelledby="progress-ecoute-label"><i id="progress-ecoute-fill" class="ecoute" style="width:0%"></i></div>
+      <div class="progress-bar" role="progressbar" aria-labelledby="progress-ecoute-label" aria-valuemin="0" aria-valuemax="155" aria-valuenow="0"><i id="progress-ecoute-fill" class="ecoute" style="width:0%"></i></div>
     </div>
   </div>
 </header>
@@ -1957,6 +1982,8 @@ const NB_COURS = new Set(LESSONS.map(l => l.numero)).size;
 
 /* ------------- rien à modifier en dessous ------------- */
 const arDigits = n => String(n).replace(/\d/g, d => "٠١٢٣٤٥٦٧٨٩"[d]);
+/* recherche insensible aux accents : "medine" trouve "Médine" */
+const sansAccents = s => String(s).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 
 /* --- suivi personnel "cours écouté" (mémorisé dans ce navigateur) --- */
 const STORE_KEY = "sira-ecoutes";
@@ -2015,21 +2042,23 @@ function updateEcouteBar() {
   for (const n in byNum) if (byNum[n].every(x => ecoutes[keyOf(x)])) c++;
   document.getElementById("progress-ecoute-label").textContent =
     `${arDigits(c)} / ${arDigits(TOTAL)} — ${c} / ${TOTAL} cours écoutés`;
-  document.getElementById("progress-ecoute-fill").style.width = (c / TOTAL * 100) + "%";
+  const fillE = document.getElementById("progress-ecoute-fill");
+  fillE.style.width = (c / TOTAL * 100) + "%";
+  fillE.parentElement.setAttribute("aria-valuenow", c);
 }
 
 function render(filter = "") {
   const list = document.getElementById("list");
-  const q = filter.trim().toLowerCase();
+  const q = sansAccents(filter.trim());
   const items = LESSONS
     .slice()
     .sort((a, b) => a.numero - b.numero)
     .filter(l =>
       !q ||
       String(l.numero) === q ||
-      (l.titreFr || "").toLowerCase().includes(q) ||
+      sansAccents(l.titreFr || "").includes(q) ||
       (l.titreAr || "").includes(filter.trim()) ||
-      (l.resume || "").toLowerCase().includes(q)
+      sansAccents(l.resume || "").includes(q)
     )
     .filter(l => filtre === "tous" || (filtre === "ecoutes") === !!ecoutes[keyOf(l)]);
 
@@ -2201,7 +2230,9 @@ function escapeHtml(s) {
 const done = new Set(LESSONS.filter(l => (l.resume || "").trim()).map(l => l.numero)).size;
 document.getElementById("progress-label").textContent =
   `${arDigits(done)} / ${arDigits(TOTAL)} — ${done} / ${TOTAL} résumés en ligne`;
-document.getElementById("progress-fill").style.width = (done / TOTAL * 100) + "%";
+const fillR = document.getElementById("progress-fill");
+fillR.style.width = (done / TOTAL * 100) + "%";
+fillR.parentElement.setAttribute("aria-valuenow", done);
 
 document.querySelectorAll(".chip").forEach(ch => ch.addEventListener("click", () => {
   document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
@@ -5764,11 +5795,13 @@ hajj: [
     rite = b.dataset.pcrite; stop(); build();
     window.scrollTo({ top: 0 });
   }));
-  document.querySelectorAll(".drawer-item").forEach(b => b.addEventListener("click", () => {
-    if (b.dataset.view === "parcours") {
+  /* construit la carte quand la vue devient visible — que ce soit par le
+     menu, un lien direct #parcours, un rechargement ou le bouton retour */
+  document.addEventListener("vuechange", (e) => {
+    if (e.detail === "parcours") {
       setTimeout(() => { if (!built) build(); }, 0);
     } else stop();
-  }));
+  });
 })();
 
 /* ============================================================
@@ -5793,6 +5826,7 @@ const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", p
     overlay.hidden = !open;
     btn.setAttribute("aria-expanded", open);
     drawer.setAttribute("aria-hidden", !open);
+    drawer.inert = !open; /* menu fermé : plus focusable au clavier ni au lecteur d'écran */
     document.body.style.overflow = open ? "hidden" : "";
   }
   btn.addEventListener("click", () => setMenu(!drawer.classList.contains("open")));
@@ -5800,6 +5834,7 @@ const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", p
   document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
 
   function showVue(name) {
+    if (!VUES[name]) name = "sira";
     for (const k in VUES) {
       const el = document.getElementById(VUES[k]);
       if (el) el.hidden = (k !== name);
@@ -5808,9 +5843,22 @@ const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", p
       it.classList.toggle("active", it.dataset.view === name));
     setMenu(false);
     window.scrollTo({ top: 0 });
+    document.dispatchEvent(new CustomEvent("vuechange", { detail: name }));
   }
+
+  /* Routage par hash (#sourates, #manasik…) :
+     - le bouton « retour » du téléphone revient à la vue précédente ;
+     - recharger la page conserve la vue en cours ;
+     - chaque section a une adresse partageable. */
+  const vueDepuisHash = () => (location.hash || "#sira").slice(1);
   document.querySelectorAll(".drawer-item").forEach(it =>
-    it.addEventListener("click", () => showVue(it.dataset.view)));
+    it.addEventListener("click", () => {
+      const name = it.dataset.view;
+      if (("#" + name) === location.hash || (name === "sira" && !location.hash)) showVue(name);
+      else location.hash = name;
+    }));
+  window.addEventListener("hashchange", () => showVue(vueDepuisHash()));
+  showVue(vueDepuisHash());
 })();
 
 /* Mode hors ligne : enregistrement du service worker */
