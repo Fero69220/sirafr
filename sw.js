@@ -6,7 +6,7 @@
    ci-dessous avant de republier sur Netlify : cela force le remplacement
    de l'ancien cache. */
 
-const VERSION = "v25";
+const VERSION = "v26";
 const CACHE = "sira-" + VERSION;
 const FONT_CACHE = "sira-fonts";
 const AUDIO_CACHE = "sira-audio"; /* audios téléchargés — jamais purgé lors des mises à jour */
