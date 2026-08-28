@@ -1,10 +1,10 @@
 PROMPT DE LIVRAISON — SITE « LA SĪRA DU PROPHÈTE ﷺ » (GitHub → Netlify)
+Version du prompt : adaptée à la livraison v27.3 (catalogue des cours,
+recherche sur l'accueil). La prochaine livraison est la v28.
 
-NOTE : cette version est une réécriture du prompt de livraison. Le fichier
-d'origine n'ayant pas été conservé dans la session, le texte ci-dessous
-reprend les règles effectivement appliquées aux livraisons v22 à v25, et
-ajoute la règle nouvelle sur la longueur des résumés (section 4). Si vous
-disposez encore de l'original, renvoyez-le pour fusion mot à mot.
+NOTE : ce prompt reprend les règles appliquées aux livraisons v22 à v27,
+la règle sur la longueur des résumés (section 4), et ce qui a changé
+dans le site avec la v27.3 (sections 1, 5 et 7).
 
 ========================================================
 1. CONTEXTE
@@ -12,12 +12,34 @@ disposez encore de l'original, renvoyez-le pour fusion mot à mot.
 - Le site est une page unique, index.html, déployée sur Netlify depuis un
   dépôt GitHub (sirafr). Tous les résumés de cours sont intégrés dans
   index.html, dans le tableau JavaScript LESSONS (une entrée par cours :
-  numero, titreAr, titreFr, resume, audio).
+  numero, titreAr, titreFr, resume, audio). LESSONS compte 156 entrées
+  (cours 1 à 155) ; les résumés 1 à 26 sont livrés.
+- index.html contient QUATRE blocs <script>, dans cet ordre :
+    1. LESSONS (la Sīra), SURAS (114 fiches), MANASIK ('umra et hajj),
+       le rendu de la Sīra, des sourates, des manâsik et du parcours,
+       le menu latéral et la navigation (VUES, showVue, hash) ;
+    2. ASMA (les noms d'Allah) et son rendu ;
+    3. la section « Tous les cours » (catalogue), qui lit catalogue.js ;
+    4. la page d'accueil : chiffres des tuiles, « Reprendre », et la
+       recherche dans tout le site.
+  Les résumés ne se touchent QUE dans le bloc 1, tableau LESSONS.
+- Depuis la v27.3, un second fichier de données existe : catalogue.js
+  (RUBRIQUES, SERIES, COURS, CATALOGUE_STATS) — le catalogue des 1 848
+  cours audio du sheikh, chargé par <script src="catalogue.js"> et
+  précaché par sw.js. Une livraison de résumés N'Y TOUCHE PAS.
+  Dans le catalogue, la série « La Sira » renvoie à la section Sīra
+  (#sira) : les résumés ne vivent qu'à un seul endroit, LESSONS.
 - Le site est une PWA : sw.js met le site en cache hors ligne. La
-  constante VERSION de sw.js doit être incrémentée à chaque livraison,
-  sinon les utilisateurs gardent l'ancienne version en cache.
+  constante VERSION de sw.js doit être incrémentée à chaque livraison
+  ("v27.3" → "v28", puis "v29"…), sinon les utilisateurs gardent
+  l'ancienne version en cache. Le cache "sira-audio" (audios
+  téléchargés) n'est jamais purgé.
 - Les audios des cours sont hébergés sur Google Drive (liens déjà
-  présents dans LESSONS) ; ne pas les modifier.
+  présents dans LESSONS, dans ASMA et dans catalogue.js) ; ne pas les
+  modifier.
+- Adresses des sections : #accueil (par défaut), #sira, #sourates,
+  #manasik, #parcours, #asma, #cours, #cours/<matière>,
+  #cours/<matière>/<série>. Ne pas les changer : elles sont partagées.
 - Chaque livraison reçoit : le zip complet de la version précédente
   (sirafr-vNN-complet.zip), les transcriptions automatiques (ASR) des
   cours à traiter, et ce prompt.
@@ -73,20 +95,27 @@ disposez encore de l'original, renvoyez-le pour fusion mot à mot.
   ses commentaires, ses leçons et ses digressions ; ne couper que les
   répétitions de l'ASR et les remarques sans lien avec le cours.
 - Si un doute existe entre deux formulations, garder la plus complète.
+- La recherche de l'accueil lit aussi le texte des résumés : un résumé
+  complet rend le cours trouvable par ses propres mots.
 
 ========================================================
 5. INSERTION DANS index.html
 ========================================================
-- Cibler l'entrée par son contexte (numero: NN,) et remplacer
-  uniquement la valeur de resume: "". Ne toucher à rien d'autre dans le
-  fichier.
+- Cibler l'entrée par son contexte (numero: NN,) dans LESSONS et
+  remplacer uniquement la valeur de resume: "". Ne toucher à rien
+  d'autre dans le fichier — ni aux autres blocs <script>, ni au CSS,
+  ni au HTML des sections, ni à catalogue.js.
 - Échappement, une seule fois : apostrophes → \' ; sauts de paragraphe
-  → \n\n ; pas de retour à la ligne réel dans la chaîne.
+  → \n\n ; pas de retour à la ligne réel dans la chaîne ; jamais la
+  séquence </script dans un résumé.
 - Vérifications obligatoires avant livraison :
-  · node --check sur chaque bloc <script> de index.html et sur sw.js ;
+  · node --check sur chacun des quatre blocs <script> de index.html,
+    sur sw.js et sur catalogue.js ;
   · évaluation du tableau LESSONS pour confirmer que le résumé décodé
     est identique au texte brut et que le nombre de résumés remplis a
     augmenté du nombre de cours livrés ;
+  · SURAS, MANASIK, ASMA, catalogue.js : identiques octet pour octet
+    au zip précédent ;
   · diff avec le zip précédent : seules les lignes resume des cours
     traités et la ligne VERSION de sw.js doivent changer.
 
@@ -108,9 +137,28 @@ réellement présents dans la transcription.
 7. sw.js ET LIVRAISON
 ========================================================
 - Incrémenter VERSION dans sw.js au numéro de la livraison ("vNN").
+  Ne pas toucher au reste de sw.js (PRECACHE contient catalogue.js).
 - Livrer : index.html, sw.js, les fichiers correction-audio-NN.txt,
   et le zip complet sirafr-vNN-complet.zip (tous les fichiers du site,
-  à plat, comme le zip reçu).
+  à plat, comme le zip reçu — y compris catalogue.js, même inchangé,
+  et les fichiers nouveaute-*.txt et correction-audio-*.txt des
+  livraisons précédentes).
 - Message de livraison court : ce qui change par rapport à la version
   précédente, longueur des résumés, et les points à vérifier à l'écoute
   (repris de la section 6 des corrections).
+
+========================================================
+8. SI LA LIVRAISON N'EST PAS UNE LIVRAISON DE RÉSUMÉS
+========================================================
+(Ajout d'une section, correction du site, mise à jour du catalogue.)
+- Le catalogue se met à jour en remplaçant catalogue.js en entier ;
+  index.html n'a rien à savoir de son contenu.
+- Une nouvelle section suit la marche à suivre commentée dans
+  index.html (« MENU LATÉRAL ET NAVIGATION ») : bouton .drawer-item,
+  bloc <div class="vue" id="vue-…" hidden>, entrée dans VUES, tuile
+  .hub-tile sur l'accueil.
+- Documenter dans un fichier nouveaute-<sujet>-vNN.txt, comme les
+  précédents : ce qui change, la technique, les vérifications.
+- Mêmes vérifications qu'en section 5, plus un rendu jsdom des
+  sections touchées (arrivée par chaque adresse, menu actif, aucune
+  erreur dans la console). LESSONS reste identique octet pour octet.
