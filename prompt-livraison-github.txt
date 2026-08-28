@@ -1,0 +1,116 @@
+PROMPT DE LIVRAISON — SITE « LA SĪRA DU PROPHÈTE ﷺ » (GitHub → Netlify)
+
+NOTE : cette version est une réécriture du prompt de livraison. Le fichier
+d'origine n'ayant pas été conservé dans la session, le texte ci-dessous
+reprend les règles effectivement appliquées aux livraisons v22 à v25, et
+ajoute la règle nouvelle sur la longueur des résumés (section 4). Si vous
+disposez encore de l'original, renvoyez-le pour fusion mot à mot.
+
+========================================================
+1. CONTEXTE
+========================================================
+- Le site est une page unique, index.html, déployée sur Netlify depuis un
+  dépôt GitHub (sirafr). Tous les résumés de cours sont intégrés dans
+  index.html, dans le tableau JavaScript LESSONS (une entrée par cours :
+  numero, titreAr, titreFr, resume, audio).
+- Le site est une PWA : sw.js met le site en cache hors ligne. La
+  constante VERSION de sw.js doit être incrémentée à chaque livraison,
+  sinon les utilisateurs gardent l'ancienne version en cache.
+- Les audios des cours sont hébergés sur Google Drive (liens déjà
+  présents dans LESSONS) ; ne pas les modifier.
+- Chaque livraison reçoit : le zip complet de la version précédente
+  (sirafr-vNN-complet.zip), les transcriptions automatiques (ASR) des
+  cours à traiter, et ce prompt.
+
+========================================================
+2. TRAVAIL ATTENDU POUR CHAQUE COURS
+========================================================
+- Identifier le cours : le numéro et les titres (arabe/français) sont
+  déjà dans LESSONS ; la transcription ASR doit être rattachée au bon
+  numéro (vérifier avec le contenu et la dernière ligne « Prochain
+  cours » du résumé précédent).
+- Lire la transcription en entier, en tenant compte de ses défauts :
+  noms propres déformés, citations arabes corrompues, boucles de
+  répétition, hallucinations (sous-titrage, publicités), confusion
+  professeur/Prophète.
+- Rédiger le résumé en français, fidèle au contenu du cours et à l'ordre
+  du sheikh : récits, citations coraniques et hadiths cités, commentaires
+  et leçons tirées, digressions utiles. Restituer les citations d'après
+  les sources classiques (Ibn Hishâm, Bukhârî, Muslim, Musnad d'Ahmad,
+  at-Tirmidhî, al-Bayhaqî…) quand l'audio est corrompu.
+- Ne rien inventer : si un point n'est pas audible ou pas certain, le
+  signaler dans le fichier de corrections (section 6) plutôt que de
+  trancher.
+
+========================================================
+3. STYLE ET FORMAT DU RÉSUMÉ
+========================================================
+- Première phrase : rappel du point où s'était arrêté le cours
+  précédent, puis annonce du sujet du cours.
+- Titres de sections en clair, terminés par « : » ; points en « • »
+  ou listes numérotées « 1. 2. 3. » pour les leçons ; paragraphes
+  séparés par une ligne vide.
+- Dernière ligne : « Prochain cours : … » (titre français du cours
+  suivant tel qu'il figure dans LESSONS).
+- Conventions : « Sīra » (avec macron) ; « Coran » ; le Prophète ﷺ
+  (symbole, pas de formule romanisée) ; translittération avec accents
+  circonflexes pour les longues ('Umar, Abû Bakr, Ibn Ishâq, Sa'îd ibn
+  Zayd, al-Bukhârî…) ; références coraniques sous la forme (Tâ-Hâ 14),
+  (al-An'âm 122) ; guillemets français « … » ; termes arabes
+  techniques translittérés entre parenthèses (mu'âkhât, ighrâ'…).
+- Pas de guillemets droits ("), pas d'antislash dans le texte brut.
+
+========================================================
+4. LONGUEUR DU RÉSUMÉ — AUCUNE LIMITE
+========================================================
+- Ne pas limiter le nombre de caractères du résumé. Il n'existe aucune
+  contrainte technique (le champ resume accepte n'importe quelle
+  longueur) et aucune fourchette cible : la seule règle est la
+  complétude par rapport au cours.
+- Ne pas « resserrer » un résumé pour l'aligner sur la longueur des
+  résumés précédents. Un cours long ou dense donne un résumé long.
+- Conserver en entier les versets, hadiths et récits lus par le sheikh,
+  ses commentaires, ses leçons et ses digressions ; ne couper que les
+  répétitions de l'ASR et les remarques sans lien avec le cours.
+- Si un doute existe entre deux formulations, garder la plus complète.
+
+========================================================
+5. INSERTION DANS index.html
+========================================================
+- Cibler l'entrée par son contexte (numero: NN,) et remplacer
+  uniquement la valeur de resume: "". Ne toucher à rien d'autre dans le
+  fichier.
+- Échappement, une seule fois : apostrophes → \' ; sauts de paragraphe
+  → \n\n ; pas de retour à la ligne réel dans la chaîne.
+- Vérifications obligatoires avant livraison :
+  · node --check sur chaque bloc <script> de index.html et sur sw.js ;
+  · évaluation du tableau LESSONS pour confirmer que le résumé décodé
+    est identique au texte brut et que le nombre de résumés remplis a
+    augmenté du nombre de cours livrés ;
+  · diff avec le zip précédent : seules les lignes resume des cours
+    traités et la ligne VERSION de sw.js doivent changer.
+
+========================================================
+6. FICHIER DE CORRECTIONS (correction-audio-NN.txt)
+========================================================
+Un fichier par cours, même en-tête que les précédents (numéro, titre,
+« livraison vNN »), et six sections :
+ 1. Mentions du Prophète ﷺ (formules romanisées, « le professeur »…)
+ 2. Noms propres déformés → forme correcte, avec l'arabe
+ 3. Citations arabes corrompues rétablies d'après les sources
+ 4. Vocabulaire / termes techniques
+ 5. Boucles et artefacts de l'ASR
+ 6. Points ambigus non tranchés (avec ce que le résumé a retenu)
+Ne pas y consigner ce qui n'a pas été entendu : lister les garbles
+réellement présents dans la transcription.
+
+========================================================
+7. sw.js ET LIVRAISON
+========================================================
+- Incrémenter VERSION dans sw.js au numéro de la livraison ("vNN").
+- Livrer : index.html, sw.js, les fichiers correction-audio-NN.txt,
+  et le zip complet sirafr-vNN-complet.zip (tous les fichiers du site,
+  à plat, comme le zip reçu).
+- Message de livraison court : ce qui change par rapport à la version
+  précédente, longueur des résumés, et les points à vérifier à l'écoute
+  (repris de la section 6 des corrections).
