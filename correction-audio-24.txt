@@ -1,0 +1,286 @@
+CORRECTIONS DE LA TRANSCRIPTION AUTOMATIQUE — COURS 24
+« L'appel généralisé : la conversion de 'Umar »
+Corrections apportées lors de la rédaction du résumé (livraison v25).
+
+========================================================
+1. MENTIONS DU PROPHÈTE ﷺ
+========================================================
+- « alayhi salatu wassalam », « sallallahu alayhi wa sallam »
+  (romanisés), « السلام على رسول الله » → الصلاة والسلام على
+  رسول الله / le Prophète ﷺ.
+- « le professeur » (x3, boucle ASR : « le professeur
+  invoquait », « le professeur faisait ainsi ») → le
+  Prophète ﷺ — confusion constante professeur/Prophète
+  (cf. cours 23).
+- « le Prophète Al-Assam » → le Prophète ﷺ (garble de
+  « alayhi s-salâm »).
+- « Rassoul Allah », « Rasoulillah » → Rasûlullâh ﷺ.
+- « il cherche le professeur pour le tuer » → 'Umar cherche
+  le Prophète ﷺ pour le tuer.
+- « Mohamed » (récurrent, dans la bouche de 'Umar encore
+  associateur) → Muhammad ﷺ.
+
+========================================================
+2. NOMS PROPRES DÉFORMÉS
+========================================================
+- « Omar Ibn Khattab », « Omar », « Romain » (!), « l'homme »
+  → 'Umar ibn al-Khattâb al-'Adawî, al-Fârûq (عمر بن الخطاب
+  العدوي). « Romain » est un garble récurrent de « 'Umar »
+  (« l'opinion selon laquelle "l'homme" désigne Romain » →
+  « …désigne 'Umar »).
+- « période mekuwaz » → période mecquoise.
+- « musnade d'Alima Mahmoud », « musnade Ahmed » → le Musnad
+  de l'imam Ahmad (مسند الإمام أحمد).
+- « Abu Jahl, Ibn Hicham » → Abû Jahl ('Amr ibn Hishâm) ;
+  « Abu Jihad » (x2) → Abû Jahl ; « Amr ibn Hicham » (dans
+  la bouche de Khabbâb) → 'Amr ibn Hishâm = Abû Jahl.
+- « Oum Abdallah », « Leïla bint Abi Hassma / Hathma » → Umm
+  'Abdillâh Laylâ bint Abî Hathma رضي الله عنها (أم عبد الله
+  ليلى بنت أبي حثمة), épouse de 'Âmir ibn Rabî'a.
+- « Amir ibn Rabia », « Amer » → 'Âmir ibn Rabî'a رضي الله
+  عنه (عامر بن ربيعة), compagnon émigré en Abyssinie.
+- « Nourayn », « Nouaïm ibn Abdallah » → Nu'aym ibn 'Abdillâh
+  an-Nahhâm al-'Adawî (نعيم بن عبد الله النحام), musulman en
+  secret, du clan de 'Umar (Banû 'Adî).
+- « c'est du côté de sa mère » → les Banû Zuhra (بنو زهرة),
+  clan maternel du Prophète ﷺ (Âmina bint Wahb) ; « les Abdu
+  Manaf » → Banû 'Abd Manâf (بنو عبد مناف).
+- « Fatima bint Khattab » → Fâtima bint al-Khattâb رضي الله
+  عنها, sœur de 'Umar.
+- « Saïd ibn Zayy », « Saïd ibn Zaïd » → Sa'îd ibn Zayd ibn
+  'Amr ibn Nufayl رضي الله عنه (سعيد بن زيد), beau-frère et
+  cousin de 'Umar, l'un des dix promis au Paradis.
+- « Khabbab ibn al-Arat », « Khabab » → Khabbâb ibn al-Aratt
+  رضي الله عنه (خباب بن الأرت).
+- « sourate Taha », « Ta Ha » → sûrat Tâ-Hâ (طه).
+- « dar al-Arqam », « chez Ibn al-Arqam » → Dâr al-Arqam
+  (دار الأرقم), la maison d'al-Arqam ibn Abî al-Arqam, au bas
+  d'as-Safâ (« Safa », « au bas de Safâ » → as-Safâ, الصفا).
+- « Hamza » : correct ; « Abou Bakr », « Ali » : corrects.
+- « sourate al-Haqqa », « al-Hakka » → sûrat al-Hâqqa
+  (الحاقة).
+- « Jameel Ibn Umar », « Djamil ibn Ma'mar » → Jamîl ibn
+  Ma'mar al-Jumahî (جميل بن معمر الجمحي), le colporteur de
+  nouvelles de Quraysh.
+- « Ibn Omar » → 'Abdullâh ibn 'Umar رضي الله عنهما, fils de
+  'Umar, narrateur du récit (il était alors un jeune garçon).
+- « les Bani Adi », « Banou Adi ibn Ka'b » → Banû 'Adî ibn
+  Ka'b (بنو عدي بن كعب), clan de 'Umar.
+- « l'as et le wail », « al-As ibn Wa'il » → al-'Âs ibn Wâ'il
+  as-Sahmî (العاص بن وائل السهمي), père de 'Amr ibn al-'Âs,
+  celui qui traita le Prophète ﷺ d'« abtar » (cf. sûrat
+  al-Kawthar).
+- « Amr ibn al-As » → 'Amr ibn al-'Âs رضي الله عنه.
+- « Ibn Mas'oud » → 'Abdullâh ibn Mas'ûd رضي الله عنه.
+- « l'Ukassir » → Ibn Kathîr (ابن كثير), l'exégète.
+- « Raoub ibn Sa'ad » → Ibn Sa'd (ابن سعد), auteur des
+  Tabaqât — source de l'âge de 'Umar (26 ans).
+- « al-Hafez » → « un hâfiz » (un mémorisateur/savant du
+  hadith), nom inaudible — voir section 6.
+- « Ibn Hicham » → Ibn Hishâm (ابن هشام), transmetteur de la
+  Sîra d'Ibn Ishâq.
+- « Ibrahim, Moïse, Noé, Adam, Job, David, Salomon » →
+  Ibrâhîm, Mûsâ, Nûh, Âdam, Ayyûb, Dâwûd, Sulaymân عليهم
+  السلام (liste des vrais prophètes).
+
+========================================================
+3. CITATIONS ARABES CORROMPUES RÉTABLIES D'APRÈS LES SOURCES
+========================================================
+- L'invocation du Prophète ﷺ (garble : « allahoumma a'izz
+  al-islam bi… ») → «اللهم أعزَّ الإسلامَ بأحبِّ هذين
+  الرجلين إليك: بأبي جهل أو بعمر بن الخطاب» (at-Tirmidhî
+  3681, Ahmad) ; version courte : «اللهم أعزَّ الإسلامَ بعمرَ
+  بنِ الخطاب».
+- Le récit de Laylâ (garbles : « inna la natarahhal »,
+  « anta li hakadha ») → Ibn Hishâm : «قالت: والله إنا
+  لنترحَّل إلى أرض الحبشة… وكان عمر لا يعرف منه إلا غلظة
+  علينا وشدة… فقال: إنه للانطلاق يا أم عبد الله؟ قالت: نعم،
+  والله لنخرجنَّ في أرض الله، آذيتمونا وقهرتمونا حتى يجعل الله
+  لنا مخرجًا. فقال: صَحِبَكم الله. ورأيت له رقةً لم أكن
+  أراها…».
+- La réponse de 'Âmir → «لا يُسلم الذي رأيتِ حتى يُسلم حمارُ
+  الخطاب».
+- Nu'aym à 'Umar (garble sur « ghar-ratka nafsuka ») → Ibn
+  Hishâm : «والله لقد غرَّتك نفسُك من نفسك يا عمر، أترى بني
+  عبد مناف تاركيك تمشي على الأرض وقد قتلتَ محمدًا؟ أفلا ترجع
+  إلى أهل بيتك فتقيم أمرهم؟ … خَتَنُك وابنُ عمك سعيدُ بن
+  زيد، وأختُك فاطمةُ بنت الخطاب، فقد والله أسلما وتابعا
+  محمدًا على دينه».
+- « quel est ce murmure ? » → «ما هذه الهَيْنَمة التي سمعت؟» ;
+  « auriez-vous apostasié ? » → «فلعلكما قد صَبَوْتُما».
+- La réponse de Sa'îd ibn Zayd (garble : « ara'ayta in kana
+  al-haq ») → «أرأيت يا عمر إن كان الحق في غير دينك؟».
+- Fâtima et Sa'îd (répété trois fois par l'ASR) → «نعم قد
+  أسلمنا وآمنا بالله ورسوله، فاصنع ما بدا لك».
+- Fâtima au sujet du feuillet → «إنك نَجِسٌ على شركك، وإنه لا
+  يمسُّه إلا المطهَّرون» (cf. al-Wâqi'a 79 : «لا يمسُّه إلا
+  المطهَّرون») ; «فقام عمر فاغتسل».
+- Tâ-Hâ 1-5 (garbles phonétiques sur « ma anzalna »,
+  « tadhkiratan ») → «طه، ما أنزلنا عليك القرآنَ لتشقى، إلا
+  تذكرةً لمن يخشى، تنزيلاً ممن خلق الأرضَ والسماواتِ العُلى،
+  الرحمنُ على العرش استوى» ; Tâ-Hâ 7 : «يعلم السرَّ وأخفى» ;
+  Tâ-Hâ 14 : «إنني أنا اللهُ لا إله إلا أنا فاعبدني وأقم
+  الصلاةَ لذكري».
+- La réaction de 'Umar → Ibn Hishâm : «ما أحسنَ هذا الكلامَ
+  وأكرمَه! … ما ينبغي لمن يقول هذا أن يُعبَد معه غيرُه،
+  دلُّوني على محمد».
+- Al-An'âm 125 (garbles sur « sadrahu », « samâ' ») → «فمن
+  يُرِدِ اللهُ أن يهديَه يشرح صدرَه للإسلام، ومن يُرِدْ أن
+  يُضلَّه يجعل صدرَه ضيِّقًا حَرَجًا كأنما يصَّعَّد في
+  السماء».
+- Khabbâb à 'Umar → «أبشِرْ يا عمر، فإني أرجو أن تكون دعوةُ
+  رسول الله ﷺ لك… اللهم أيِّد الإسلامَ بأبي الحكم بن هشام أو
+  بعمر بن الخطاب» ; «هو في بيتٍ عند الصفا».
+- Hamza (segment illisible dans l'audio) → «ائذن له، فإن
+  كان جاء يريد خيرًا بذلناه له، وإن كان جاء يريد شرًّا
+  قتلناه بسيفه».
+- Le Prophète ﷺ à 'Umar (garble : « ma ja'a bika ya ibn
+  al-khattab… qari'a ») → «ما جاء بك يا ابنَ الخطاب؟ فوالله
+  ما أرى أن تنتهيَ حتى يُنزلَ اللهُ بك قارعةً» ; 'Umar : «يا
+  رسولَ الله، جئتُك لأومنَ بالله وبرسوله وبما جاء من عند
+  الله» ; «فكبَّر رسولُ الله ﷺ تكبيرةً عرف أهلُ البيت… أن عمرَ
+  قد أسلم».
+- Le récit d'al-Hâqqa (Musnad d'Ahmad, de 'Umar) → «خرجتُ
+  أتعرَّض لرسول الله ﷺ… فاستفتح سورةَ الحاقة، فجعلتُ أعجبُ من
+  تأليف القرآن، فقلت: هذا والله شاعرٌ كما قالت قريش، فقرأ:
+  {إنه لقولُ رسولٍ كريم، وما هو بقول شاعر، قليلاً ما
+  تؤمنون}، قلت: كاهنٌ، فقرأ: {ولا بقول كاهن، قليلاً ما
+  تذكَّرون، تنزيلٌ من رب العالمين، ولو تقوَّل علينا بعضَ
+  الأقاويل، لأخذنا منه باليمين، ثم لقطعنا منه الوتين، فما
+  منكم من أحدٍ عنه حاجزين}… فوقع الإسلامُ في قلبي كلَّ
+  موقع» (al-Hâqqa 40-47).
+- Al-Ahqâf 8 → «قل إنِ افتريتُه فلا تملكون لي من الله شيئًا…
+  كفى به شهيدًا بيني وبينكم».
+- Ghâfir 28 (garble : « la an yaqoul rabbi Allah… musrif »)
+  → «أتقتلون رجلاً أن يقولَ ربيَ الله… وإن يكُ كاذبًا فعليه
+  كذبُه، وإن يكُ صادقًا يُصِبْكم بعضُ الذي يعدكم، إن الله لا
+  يهدي من هو مسرفٌ كذاب».
+- L'annonce à Jamîl (garble : « saba'a Omar ») → Ibn Hishâm :
+  «يا معشر قريش، إن ابنَ الخطاب قد صَبَأ» ; 'Umar : «كذب،
+  ولكني قد أسلمتُ وشهدتُ أن لا إله إلا الله وأن محمدًا عبده
+  ورسوله».
+- « si nous étions trois cents » → «افعلوا ما بدا لكم، فأحلف
+  بالله أن لو قد كنا ثلاثَمائةِ رجل لقد تركناها لكم أو
+  تركتموها لنا».
+- Al-'Âs ibn Wâ'il → «ما شأنُكم؟ قالوا: صَبَأ عمر. قال: فمَهْ،
+  رجلٌ اختار لنفسه أمرًا فماذا تريدون؟ أترون بني عديِّ بن كعب
+  يُسْلمون لكم صاحبَهم هكذا؟ خلُّوا عن الرجل» ; Ibn 'Umar :
+  «فكأنما كان ثوبًا كُشِط عنه».
+- Ibn Mas'ûd → «ما زلنا أعزَّةً منذ أسلم عمرُ» (al-Bukhârî
+  3684) ; «كان إسلامُ عمرَ فتحًا».
+- Al-An'âm 122 (garbles sur « zuyyina », « lil kafirin ») →
+  «أوَمن كان ميتًا فأحييناه وجعلنا له نورًا يمشي به في الناس
+  كمن مثلُه في الظلمات ليس بخارجٍ منها، كذلك زُيِّن للكافرين
+  ما كانوا يعملون».
+
+========================================================
+4. VOCABULAIRE / TERMES TECHNIQUES
+========================================================
+- « al-Farouq » → al-Fârûq (الفاروق), « celui qui distingue
+  (le vrai du faux) », surnom de 'Umar.
+- « quwwat ash-shakima » → quwwat ash-shakîma (قوة الشكيمة),
+  la force de caractère.
+- « assauteurs » → les associateurs (mushrikûn, المشركون) ;
+  « répondre des ambiguïtés » → RÉPANDRE des ambiguïtés
+  (shubuhât, الشبهات).
+- « elle se prend à sourire » → elle se prend à ESPÉRER (sa
+  conversion) — «طَمِعَتْ في إسلامه».
+- « la haynama » → al-haynama (الهينمة), murmure, récitation
+  à voix basse.
+- « sabaa », « il a sabé » → saba'a (صبأ) : « apostasier »,
+  quitter la religion de ses pères — terme péjoratif utilisé
+  par Quraysh pour les nouveaux musulmans.
+- « sahifa » → sahîfa (صحيفة), feuillet écrit.
+- « la mou'akhat » → al-mu'âkhât (المؤاخاة), la fraternisation
+  entre Ansâr et Muhâjirûn à Médine ; « ils s'héritaient »
+  → ils héritaient les uns des autres (avant l'abrogation).
+- « fitra » → al-fitra (الفطرة), la nature première.
+- « guillée » → la guidée (hidâya, الهداية).
+- « les fourou' » → al-furû' (الفروع), les branches (de la
+  religion), par opposition aux fondements.
+- « l'anan » → l'ÂNE (d'al-Khattâb) ; « deuxième calif » →
+  deuxième calife.
+- « fath » → fath (فتح), ouverture/victoire ; « faraj » →
+  faraj (فرج), soulagement.
+- « abtar » → abtar (أبتر), « sans postérité », l'insulte
+  d'al-'Âs ibn Wâ'il visée par sûrat al-Kawthar 3.
+- « takbir » → takbîr (Allâhu akbar).
+- « da'wa », « dawa » → da'wa (الدعوة), l'appel à l'islam ;
+  « khoutba » → khutba.
+- « les moustad'afin » → al-mustad'afûn (المستضعفون), les
+  faibles/opprimés.
+- « le Coran il lui mire » → « la lumière, c'est le Coran »
+  (an-nûr huwa l-Qur'ân).
+
+========================================================
+5. BOUCLES ET ARTEFACTS DE L'ASR
+========================================================
+- « le professeur » répété trois fois de suite → une seule
+  occurrence (le Prophète ﷺ).
+- « Abu Jihad, Abu Jihad » → Abû Jahl (une occurrence).
+- « nous croyons en Allah et Son Messager » répété trois
+  fois → une seule occurrence (réponse de Fâtima et Sa'îd).
+- Phrase sur « l'islam… l'islam… » tournant en boucle après
+  le récit d'al-'Âs → dédoublonnée (« l'islam de 'Umar fut
+  une ouverture »).
+- « il ceint son épée, il ceint son épée » → dédoublonné.
+- « hijar » → hijra (« après la hijra à Médine ») ; « le
+  jour de la paix » → « le jour où j'ai embrassé l'islam »
+  (يوم أسلمت).
+- « le kilomètre » (dans « ils étaient 40… le kilomètre ») →
+  garble non résolu ; contexte : une quarantaine de
+  musulmans à Dâr al-Arqam.
+- « the novel » / « le roman » → garble de « 'Umar » (comme
+  « Romain »).
+- Fragment mêlant arabe et français sans cohérence après
+  « qui est cet homme qui vous a arrêtés » → ignoré.
+- Phrase finale du segment Dâr al-Arqam trop confuse pour
+  être restituée mot à mot ; sens conservé (le takbîr
+  s'entend jusque dans La Mecque).
+- Segment de la réponse de Hamza rendu illisible par le bruit
+  → restitué d'après Ibn Hishâm (section 3).
+- Versets arabes déformés sur « le châtiment des mécréants et
+  l'aveuglement de leurs actes » → al-An'âm 122 (section 3).
+
+========================================================
+6. POINTS AMBIGUS NON TRANCHÉS
+========================================================
+- Le récit de Laylâ bint Abî Hathma est attribué dans l'audio
+  au « Musnad de l'imam Ahmad » ; la source classique est la
+  Sîra d'Ibn Ishâq (Ibn Hishâm), reprise par al-Bayhaqî. Le
+  résumé écrit « Ibn Ishâq — et, selon le cours, le Musnad
+  d'Ahmad » — à vérifier à l'écoute.
+- Les paroles de Nu'aym mentionnent « les Banû 'Abd Manâf et
+  les Banû Zuhra (le clan de sa mère) » ; chez Ibn Hishâm il
+  n'est question que des Banû 'Abd Manâf. La mention des
+  Banû Zuhra vient d'une autre version ou d'un ajout du
+  sheikh ; le résumé la garde avec le tiret explicatif.
+- Âge de 'Umar à sa conversion : l'audio donne « 26 ans »
+  (avis d'Ibn Sa'd) ; d'autres sources donnent 27. Nombre de
+  musulmans l'ayant précédé : « une quarantaine d'hommes et de
+  femmes » (les sources varient : 39, 40, 45).
+- Le récit d'al-Hâqqa (Musnad d'Ahmad) : le sheikh présente
+  deux lectures — prémices de la conversion, ou autre
+  version de celle-ci. Les deux sont gardées.
+- « Dans une version, 'Umar ajoute : qu'Allah ne le récompense
+  pas en bien » (à propos d'al-'Âs ibn Wâ'il) : cette
+  formule n'a pas été retrouvée dans les sources consultées ;
+  elle peut être un commentaire du sheikh (un acte honorable
+  n'efface pas ses torts). À confirmer à l'écoute.
+- Qui entend le takbîr : Ibn Hishâm dit que les gens de la
+  maison le comprirent ; d'autres versions (Anas, chez
+  al-Bayhaqî) ajoutent que les gens de la mosquée
+  l'entendirent. L'audio dit « jusque dans La Mecque » — le
+  résumé le suit.
+- Le récit de Jamîl ibn Ma'mar : chez Ibn Hishâm la scène a
+  lieu à la porte de la mosquée ; chez al-Bukhârî (3864-3865)
+  l'attroupement et l'intervention d'al-'Âs ont lieu devant
+  la maison de 'Umar. L'audio mentionne les deux — le résumé
+  signale la variante d'al-Bukhârî.
+- « Al-Hafez » cité sur la nécessité de versets dans toute
+  khutba : nom inaudible (Ibn Hajar ? Ibn Kathîr ?). Le résumé
+  ne nomme personne.
+- Cause de révélation d'al-An'âm 122 : l'audio donne trois
+  avis ('Umar/Abû Jahl, Hamza/Abû Jahl, le Prophète ﷺ/Abû
+  Jahl) puis la position d'Ibn Kathîr (verset général) —
+  restitués tels quels.
