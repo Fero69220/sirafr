@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="La Sīra du Prophète ﷺ">
 <meta property="og:title" content="La Sīra du Prophète ﷺ — 155 leçons">
-<meta property="og:description" content="Résumés des 155 leçons audio sur la Sīra, fiches des 114 sourates, guide interactif de la 'Umra et du Hajj, et cours sur les noms d'Allah.">
+<meta property="og:description" content="Résumés des 155 leçons audio sur la Sīra, fiches des 114 sourates, guide interactif de la 'Umra et du Hajj, les noms d'Allah — et le catalogue des 1 848 cours audio du sheikh depuis 2018.">
 <meta property="og:url" content="https://fero69220.github.io/sirafr/">
 <meta property="og:image" content="https://fero69220.github.io/sirafr/icon-512.png">
 <meta property="og:image:width" content="512">
@@ -18,7 +18,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="La Sīra du Prophète ﷺ — 155 leçons">
-<meta name="twitter:description" content="Résumés des 155 leçons audio sur la Sīra, fiches des 114 sourates, guide de la 'Umra et du Hajj.">
+<meta name="twitter:description" content="Résumés des 155 leçons audio sur la Sīra, fiches des 114 sourates, guide de la 'Umra et du Hajj, et les 1 848 cours audio du sheikh.">
 <meta name="twitter:image" content="https://fero69220.github.io/sirafr/icon-512.png">
 <meta name="theme-color" content="#0F1F1A">
 <link rel="manifest" href="manifest.webmanifest">
@@ -279,6 +279,33 @@
     .hub-tile.hub-main .hub-ar{font-size:1.6rem;min-width:70px}
   }
   @media (prefers-reduced-motion:reduce){.hub-tile{transition:none}}
+
+  /* ---------- Tous les cours — le catalogue complet (v27.1) ---------- */
+  .hub-tile.hub-wide{grid-column:1/-1;border-left-color:var(--gold-dim)}
+  #vue-cours .wrap{padding-bottom:70px}
+  .cat-fil{
+    display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;
+    margin-top:26px;font-size:.82rem;color:var(--muted);
+  }
+  .cat-fil a{color:var(--muted);text-decoration:none;border-bottom:1px solid transparent}
+  .cat-fil a:hover{color:var(--gold);border-bottom-color:var(--gold-dim)}
+  .cat-fil .sep{color:var(--gold-dim)}
+  .cat-fil .ici{color:var(--cream)}
+  .cat-toolbar{padding:18px 0 4px}
+  .cat-grid{display:grid;gap:14px;margin-top:18px}
+  @media (min-width:640px){.cat-grid.matieres{grid-template-columns:1fr 1fr}}
+  .cat-titre{
+    font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.05rem;
+    letter-spacing:.06em;text-transform:uppercase;color:var(--gold);
+    margin-top:34px;padding-bottom:8px;border-bottom:1px solid var(--line);
+  }
+  .cat-titre small{font-family:'Lora',serif;text-transform:none;letter-spacing:0;color:var(--muted);font-weight:400;font-size:.82rem;margin-left:8px}
+  .cat-meta{color:var(--muted);font-size:.85rem;margin-top:6px}
+  .cat-note{color:var(--muted);font-size:.82rem;font-style:italic;align-self:center}
+  .cat-entete{text-align:center;padding-top:56px}
+  .cat-entete .mk-title-ar{font-family:'Amiri',serif;font-weight:700;font-size:clamp(1.9rem,6vw,2.6rem);color:var(--gold);direction:rtl;line-height:1.5}
+  .cat-entete .suras-sub{max-width:520px;margin-left:auto;margin-right:auto}
+  .cat-renvoi{border-color:var(--gold-dim);background:rgba(201,164,85,.06)}
 
   /* ---------- Menu latéral (3 barres) et sections ---------- */
   .vue[hidden]{display:none!important}
@@ -741,12 +768,26 @@
     </span>
     <span class="di-ar">أسماء الله</span>
   </button>
-  <button class="drawer-item" data-view="fiqh">
+  <button class="drawer-item" data-view="cours">
     <span class="di-txt">
-      <span class="di-fr">Le fiqh de la prière <span class="badge">à venir</span></span>
-      <span class="di-sub">Conditions, piliers, description de la prière</span>
+      <span class="di-fr">Tous les cours du sheikh <span class="badge">Nouveau</span></span>
+      <span class="di-sub">1 848 séances en 312 séries — 11 matières</span>
     </span>
-    <span class="di-ar">فقه الصلاة</span>
+    <span class="di-ar">جميع الدروس</span>
+  </button>
+  <button class="drawer-item" data-view="cours/fiqh">
+    <span class="di-txt">
+      <span class="di-fr">Le fiqh</span>
+      <span class="di-sub">La prière, le jeûne, les ablutions, le mariage… 807 séances</span>
+    </span>
+    <span class="di-ar">الفقه</span>
+  </button>
+  <button class="drawer-item" data-view="cours/riyad">
+    <span class="di-txt">
+      <span class="di-fr">Riyâd as-Sâlihîn</span>
+      <span class="di-sub">Les chapitres du recueil de l'imam an-Nawawî — 346 séances</span>
+    </span>
+    <span class="di-ar">رياض الصالحين</span>
   </button>
 </nav>
 
@@ -778,6 +819,15 @@
         <span class="hub-meta" id="hub-meta-sira"></span>
       </span>
       <span class="hub-ar">السيرة</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+    <a class="hub-tile hub-wide" href="#cours">
+      <span class="hub-txt">
+        <span class="hub-fr">Tous les cours du sheikh <span class="badge">Nouveau</span></span>
+        <span class="hub-sub">Le catalogue depuis 2018 : jurisprudence, Riyâd as-Sâlihîn, Coran expliqué, purification de l'âme, compagnons, croyance, langue arabe… rangé par matière et par série.</span>
+        <span class="hub-meta" id="hub-meta-cours"></span>
+      </span>
+      <span class="hub-ar">جميع الدروس</span>
       <span class="hub-go" aria-hidden="true">›</span>
     </a>
     <a class="hub-tile" href="#asma">
@@ -816,13 +866,22 @@
       <span class="hub-ar">رحلة الحج</span>
       <span class="hub-go" aria-hidden="true">›</span>
     </a>
-    <a class="hub-tile soon" href="#fiqh">
+    <a class="hub-tile" href="#cours/fiqh">
       <span class="hub-txt">
-        <span class="hub-fr">Le fiqh de la prière <span class="badge">à venir</span></span>
-        <span class="hub-sub">Conditions, piliers et description de la prière, du takbîr au salâm.</span>
-        <span class="hub-meta">In shâ' Allâh, prochainement</span>
+        <span class="hub-fr">Le fiqh</span>
+        <span class="hub-sub">La prière du takbîr au salâm, les ablutions, le jeûne, le pèlerinage, le mariage, les funérailles.</span>
+        <span class="hub-meta" id="hub-meta-fiqh"></span>
       </span>
-      <span class="hub-ar">فقه الصلاة</span>
+      <span class="hub-ar">الفقه</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+    <a class="hub-tile" href="#cours/riyad">
+      <span class="hub-txt">
+        <span class="hub-fr">Riyâd as-Sâlihîn</span>
+        <span class="hub-sub">Les chapitres du recueil de l'imam an-Nawawî, expliqués un à un : la patience, la sincérité, les interdits de la langue…</span>
+        <span class="hub-meta" id="hub-meta-riyad"></span>
+      </span>
+      <span class="hub-ar">رياض الصالحين</span>
       <span class="hub-go" aria-hidden="true">›</span>
     </a>
   </nav>
@@ -877,16 +936,6 @@
   </div>
   <div id="sura-view"></div>
 </section>
-
-<div class="vue" id="vue-fiqh" hidden>
-  <div class="wrap coming">
-    <div class="ornament" aria-hidden="true">۞</div>
-    <h2 class="coming-ar">فقه الصلاة</h2>
-    <p class="fr-title">Le fiqh de la prière</p>
-    <p class="coming-badge">À venir, in shâ' Allâh</p>
-    <p class="coming-text">Cette section accueillera prochainement les cours sur le fiqh de la prière : ses conditions, ses piliers et obligations, et sa description complète, du takbîr au salâm.</p>
-  </div>
-</div>
 
 <div class="vue" id="vue-manasik" hidden>
   <div class="wrap">
@@ -987,6 +1036,31 @@
 
     <div id="asma-list"></div>
     <p id="asma-empty" class="count-line" style="text-align:center;margin-top:18px" hidden>Les cours individuels apparaîtront ici prochainement, in shâ' Allâh.</p>
+  </div>
+</div>
+
+<!-- ★ TOUS LES COURS (v27.1) : le catalogue complet du sheikh, lu depuis catalogue.js.
+     Adresses : #cours (les matières), #cours/fiqh (une matière), #cours/fiqh/la-priere-20250620 (une série). -->
+<div class="vue" id="vue-cours" hidden>
+  <div class="wrap">
+    <div class="cat-entete">
+      <div class="ornament" aria-hidden="true">۞</div>
+      <div class="mk-title-ar">دروس الشيخ</div>
+      <h2 class="fr-title">Tous les cours du sheikh</h2>
+      <p class="suras-sub" id="cat-sous-titre"></p>
+    </div>
+
+    <nav class="cat-fil" id="cat-fil" aria-label="Vous êtes ici"></nav>
+
+    <div class="cat-toolbar">
+      <input type="search" id="cours-search" class="search"
+             placeholder="Rechercher un cours, une série, un chapitre…"
+             aria-label="Rechercher dans tous les cours">
+      <p class="count-line" id="cat-count"></p>
+    </div>
+
+    <div id="cat-liste"></div>
+    <p class="empty" id="cat-vide" hidden>Aucun cours ne correspond à cette recherche.</p>
   </div>
 </div>
 
@@ -5953,7 +6027,17 @@ hajj: [
    4. Ajoutez une tuile <a class="hub-tile" href="#monsujet"> dans la
       page d'accueil (id="vue-accueil"), sur le modèle des autres.
    ============================================================ */
-const VUES = { accueil: "vue-accueil", sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", parcours: "vue-parcours", asma: "vue-asma", fiqh: "vue-fiqh" };
+const VUES = { accueil: "vue-accueil", sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", parcours: "vue-parcours", asma: "vue-asma", cours: "vue-cours" };
+
+/* Une adresse peut porter un chemin : « cours/fiqh/la-priere-20250620 » désigne
+   la vue « cours », qui lit elle-même la suite du chemin. « fiqh » seul (ancienne
+   adresse de la page d'attente) mène au fiqh dans le catalogue. */
+function cheminDepuisHash() {
+  let h = (location.hash || "#accueil").slice(1);
+  try { h = decodeURIComponent(h); } catch (e) {}
+  if (h === "fiqh") h = "cours/fiqh";
+  return h;
+}
 
 (function () {
   const btn = document.getElementById("menu-btn");
@@ -5973,14 +6057,22 @@ const VUES = { accueil: "vue-accueil", sira: "vue-sira", sourates: "sourates", m
   overlay.addEventListener("click", () => setMenu(false));
   document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
 
-  function showVue(name) {
-    if (!VUES[name]) name = "accueil";
+  function showVue(chemin) {
+    chemin = String(chemin || "");
+    let name = chemin.split("/")[0];
+    if (!VUES[name]) { name = "accueil"; chemin = "accueil"; }
     for (const k in VUES) {
       const el = document.getElementById(VUES[k]);
       if (el) el.hidden = (k !== name);
     }
-    document.querySelectorAll(".drawer-item").forEach(it =>
-      it.classList.toggle("active", it.dataset.view === name));
+    /* L'entrée surlignée est celle dont l'adresse est le plus long début du chemin :
+       sous « cours/fiqh/… », c'est « Le fiqh » et non « Tous les cours ». */
+    let actif = null;
+    document.querySelectorAll(".drawer-item").forEach(it => {
+      const v = it.dataset.view;
+      if ((chemin === v || chemin.startsWith(v + "/")) && (!actif || v.length > actif.dataset.view.length)) actif = it;
+    });
+    document.querySelectorAll(".drawer-item").forEach(it => it.classList.toggle("active", it === actif));
     setMenu(false);
     window.scrollTo({ top: 0 });
     document.dispatchEvent(new CustomEvent("vuechange", { detail: name }));
@@ -5990,7 +6082,7 @@ const VUES = { accueil: "vue-accueil", sira: "vue-sira", sourates: "sourates", m
      - le bouton « retour » du téléphone revient à la vue précédente ;
      - recharger la page conserve la vue en cours ;
      - chaque section a une adresse partageable. */
-  const vueDepuisHash = () => (location.hash || "#accueil").slice(1);
+  const vueDepuisHash = cheminDepuisHash;
   document.querySelectorAll(".drawer-item").forEach(it =>
     it.addEventListener("click", () => {
       const name = it.dataset.view;
@@ -6122,6 +6214,267 @@ const ASMA = [
 })();
 </script>
 
+<script src="catalogue.js"></script>
+<script>
+/* ============================================================
+   ★ TOUS LES COURS (v27.1) — LE CATALOGUE COMPLET DU SHEIKH ★
+   Les données sont dans catalogue.js (RUBRIQUES, SERIES, COURS,
+   CATALOGUE_STATS). Rien à modifier ici pour
+   mettre le catalogue à jour : remplacer catalogue.js suffit.
+
+   Trois niveaux, adressés par le hash :
+     #cours                       les 13 matières
+     #cours/fiqh                  une matière : ses séries, puis ses séances isolées
+     #cours/fiqh/la-priere-2025…  une série : ses séances dans l'ordre
+   La recherche porte sur ce qu'on regarde (une matière, une série)
+   ou sur tout le catalogue depuis la première page.
+   ============================================================ */
+(function () {
+  const vue = document.getElementById("vue-cours");
+  if (!vue || typeof COURS === "undefined") return;
+  const $ = (id) => document.getElementById(id);
+  const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const AR = "٠١٢٣٤٥٦٧٨٩";
+  const arDig = (n) => String(n).replace(/\d/g, (d) => AR[d]);
+  const sansAccents = (s) => String(s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  const MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre"];
+  const dateFr = (d) => { if (!d) return ""; const [a, m, j] = d.split("-"); return (Number(j) === 1 ? "1er" : Number(j)) + " " + MOIS[Number(m) - 1] + " " + a; };
+  const annee = (d) => (d || "").slice(0, 4);
+  const dureeFr = (min) => { if (!min) return ""; const h = Math.floor(min / 60); return h ? h + " h " + String(min % 60).padStart(2, "0") : min + " min"; };
+  const fmt = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f");
+  const plur = (n, s) => fmt(n) + " " + s + (n > 1 ? "s" : "");
+
+  /* ---- index des données ---- */
+  const rubParId = new Map(RUBRIQUES.map((r) => [r.id, r]));
+  const serieParSlug = new Map(SERIES.map((s) => [s.slug, s]));
+  const coursDeSerie = new Map();
+  const isoleesDeRub = new Map();
+  for (const c of COURS) {
+    if (c.ss) { if (!coursDeSerie.has(c.ss)) coursDeSerie.set(c.ss, []); coursDeSerie.get(c.ss).push(c); }
+    else { if (!isoleesDeRub.has(c.r)) isoleesDeRub.set(c.r, []); isoleesDeRub.get(c.r).push(c); }
+  }
+  for (const liste of isoleesDeRub.values()) liste.sort((a, b) => (b.d || "").localeCompare(a.d || ""));
+  const rubDe = (c) => c.ss ? (serieParSlug.get(c.ss) || {}).rub : c.r;
+  const serieDe = (c) => c.ss ? serieParSlug.get(c.ss) : null;
+
+  /* ---- progression : « écouté », mémorisé dans ce navigateur ---- */
+  const KEY = "cours-ecoutes";
+  let vus = {};
+  try { vus = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { vus = {}; }
+  const save = () => { try { localStorage.setItem(KEY, JSON.stringify(vus)); } catch (e) {} };
+  /* La clé d'une séance : son fichier Drive (sinon sa place dans le catalogue). */
+  const cle = (c) => c.drive ? "d:" + c.drive : "x:" + (c.ss || c.r) + "|" + c.d + "|" + (c.l == null ? "" : c.l) + "|" + String(c.f).slice(0, 24);
+  const nbVus = (liste) => liste.reduce((n, c) => n + (vus[cle(c)] ? 1 : 0), 0);
+  const coursDeRub = (id) => {
+    const out = [];
+    for (const s of SERIES) if (s.rub === id && coursDeSerie.has(s.slug)) out.push(...coursDeSerie.get(s.slug));
+    return out.concat(isoleesDeRub.get(id) || []);
+  };
+
+  /* ---- où sommes-nous ---- */
+  function chemin() {
+    let h = (location.hash || "").slice(1);
+    try { h = decodeURIComponent(h); } catch (e) {}
+    if (h === "fiqh") h = "cours/fiqh";
+    const p = h.split("/");
+    return { vue: p[0], rub: p[1] || "", serie: p[2] || "" };
+  }
+  const lienRub = (id) => "#cours/" + id;
+  const lienSerie = (s) => s.lien ? s.lien : "#cours/" + s.rub + "/" + s.slug;
+
+  /* ---- fil d'Ariane et sous-titre ---- */
+  function poserFil(rub, serie) {
+    const parts = ['<a href="#cours">Tous les cours</a>'];
+    if (rub) parts.push('<span class="sep" aria-hidden="true">›</span>' + (serie ? '<a href="' + lienRub(rub.id) + '">' + esc(rub.nom) + "</a>" : '<span class="ici">' + esc(rub.nom) + "</span>"));
+    if (serie) parts.push('<span class="sep" aria-hidden="true">›</span><span class="ici">' + esc(serie.nom) + "</span>");
+    $("cat-fil").innerHTML = parts.join("");
+  }
+  $("cat-sous-titre").textContent =
+    plur(CATALOGUE_STATS.cours, "séance") + " en " + plur(CATALOGUE_STATS.series, "série") + " et " + plur(CATALOGUE_STATS.rubriques, "matière") +
+    " — " + fmt(CATALOGUE_STATS.heures) + " heures d'écoute, depuis 2018. Progression mémorisée sur cet appareil.";
+
+  /* ---- les briques ---- */
+  function tuile(href, fr, ar, sub, meta, classe) {
+    return '<a class="hub-tile' + (classe ? " " + classe : "") + '" href="' + href + '">' +
+      '<span class="hub-txt"><span class="hub-fr">' + esc(fr) + '</span>' +
+      (sub ? '<span class="hub-sub">' + esc(sub) + "</span>" : "") +
+      (meta ? '<span class="hub-meta">' + esc(meta) + "</span>" : "") + "</span>" +
+      (ar ? '<span class="hub-ar" lang="ar">' + esc(ar) + "</span>" : "") +
+      '<span class="hub-go" aria-hidden="true">›</span></a>';
+  }
+
+  function carte(c, avecSerie) {
+    const k = cle(c);
+    const vu = !!vus[k];
+    const s = serieDe(c);
+    const meta = [dateFr(c.d), c.m ? c.m + " min" : "", avecSerie && s ? s.nom : (avecSerie ? (rubParId.get(c.r) || {}).nom : "")].filter(Boolean).join(" · ");
+    const card = document.createElement("article");
+    card.className = "card" + (vu ? " done" : "");
+    card.innerHTML =
+      '<div class="medallion" aria-hidden="true">' + (c.l != null ? arDig(c.l) : "•") + "</div>" +
+      '<div class="card-body">' +
+        (c.a ? '<h2 class="t-ar" lang="ar">' + esc(c.a) + "</h2>" : "") +
+        '<p class="t-fr">' + (c.l != null ? c.l + ". " : "") + esc(c.f) + "</p>" +
+        (meta ? '<p class="cat-meta">' + esc(meta) + "</p>" : "") +
+        '<div class="actions">' +
+          (c.drive ? '<button class="btn listen play" aria-expanded="false">▶ Écouter le cours</button>' : '<span class="cat-note">Audio pas encore en ligne</span>') +
+          '<button class="btn check' + (vu ? " on" : "") + '" aria-pressed="' + vu + '">' + (vu ? "✓ Écouté" : "Marquer comme écouté") + "</button>" +
+        "</div>" +
+        '<div class="player"></div>' +
+      "</div>";
+
+    const play = card.querySelector(".play");
+    if (play) play.addEventListener("click", () => {
+      const box = card.querySelector(".player");
+      if (box.innerHTML) {
+        box.innerHTML = "";
+        play.textContent = "▶ Écouter le cours";
+        play.setAttribute("aria-expanded", "false");
+      } else {
+        /* Un seul lecteur ouvert à la fois : deux audios Drive en même temps se chevauchent. */
+        vue.querySelectorAll(".player").forEach((b) => { if (b !== box && b.innerHTML) { b.innerHTML = ""; const p = b.parentElement.querySelector(".play"); if (p) { p.textContent = "▶ Écouter le cours"; p.setAttribute("aria-expanded", "false"); } } });
+        box.innerHTML = '<iframe src="https://drive.google.com/file/d/' + encodeURIComponent(c.drive) + '/preview" allow="autoplay" title="Audio : ' + esc(c.f) + '" loading="lazy"></iframe>';
+        play.textContent = "✕ Fermer le lecteur";
+        play.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    const check = card.querySelector(".check");
+    check.addEventListener("click", () => {
+      const on = !vus[k];
+      if (on) vus[k] = true; else delete vus[k];
+      save();
+      check.classList.toggle("on", on);
+      check.textContent = on ? "✓ Écouté" : "Marquer comme écouté";
+      check.setAttribute("aria-pressed", on);
+      card.classList.toggle("done", on);
+    });
+    return card;
+  }
+
+  function titre(texte, note) {
+    const h = document.createElement("h3");
+    h.className = "cat-titre";
+    h.innerHTML = esc(texte) + (note ? "<small>" + esc(note) + "</small>" : "");
+    return h;
+  }
+
+  /* ---- les trois niveaux ---- */
+  function renderMatieres(liste) {
+    const grille = document.createElement("div");
+    grille.className = "cat-grid matieres";
+    grille.innerHTML = RUBRIQUES.map((r) => {
+      const tous = coursDeRub(r.id);
+      const v = nbVus(tous);
+      const dernier = tous.reduce((m, c) => (c.d > m ? c.d : m), "");
+      const seriesRenvoi = SERIES.filter((s) => s.rub === r.id && s.lien).reduce((n, s) => n + s.n, 0);
+      const total = r.n;
+      return tuile(lienRub(r.id), r.nom, r.ar,
+        plur(total, "séance") + (r.ns ? " · " + plur(r.ns, "série") : ""),
+        (dernier ? "dernière séance : " + dateFr(dernier) : "") + (v ? " · " + v + " écoutée" + (v > 1 ? "s" : "") : "") + (seriesRenvoi ? " · " + seriesRenvoi + " avec résumés" : ""));
+    }).join("");
+    liste.appendChild(grille);
+    $("cat-count").textContent = plur(RUBRIQUES.length, "matière") + " · " + plur(CATALOGUE_STATS.cours, "séance");
+  }
+
+  function renderRubrique(liste, rub) {
+    const series = SERIES.filter((s) => s.rub === rub.id);
+    const isolees = isoleesDeRub.get(rub.id) || [];
+    if (series.length) {
+      liste.appendChild(titre("Les séries", plur(series.length, "série")));
+      const grille = document.createElement("div");
+      grille.className = "cat-grid";
+      grille.innerHTML = series.map((s) => {
+        const c = coursDeSerie.get(s.slug) || [];
+        const v = nbVus(c);
+        const periode = s.deb ? (annee(s.deb) === annee(s.fin) ? annee(s.deb) : "de " + annee(s.deb) + " à " + annee(s.fin)) : "";
+        const sub = plur(s.n, "séance") + (s.min ? " · " + dureeFr(s.min) : "") + (periode ? " · " + periode : "");
+        const meta = s.lien ? "Avec résumés — dans la section " + (s.lien === "#sira" ? "Sīra" : "Noms d'Allah") + " ›" : (v ? v + " écoutée" + (v > 1 ? "s" : "") + " sur " + s.n : "");
+        return tuile(lienSerie(s), s.nom, s.ar, sub, meta, s.lien ? "cat-renvoi" : "");
+      }).join("");
+      liste.appendChild(grille);
+    }
+    if (isolees.length) {
+      liste.appendChild(titre(series.length ? "Séances isolées" : "Les séances", plur(isolees.length, "séance") + ", de la plus récente à la plus ancienne"));
+      for (const c of isolees) liste.appendChild(carte(c, false));
+    }
+    const tous = coursDeRub(rub.id);
+    const v = nbVus(tous);
+    $("cat-count").textContent = plur(rub.n, "séance") + (v ? " · " + v + " écoutée" + (v > 1 ? "s" : "") : "");
+  }
+
+  function renderSerie(liste, serie) {
+    const c = coursDeSerie.get(serie.slug) || [];
+    const v = nbVus(c);
+    liste.appendChild(titre("Les séances", plur(c.length, "séance") + (serie.deb ? " · de " + dateFr(serie.deb) + " à " + dateFr(serie.fin) : "")));
+    for (const x of c) liste.appendChild(carte(x, false));
+    $("cat-count").textContent = plur(c.length, "séance") + (v ? " · " + v + " écoutée" + (v > 1 ? "s" : "") : "");
+  }
+
+  /* ---- la recherche : sur ce qu'on regarde, ou sur tout ---- */
+  function renderRecherche(liste, q, rub, serie) {
+    const nq = sansAccents(q);
+    const dansTexte = (t) => sansAccents(t).includes(nq);
+    const dansAr = (t) => (t || "").includes(q);
+    const perimetre = serie ? (coursDeSerie.get(serie.slug) || []) : rub ? coursDeRub(rub.id) : COURS;
+    const seriesTrouvees = serie ? [] : SERIES.filter((s) => (!rub || s.rub === rub.id) && (dansTexte(s.nom) || dansAr(s.ar)));
+    const slugs = new Set(seriesTrouvees.map((s) => s.slug));
+    const trouves = perimetre.filter((c) => !slugs.has(c.ss) && (
+      dansTexte(c.f) || dansAr(c.a) || (c.l != null && String(c.l) === nq) ||
+      (c.ss && dansTexte((serieParSlug.get(c.ss) || {}).nom)) ||
+      (!c.ss && dansTexte((rubParId.get(c.r) || {}).nom))));
+    const MAX = 150;
+    if (seriesTrouvees.length) {
+      liste.appendChild(titre("Séries", plur(seriesTrouvees.length, "trouvée")));
+      const grille = document.createElement("div");
+      grille.className = "cat-grid";
+      grille.innerHTML = seriesTrouvees.slice(0, 60).map((s) => {
+        const r = rubParId.get(s.rub) || {};
+        return tuile(lienSerie(s), s.nom, s.ar, plur(s.n, "séance") + (r.nom ? " · " + r.nom : ""), s.lien ? "Avec résumés ›" : "", s.lien ? "cat-renvoi" : "");
+      }).join("");
+      liste.appendChild(grille);
+    }
+    if (trouves.length) {
+      liste.appendChild(titre("Séances", plur(trouves.length, "trouvée") + (trouves.length > MAX ? ", les " + MAX + " premières" : "")));
+      for (const c of trouves.slice(0, MAX)) liste.appendChild(carte(c, true));
+    }
+    $("cat-vide").hidden = !!(seriesTrouvees.length || trouves.length);
+    $("cat-count").textContent = plur(seriesTrouvees.length, "série") + " et " + plur(trouves.length, "séance") + " pour « " + q + " »";
+  }
+
+  /* ---- le rendu, à chaque changement d'adresse ou de recherche ---- */
+  let dernierChemin = "";
+  function render() {
+    const ch = chemin();
+    if (ch.vue !== "cours") return;
+    const rub = ch.rub ? rubParId.get(ch.rub) : null;
+    const serie = rub && ch.serie ? serieParSlug.get(ch.serie) : null;
+    if ((ch.rub && !rub) || (ch.serie && !serie)) { location.hash = rub ? lienRub(rub.id) : "cours"; return; }
+
+    /* En changeant de page, la recherche repart à zéro ; en tapant, on reste. */
+    const cheminActuel = [ch.vue, ch.rub, ch.serie].join("/");
+    const champ = $("cours-search");
+    if (cheminActuel !== dernierChemin) { champ.value = ""; dernierChemin = cheminActuel; }
+    champ.placeholder = serie ? "Rechercher dans « " + serie.nom + " »…" : rub ? "Rechercher dans « " + rub.nom + " »…" : "Rechercher un cours, une série, un chapitre…";
+
+    poserFil(rub, serie);
+    const liste = $("cat-liste");
+    liste.innerHTML = "";
+    $("cat-vide").hidden = true;
+    const q = champ.value.trim();
+    if (q) renderRecherche(liste, q, rub, serie);
+    else if (serie) renderSerie(liste, serie);
+    else if (rub) renderRubrique(liste, rub);
+    else renderMatieres(liste);
+  }
+
+  let minuteur = 0;
+  $("cours-search").addEventListener("input", () => { clearTimeout(minuteur); minuteur = setTimeout(render, 120); });
+  window.addEventListener("hashchange", render);
+  render();
+})();
+</script>
+
 <script>
 /* ============================================================
    ★ PAGE D'ACCUEIL (v27) : chiffres des tuiles et « Reprendre » ★
@@ -6132,7 +6485,8 @@ const ASMA = [
   const $ = (id) => document.getElementById(id);
   if (!$("hub-meta-sira")) return;
   const RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const plur = (n, s) => n + " " + s + (n > 1 ? "s" : "");
+  const fmt = (n) => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "\u202f"); /* 2 529, avec l'espace fine du français */
+  const plur = (n, s) => fmt(n) + " " + s + (n > 1 ? "s" : "");
 
   function lire(key) {
     try { return JSON.parse(localStorage.getItem(key) || "{}") || {}; } catch (e) { return {}; }
@@ -6182,6 +6536,20 @@ const ASMA = [
     $("hub-meta-asma").textContent = ASMA.length
       ? ASMA.length + " cours" + (aVus ? " · " + aVus + " écouté" + (aVus > 1 ? "s" : "") : "")
       : "Cours à venir";
+
+    /* Tous les cours (v27.1) : chiffres du catalogue et séances écoutées */
+    if ($("hub-meta-cours") && typeof CATALOGUE_STATS !== "undefined") {
+      const cv = Object.keys(lire("cours-ecoutes")).length;
+      $("hub-meta-cours").textContent =
+        plur(CATALOGUE_STATS.cours, "séance") + " · " + plur(CATALOGUE_STATS.series, "série") + " · " + fmt(CATALOGUE_STATS.heures) + " heures" +
+        (cv ? " · " + cv + " écoutée" + (cv > 1 ? "s" : "") : "");
+      const metaRub = (id, el) => {
+        const r = RUBRIQUES.find((x) => x.id === id);
+        if (r && $(el)) $(el).textContent = plur(r.n, "séance") + (r.ns ? " · " + plur(r.ns, "série") : "");
+      };
+      metaRub("fiqh", "hub-meta-fiqh");
+      metaRub("riyad", "hub-meta-riyad");
+    }
   }
 
   /* « Reprendre » : ouvre la Sīra puis fait défiler jusqu'au cours */
