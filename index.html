@@ -229,6 +229,57 @@
     #sura-view{grid-template-columns:1fr 1fr}
     .c-contexte{grid-column:1/-1}
   }
+  /* ---------- Page d'accueil (v27) ---------- */
+  #vue-accueil header{padding-bottom:30px}
+  .hub{padding:26px 0 70px}
+  .hub-resume{
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    text-decoration:none;color:var(--cream);
+    background:rgba(201,164,85,.08);border:1px solid var(--gold-dim);border-radius:14px;
+    padding:14px 18px;margin-bottom:22px;
+  }
+  .hub-resume:hover{background:rgba(201,164,85,.14)}
+  .hub-resume:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .hub-resume-lab{
+    font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);
+    display:block;margin-bottom:3px;
+  }
+  .hub-resume-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.1rem;line-height:1.35;display:block}
+  .hub-go{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.7rem;line-height:1;flex:none}
+  .hub-grid{display:grid;gap:14px}
+  .hub-tile{
+    display:flex;align-items:center;gap:16px;
+    text-decoration:none;color:var(--cream);
+    background:var(--surface);border:1px solid var(--line);border-left:3px solid transparent;border-radius:14px;
+    padding:18px 18px 18px 20px;
+    transition:border-color .2s ease,background .2s ease;
+  }
+  .hub-tile:hover{background:var(--surface-2);border-color:var(--gold-dim);border-left-color:var(--gold)}
+  .hub-tile:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .hub-tile.soon{opacity:.72}
+  .hub-txt{flex:1;min-width:0}
+  .hub-fr{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.25rem;line-height:1.3;display:block}
+  .hub-sub{color:var(--muted);font-size:.86rem;margin-top:4px;display:block}
+  .hub-meta{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-top:9px;line-height:1.6;display:block}
+  .hub-ar{
+    font-family:'Amiri',serif;font-weight:700;color:var(--gold);
+    font-size:1.55rem;line-height:1.4;direction:rtl;text-align:right;flex:none;
+    min-width:74px;
+  }
+  .hub-tile.hub-main .hub-ar{font-size:1.9rem;min-width:88px}
+  .hub-tile.hub-main .hub-fr{font-size:1.45rem}
+  @media (min-width:640px){
+    .hub-grid{grid-template-columns:1fr 1fr}
+    .hub-tile.hub-main{grid-column:1/-1;padding:24px 22px 24px 24px}
+    .hub-tile.soon{grid-column:1/-1}
+  }
+  @media (max-width:520px){
+    .hub-tile{gap:12px;padding:16px 14px 16px 16px}
+    .hub-ar{font-size:1.35rem;min-width:62px}
+    .hub-tile.hub-main .hub-ar{font-size:1.6rem;min-width:70px}
+  }
+  @media (prefers-reduced-motion:reduce){.hub-tile{transition:none}}
+
   /* ---------- Menu latéral (3 barres) et sections ---------- */
   .vue[hidden]{display:none!important}
   .menu-btn{
@@ -648,7 +699,14 @@
     <div class="drawer-title-ar">الفهرس</div>
     <div class="drawer-title">Sommaire</div>
   </div>
-  <button class="drawer-item active" data-view="sira">
+  <button class="drawer-item active" data-view="accueil">
+    <span class="di-txt">
+      <span class="di-fr">Accueil</span>
+      <span class="di-sub">Choisir ce que l'on veut écouter ou lire</span>
+    </span>
+    <span class="di-ar">الرئيسية</span>
+  </button>
+  <button class="drawer-item" data-view="sira">
     <span class="di-txt">
       <span class="di-fr">La Sīra du Prophète ﷺ</span>
       <span class="di-sub">155 cours — résumés et audio</span>
@@ -692,7 +750,86 @@
   </button>
 </nav>
 
-<div class="vue" id="vue-sira">
+<div class="vue" id="vue-accueil">
+<header>
+  <div class="wrap">
+    <div class="ornament" aria-hidden="true">۞</div>
+    <h1 class="ar">أهلاً وسهلاً
+      <span class="fr">Que souhaitez-vous écouter aujourd'hui ?</span>
+    </h1>
+    <p class="subtitle">Cours audio, résumés et fiches — disponibles hors ligne une fois le site ajouté à l'écran d'accueil.</p>
+  </div>
+</header>
+
+<div class="wrap hub">
+  <a class="hub-resume" id="hub-resume" href="#sira" hidden>
+    <span>
+      <span class="hub-resume-lab" id="hub-resume-lab">Reprendre l'écoute</span>
+      <span class="hub-resume-t" id="hub-resume-t"></span>
+    </span>
+    <span class="hub-go" aria-hidden="true">›</span>
+  </a>
+
+  <nav class="hub-grid" aria-label="Choisir une section">
+    <a class="hub-tile hub-main" href="#sira">
+      <span class="hub-txt">
+        <span class="hub-fr">La Sīra du Prophète ﷺ</span>
+        <span class="hub-sub">Les 155 cours audio sur la vie du Prophète ﷺ, avec leurs résumés et le suivi de votre écoute.</span>
+        <span class="hub-meta" id="hub-meta-sira"></span>
+      </span>
+      <span class="hub-ar">السيرة</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+    <a class="hub-tile" href="#asma">
+      <span class="hub-txt">
+        <span class="hub-fr">Les noms d'Allah <span class="badge">Nouveau</span></span>
+        <span class="hub-sub">La série de cours sur les plus beaux noms d'Allah.</span>
+        <span class="hub-meta" id="hub-meta-asma"></span>
+      </span>
+      <span class="hub-ar">أسماء الله</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+    <a class="hub-tile" href="#sourates">
+      <span class="hub-txt">
+        <span class="hub-fr">Les sourates du Coran</span>
+        <span class="hub-sub">Une fiche par sourate : contexte, mérites, enseignements.</span>
+        <span class="hub-meta" id="hub-meta-sourates"></span>
+      </span>
+      <span class="hub-ar">سور القرآن</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+    <a class="hub-tile" href="#manasik">
+      <span class="hub-txt">
+        <span class="hub-fr">'Umra &amp; Hajj — pas à pas</span>
+        <span class="hub-sub">Quoi faire, quoi réciter, à quel moment, selon votre profil et votre école.</span>
+        <span class="hub-meta" id="hub-meta-manasik"></span>
+      </span>
+      <span class="hub-ar">المناسك</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+    <a class="hub-tile" href="#parcours">
+      <span class="hub-txt">
+        <span class="hub-fr">'Umra &amp; Hajj — le parcours animé <span class="badge">Nouveau</span></span>
+        <span class="hub-sub">La carte du pèlerinage : suivez le pèlerin d'étape en étape.</span>
+        <span class="hub-meta" id="hub-meta-parcours"></span>
+      </span>
+      <span class="hub-ar">رحلة الحج</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+    <a class="hub-tile soon" href="#fiqh">
+      <span class="hub-txt">
+        <span class="hub-fr">Le fiqh de la prière <span class="badge">à venir</span></span>
+        <span class="hub-sub">Conditions, piliers et description de la prière, du takbîr au salâm.</span>
+        <span class="hub-meta">In shâ' Allâh, prochainement</span>
+      </span>
+      <span class="hub-ar">فقه الصلاة</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+  </nav>
+</div>
+</div><!-- /vue-accueil -->
+
+<div class="vue" id="vue-sira" hidden>
 <header>
   <div class="wrap">
     <div class="ornament" aria-hidden="true">۞</div>
@@ -2068,6 +2205,7 @@ function render(filter = "") {
   for (const l of items) {
     const card = document.createElement("article");
     card.className = "card";
+    card.dataset.numero = l.numero;
     const vu = !!ecoutes[keyOf(l)];
     if (vu) card.classList.add("done");
 
@@ -4899,7 +5037,7 @@ const SURAS = [
 
   const puces = arr => arr.map(t => "<li>" + t + "</li>").join("");
 
-  function renderSura(i) {
+  function renderSura(i, memoriser = true) {
     const s = SURAS[i];
     view.innerHTML =
       "<div class=\"sura-title-panel\">" +
@@ -4919,7 +5057,7 @@ const SURAS = [
       "<section class=\"scard c-merites\"><h3>Mérites et bienfaits de la récitation</h3><ul>" + puces(s.merites) + "</ul></section>" +
       "<section class=\"scard c-sens\"><h3>Signification et enseignements principaux</h3><ul>" + puces(s.sens) + "</ul></section>" +
       "<section class=\"scard c-social\"><h3>Dimension sociale et spirituelle</h3><ul>" + puces(s.social) + "</ul></section>";
-    try { localStorage.setItem("sira-sourate", String(s.n)); } catch (e) {}
+    if (memoriser) { try { localStorage.setItem("sira-sourate", String(s.n)); } catch (e) {} }
   }
 
   sel.addEventListener("change", () => renderSura(+sel.value));
@@ -4939,7 +5077,7 @@ const SURAS = [
     if (idx >= 0) start = idx;
   } catch (e) {}
   sel.value = String(start);
-  renderSura(start);
+  renderSura(start, false);
 })();
 
 /* ============================================================
@@ -5811,9 +5949,11 @@ hajj: [
       dans le <nav id="menu"> en haut de la page ;
    2. Ajoutez un bloc <div class="vue" id="vue-monsujet" hidden>...</div>
       avant le <footer> ;
-   3. Ajoutez l'entrée monsujet: "vue-monsujet" dans VUES ci-dessous.
+   3. Ajoutez l'entrée monsujet: "vue-monsujet" dans VUES ci-dessous ;
+   4. Ajoutez une tuile <a class="hub-tile" href="#monsujet"> dans la
+      page d'accueil (id="vue-accueil"), sur le modèle des autres.
    ============================================================ */
-const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", parcours: "vue-parcours", asma: "vue-asma", fiqh: "vue-fiqh" };
+const VUES = { accueil: "vue-accueil", sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", parcours: "vue-parcours", asma: "vue-asma", fiqh: "vue-fiqh" };
 
 (function () {
   const btn = document.getElementById("menu-btn");
@@ -5834,7 +5974,7 @@ const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", p
   document.addEventListener("keydown", e => { if (e.key === "Escape") setMenu(false); });
 
   function showVue(name) {
-    if (!VUES[name]) name = "sira";
+    if (!VUES[name]) name = "accueil";
     for (const k in VUES) {
       const el = document.getElementById(VUES[k]);
       if (el) el.hidden = (k !== name);
@@ -5850,11 +5990,11 @@ const VUES = { sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", p
      - le bouton « retour » du téléphone revient à la vue précédente ;
      - recharger la page conserve la vue en cours ;
      - chaque section a une adresse partageable. */
-  const vueDepuisHash = () => (location.hash || "#sira").slice(1);
+  const vueDepuisHash = () => (location.hash || "#accueil").slice(1);
   document.querySelectorAll(".drawer-item").forEach(it =>
     it.addEventListener("click", () => {
       const name = it.dataset.view;
-      if (("#" + name) === location.hash || (name === "sira" && !location.hash)) showVue(name);
+      if (("#" + name) === location.hash || (name === "accueil" && !location.hash)) showVue(name);
       else location.hash = name;
     }));
   window.addEventListener("hashchange", () => showVue(vueDepuisHash()));
@@ -5979,6 +6119,93 @@ const ASMA = [
 
     list.appendChild(card);
   });
+})();
+</script>
+
+<script>
+/* ============================================================
+   ★ PAGE D'ACCUEIL (v27) : chiffres des tuiles et « Reprendre » ★
+   Rien à modifier ici : tout est calculé depuis LESSONS, SURAS,
+   MANASIK, ASMA et la progression mémorisée dans ce navigateur.
+   ============================================================ */
+(function () {
+  const $ = (id) => document.getElementById(id);
+  if (!$("hub-meta-sira")) return;
+  const RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const plur = (n, s) => n + " " + s + (n > 1 ? "s" : "");
+
+  function lire(key) {
+    try { return JSON.parse(localStorage.getItem(key) || "{}") || {}; } catch (e) { return {}; }
+  }
+
+  function renderAccueil() {
+    /* Sīra : résumés en ligne, cours écoutés, prochain cours à écouter */
+    const vus = lire("sira-ecoutes");
+    const tries = LESSONS.slice().sort((a, b) => a.numero - b.numero);
+    const resumes = new Set(tries.filter(l => (l.resume || "").trim()).map(l => l.numero)).size;
+    const byNum = {};
+    for (const l of tries) (byNum[l.numero] = byNum[l.numero] || []).push(l);
+    let ecoutes = 0, prochain = null;
+    for (const n of Object.keys(byNum).map(Number).sort((a, b) => a - b)) {
+      if (byNum[n].every(x => vus[keyOf(x)])) ecoutes++;
+      else if (!prochain) prochain = byNum[n][0];
+    }
+    $("hub-meta-sira").textContent =
+      plur(resumes, "résumé") + " en ligne sur " + TOTAL + " · " + ecoutes + " cours écouté" + (ecoutes > 1 ? "s" : "");
+
+    const band = $("hub-resume");
+    if (prochain) {
+      $("hub-resume-lab").textContent = ecoutes ? "Reprendre l'écoute" : "Commencer la Sīra";
+      $("hub-resume-t").textContent = "Cours " + prochain.numero + " — " + (prochain.titreFr || "");
+      band.dataset.numero = prochain.numero;
+      band.hidden = false;
+    } else band.hidden = true;
+
+    /* Sourates : nombre de fiches et dernière fiche consultée */
+    let s = plur(SURAS.length, "fiche");
+    try {
+      const n = parseInt(localStorage.getItem("sira-sourate") || "", 10);
+      const f = SURAS.find(x => x.n === n);
+      if (f) s += " · dernière lue : " + f.n + ". " + f.fr;
+    } catch (e) {}
+    $("hub-meta-sourates").textContent = s;
+
+    /* Manâsik et parcours */
+    $("hub-meta-manasik").textContent =
+      MANASIK.omra.length + " étapes pour la 'umra · " + MANASIK.hajj.length + " pour le hajj";
+    $("hub-meta-parcours").textContent = "Carte animée · 'umra et hajj (tamattu')";
+
+    /* Noms d'Allah */
+    const av = lire("asma-ecoutes");
+    const aKey = (l) => (((l.audio || "").match(/\/file\/d\/([^\/?]+)/) || [])[1]) || ("n" + l.numero);
+    const aVus = ASMA.filter(l => av[aKey(l)]).length;
+    $("hub-meta-asma").textContent = ASMA.length
+      ? ASMA.length + " cours" + (aVus ? " · " + aVus + " écouté" + (aVus > 1 ? "s" : "") : "")
+      : "Cours à venir";
+  }
+
+  /* « Reprendre » : ouvre la Sīra puis fait défiler jusqu'au cours */
+  $("hub-resume").addEventListener("click", (e) => {
+    e.preventDefault();
+    const num = $("hub-resume").dataset.numero;
+    const aller = () => {
+      const c = document.querySelector('.card[data-numero="' + num + '"]');
+      if (c) c.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
+    };
+    if (location.hash === "#sira") aller();
+    else {
+      document.addEventListener("vuechange", function h(ev) {
+        if (ev.detail !== "sira") return;
+        document.removeEventListener("vuechange", h);
+        setTimeout(aller, 60);
+      });
+      location.hash = "sira";
+    }
+  });
+
+  /* Recalcule à chaque retour sur l'accueil (progression mise à jour) */
+  document.addEventListener("vuechange", (e) => { if (e.detail === "accueil") renderAccueil(); });
+  renderAccueil();
 })();
 </script>
 </body>

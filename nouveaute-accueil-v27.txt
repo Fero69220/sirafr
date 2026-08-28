@@ -1,0 +1,73 @@
+NOUVEAUTÉ v27 — PAGE D'ACCUEIL (الرئيسية)
+Ajout réalisé sur la v26 (résumés 1-26, fiches, guides et corrections
+audio inchangés).
+
+========================================================
+1. CE QUI CHANGE
+========================================================
+- À l'ouverture du site, on n'arrive plus directement sur la liste des
+  cours de la Sīra : une PAGE D'ACCUEIL propose de choisir ce que l'on
+  veut écouter ou lire.
+- Elle reprend l'identité du site (ornement ۞, titre arabe « أهلاً
+  وسهلاً », titre français « Que souhaitez-vous écouter aujourd'hui ? »)
+  puis présente une tuile par section :
+    · La Sīra du Prophète ﷺ (tuile principale, pleine largeur)
+    · Les noms d'Allah
+    · Les sourates du Coran
+    · 'Umra & Hajj — pas à pas
+    · 'Umra & Hajj — le parcours animé
+    · Le fiqh de la prière (grisée, « à venir »)
+  Chaque tuile affiche son titre arabe, une phrase de présentation et
+  une ligne de chiffres calculée automatiquement :
+    · Sīra : résumés en ligne, cours écoutés ;
+    · Sourates : nombre de fiches, dernière fiche lue ;
+    · Manâsik : nombre d'étapes 'umra / hajj ;
+    · Noms d'Allah : nombre de cours, cours écoutés.
+- Un bandeau « REPRENDRE L'ÉCOUTE — Cours N — titre » (ou « COMMENCER LA
+  SĪRA — Cours 1 » pour un nouveau visiteur) ouvre la Sīra et fait
+  défiler la page jusqu'au premier cours non encore marqué comme écouté.
+  Il disparaît quand les 155 cours sont écoutés.
+- Le menu latéral (☰) gagne une première entrée « Accueil » ; la Sīra
+  garde son entrée et sa page, inchangées.
+
+========================================================
+2. TECHNIQUE
+========================================================
+- Nouvelle vue <div class="vue" id="vue-accueil"> placée avant la vue
+  Sīra ; entrée accueil: "vue-accueil" dans VUES ; l'accueil est la vue
+  par défaut (adresse sans #, bouton « retour » du téléphone, rechargement).
+  Les adresses partageables restent valables : #sira, #sourates,
+  #manasik, #parcours, #asma, #fiqh.
+- Un troisième bloc <script> (« PAGE D'ACCUEIL ») calcule les chiffres
+  depuis LESSONS, SURAS, MANASIK, ASMA et la progression mémorisée
+  (clés "sira-ecoutes", "sira-sourate", "asma-ecoutes"). Rien à y
+  modifier quand on ajoute un résumé ou un cours.
+- Chaque carte de cours porte désormais data-numero="N" (utilisé par
+  « Reprendre »).
+- Fiches des sourates : la dernière sourate consultée n'est plus
+  mémorisée au simple chargement de la page, seulement après un choix
+  dans la liste ou avec les flèches (sinon l'accueil affichait
+  « dernière lue : Al-Fâtiha » à tort).
+- Pour une future section, la marche à suivre commentée dans index.html
+  (« MENU LATÉRAL ET NAVIGATION ») comporte une 4e étape : ajouter une
+  tuile <a class="hub-tile" href="#monsujet"> dans vue-accueil.
+- sw.js : VERSION passée de "v26" à "v27" (cache "sira-audio" des audios
+  téléchargés préservé).
+
+========================================================
+3. VÉRIFICATIONS
+========================================================
+- node --check sur sw.js et sur les trois blocs <script>.
+- Rendu jsdom : arrivée sans # → accueil (menu « Accueil » actif, Sīra
+  masquée) ; « Reprendre » → #sira puis défilement vers la carte du
+  cours ; retour accueil par le menu ; #sourates en accès direct ;
+  chiffres corrects avec une progression simulée (2 cours écoutés →
+  « Reprendre : Cours 3 » ; sourate 18 mémorisée → « dernière lue :
+  18. Al-Kahf » ; 2 cours des noms d'Allah écoutés).
+- Rendu Chromium (390 px et 1100 px) : une colonne sur téléphone ; sur
+  écran large, la Sīra et le fiqh en pleine largeur, les quatre autres
+  tuiles sur deux colonnes.
+- Tableaux LESSONS (156 entrées, 26 résumés) et SURAS (114) intacts.
+
+Fichiers du zip v27 : ceux du zip v26 + nouveaute-accueil-v27.txt ;
+index.html et sw.js modifiés.
