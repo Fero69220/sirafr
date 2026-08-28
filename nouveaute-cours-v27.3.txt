@@ -1,0 +1,107 @@
+NOUVEAUTÉ v27.3 — TOUS LES COURS DU SHEIKH (جميع الدروس)
+Ajout réalisé sur la v27 (résumés 1-26, fiches, guides, noms d'Allah
+et corrections audio inchangés).
+
+========================================================
+1. CE QUI CHANGE
+========================================================
+- Une nouvelle section « Tous les cours du sheikh » : le catalogue des
+  cours audio depuis 2018, repris du site tariqalyaqin.fr — 1 848
+  séances, 312 séries, 11 matières, 835 heures. Seules les séances dont
+  le fichier est sur Google Drive sont reprises : celles qui n'étaient
+  disponibles que sur Telegram (601) ou sans source (80) ne le sont pas,
+  et rien dans le site ne renvoie vers Telegram.
+- Trois niveaux, avec un fil d'Ariane :
+    · les 11 matières (jurisprudence, Riyâd as-Sâlihîn, Sīra, Coran
+      expliqué, purification de l'âme, compagnons, langue arabe,
+      croyance, sciences du Coran, noms d'Allah, à classer) ;
+    · une matière : ses séries, puis ses séances isolées ;
+    · une série : ses séances dans l'ordre, avec le titre français, le
+      titre arabe, la date et la durée.
+- Chaque séance a son bouton « ▶ Écouter le cours » (lecteur Drive
+  intégré, comme pour la Sīra et les noms d'Allah) et son bouton
+  « Marquer comme écouté ». Un seul lecteur reste ouvert à la fois.
+- Une recherche propre à la section : sur tout le catalogue depuis la
+  première page, sur la matière ou la série que l'on regarde ensuite
+  (titres français et arabes, noms de séries, numéros de séance).
+- La Sīra (160 séances) et les noms d'Allah ne sont pas dupliqués :
+  dans le catalogue, leurs séries renvoient aux sections du site qui
+  les portent, avec leurs résumés (#sira, #asma).
+- Page d'accueil : une tuile pleine largeur « Tous les cours du
+  sheikh » (avec le nombre de séances écoutées), et deux tuiles de
+  matières — « Le fiqh » (qui remplace la tuile « à venir ») et
+  « Riyâd as-Sâlihîn ». Le menu latéral reçoit les mêmes trois entrées.
+- L'ancienne adresse #fiqh (page d'attente) mène maintenant au fiqh
+  dans le catalogue ; #sira, #sourates, #manasik, #parcours, #asma sont
+  inchangées.
+- Une RECHERCHE SUR L'ACCUEIL, sous le bandeau « Reprendre » : elle
+  cherche dans tout le site — la Sīra (numéro, titres, et résumés),
+  le catalogue (séries et séances), les fiches des sourates, les noms
+  d'Allah — et regroupe les résultats par section. Chaque résultat
+  ouvre la bonne section et fait défiler jusqu'à la carte, qui
+  s'allume un instant ; une sourate s'affiche directement. Entrée
+  ouvre le premier résultat, Échap efface.
+- Titres arabes longs : dans les tuiles de séries, le titre arabe
+  passe sous le titre français (il écrasait le français mot par mot et
+  élargissait la page sur téléphone) ; dans les autres tuiles il se
+  replie sur 44 % de la largeur au plus ; et la page ne peut plus
+  déborder horizontalement.
+
+========================================================
+2. TECHNIQUE
+========================================================
+- Nouveau fichier catalogue.js (413 Ko, 106 Ko compressé) : les
+  tableaux RUBRIQUES, SERIES, COURS et les chiffres CATALOGUE_STATS.
+  Produit à partir du catalogue de tariqalyaqin.fr ; pour mettre à
+  jour, remplacer le fichier en entier. Il est chargé par
+  <script src="catalogue.js"> avant le script de la section, et ajouté
+  au PRECACHE de sw.js : la section fonctionne hors ligne (les audios
+  Drive, eux, ont besoin du réseau).
+- Nouvelle vue <div class="vue" id="vue-cours"> ; entrée cours:
+  "vue-cours" dans VUES, à la place de fiqh: "vue-fiqh" (page d'attente
+  retirée).
+- Les adresses peuvent porter un chemin : #cours, #cours/fiqh,
+  #cours/fiqh/la-priere-20250620. showVue() lit le premier segment ;
+  la section lit le reste. Le bouton « retour » du téléphone remonte
+  d'un niveau. L'entrée surlignée dans le menu est celle dont
+  l'adresse est le plus long début du chemin.
+- Progression : clé localStorage "cours-ecoutes", une entrée par
+  séance (identifiant Drive). Séparée de "sira-ecoutes" et
+  "asma-ecoutes".
+- Nettoyage à la génération : les restes de mise en forme Telegram
+  dans les titres (« *Darss N•1—>* ») ont été retirés.
+- Recherche de l'accueil : dans le troisième bloc <script> (page
+  d'accueil), après renderAccueil(). Les cartes du catalogue portent
+  data-cle (identifiant Drive) pour être retrouvées ; le catalogue
+  expose window.__catalogueCle.
+- Meta og:description et twitter:description : mention du catalogue.
+- sw.js : VERSION passée de "v27" à "v27.3" (cache "sira-audio" des
+  audios téléchargés préservé).
+
+========================================================
+3. VÉRIFICATIONS
+========================================================
+- node --check sur sw.js, catalogue.js et les quatre blocs <script>.
+- Tableaux LESSONS (156 entrées, 26 résumés), SURAS, MANASIK et ASMA
+  identiques octet pour octet à la v27.
+- Rendu jsdom : #cours/fiqh → vue « cours », menu « Le fiqh » actif,
+  202 séries et 129 séances isolées ; #cours/fiqh/la-priere-20250620 →
+  4 séances, lecteur Drive ouvert au clic, « écouté » mémorisé ;
+  recherche « patience » depuis la première page ; #cours/sira →
+  « La Sira » renvoie vers #sira ; accueil → « 1 848 séances ·
+  312 séries · 835 heures » ; #fiqh → le fiqh dans le catalogue ;
+  aucune mention de Telegram dans la page. Recherche de l'accueil :
+  « patience » → 18 résultats en trois groupes ; « 24 » → le cours 24
+  en tête ; clic sur une séance du catalogue → section ouverte, carte
+  ciblée ; clic sur une sourate → fiche affichée. Aucune erreur.
+
+========================================================
+4. À VÉRIFIER À L'ÉCOUTE
+========================================================
+- Les identifiants Drive viennent du catalogue de l'autre site : un
+  fichier non partagé « à toute personne disposant du lien » affichera
+  un lecteur Drive vide. Rien à changer dans le site, seulement le
+  partage du fichier.
+
+Fichiers du zip v27.3 : ceux du zip v27 + catalogue.js +
+nouveaute-cours-v27.3.txt ; index.html et sw.js modifiés.

@@ -280,7 +280,7 @@
   }
   @media (prefers-reduced-motion:reduce){.hub-tile{transition:none}}
 
-  /* ---------- Tous les cours — le catalogue complet (v27.1) ---------- */
+  /* ---------- Tous les cours — le catalogue complet (v27.3) ---------- */
   .hub-tile.hub-wide{grid-column:1/-1;border-left-color:var(--gold-dim)}
   #vue-cours .wrap{padding-bottom:70px}
   .cat-fil{
@@ -306,6 +306,37 @@
   .cat-entete .mk-title-ar{font-family:'Amiri',serif;font-weight:700;font-size:clamp(1.9rem,6vw,2.6rem);color:var(--gold);direction:rtl;line-height:1.5}
   .cat-entete .suras-sub{max-width:520px;margin-left:auto;margin-right:auto}
   .cat-renvoi{border-color:var(--gold-dim);background:rgba(201,164,85,.06)}
+  /* Un titre arabe long ne doit ni écraser le titre français ni élargir la page :
+     dans les tuiles il se replie (à droite, bornée à 44 %), et dans les tuiles
+     de séries il passe sous le titre français. */
+  html,body{overflow-x:clip}
+  .hub-ar{flex:0 1 auto;min-width:0;max-width:44%;overflow-wrap:anywhere}
+  .hub-tile .hub-txt{min-width:0}
+  .hub-ar-sub{
+    display:block;font-family:'Amiri',serif;font-weight:700;color:var(--gold);
+    font-size:1.05rem;line-height:1.7;direction:rtl;text-align:right;
+    margin-top:3px;overflow-wrap:anywhere;
+  }
+  .card.cible{animation:cible 1.8s ease-out}
+  @keyframes cible{from{box-shadow:0 0 0 3px var(--gold)}to{box-shadow:0 0 0 0 transparent}}
+
+  /* ---------- Recherche depuis l'accueil (v27.3) ---------- */
+  .hub-search{margin-bottom:22px}
+  .hub-res{
+    display:flex;align-items:center;gap:12px;
+    text-decoration:none;color:var(--cream);
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;
+    padding:12px 14px;margin-top:8px;
+  }
+  .hub-res:hover{background:var(--surface-2);border-color:var(--gold-dim)}
+  .hub-res:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .hub-res-txt{flex:1;min-width:0}
+  .hub-res-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.08rem;line-height:1.3;display:block}
+  .hub-res-s{color:var(--muted);font-size:.8rem;display:block;margin-top:2px}
+  .hub-res-ar{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:1rem;line-height:1.6;direction:rtl;text-align:right;flex:0 1 auto;min-width:0;max-width:44%;overflow-wrap:anywhere}
+  .hub-res-grp{margin-top:18px}
+  .hub-res-grp .cat-titre{margin-top:0}
+  @media (prefers-reduced-motion:reduce){.card.cible{animation:none}}
 
   /* ---------- Menu latéral (3 barres) et sections ---------- */
   .vue[hidden]{display:none!important}
@@ -811,6 +842,15 @@
     <span class="hub-go" aria-hidden="true">›</span>
   </a>
 
+  <!-- Recherche dans tout le site (v27.3) : Sīra, catalogue, sourates, noms d'Allah -->
+  <div class="hub-search" role="search">
+    <input type="search" id="hub-q" class="search"
+           placeholder="Rechercher un cours, une série, une sourate…"
+           aria-label="Rechercher dans tout le site" autocomplete="off">
+    <p class="count-line" id="hub-q-count" hidden></p>
+    <div id="hub-q-res"></div>
+  </div>
+
   <nav class="hub-grid" aria-label="Choisir une section">
     <a class="hub-tile hub-main" href="#sira">
       <span class="hub-txt">
@@ -1039,7 +1079,7 @@
   </div>
 </div>
 
-<!-- ★ TOUS LES COURS (v27.1) : le catalogue complet du sheikh, lu depuis catalogue.js.
+<!-- ★ TOUS LES COURS (v27.3) : le catalogue complet du sheikh, lu depuis catalogue.js.
      Adresses : #cours (les matières), #cours/fiqh (une matière), #cours/fiqh/la-priere-20250620 (une série). -->
 <div class="vue" id="vue-cours" hidden>
   <div class="wrap">
@@ -6217,7 +6257,7 @@ const ASMA = [
 <script src="catalogue.js"></script>
 <script>
 /* ============================================================
-   ★ TOUS LES COURS (v27.1) — LE CATALOGUE COMPLET DU SHEIKH ★
+   ★ TOUS LES COURS (v27.3) — LE CATALOGUE COMPLET DU SHEIKH ★
    Les données sont dans catalogue.js (RUBRIQUES, SERIES, COURS,
    CATALOGUE_STATS). Rien à modifier ici pour
    mettre le catalogue à jour : remplacer catalogue.js suffit.
@@ -6265,6 +6305,7 @@ const ASMA = [
   /* La clé d'une séance : son fichier Drive (sinon sa place dans le catalogue). */
   const cle = (c) => c.drive ? "d:" + c.drive : "x:" + (c.ss || c.r) + "|" + c.d + "|" + (c.l == null ? "" : c.l) + "|" + String(c.f).slice(0, 24);
   const nbVus = (liste) => liste.reduce((n, c) => n + (vus[cle(c)] ? 1 : 0), 0);
+  window.__catalogueCle = cle; /* la recherche de l'accueil retrouve une carte par sa clé */
   const coursDeRub = (id) => {
     const out = [];
     for (const s of SERIES) if (s.rub === id && coursDeSerie.has(s.slug)) out.push(...coursDeSerie.get(s.slug));
@@ -6294,12 +6335,16 @@ const ASMA = [
     " — " + fmt(CATALOGUE_STATS.heures) + " heures d'écoute, depuis 2018. Progression mémorisée sur cet appareil.";
 
   /* ---- les briques ---- */
-  function tuile(href, fr, ar, sub, meta, classe) {
+  /* `arSous` : le titre arabe sous le titre français (séries, dont les noms
+     arabes sont souvent des titres de chapitres entiers) plutôt qu'à droite
+     (matières, un ou deux mots). */
+  function tuile(href, fr, ar, sub, meta, classe, arSous) {
     return '<a class="hub-tile' + (classe ? " " + classe : "") + '" href="' + href + '">' +
       '<span class="hub-txt"><span class="hub-fr">' + esc(fr) + '</span>' +
+      (ar && arSous ? '<span class="hub-ar-sub" lang="ar">' + esc(ar) + "</span>" : "") +
       (sub ? '<span class="hub-sub">' + esc(sub) + "</span>" : "") +
       (meta ? '<span class="hub-meta">' + esc(meta) + "</span>" : "") + "</span>" +
-      (ar ? '<span class="hub-ar" lang="ar">' + esc(ar) + "</span>" : "") +
+      (ar && !arSous ? '<span class="hub-ar" lang="ar">' + esc(ar) + "</span>" : "") +
       '<span class="hub-go" aria-hidden="true">›</span></a>';
   }
 
@@ -6310,6 +6355,7 @@ const ASMA = [
     const meta = [dateFr(c.d), c.m ? c.m + " min" : "", avecSerie && s ? s.nom : (avecSerie ? (rubParId.get(c.r) || {}).nom : "")].filter(Boolean).join(" · ");
     const card = document.createElement("article");
     card.className = "card" + (vu ? " done" : "");
+    card.dataset.cle = k;
     card.innerHTML =
       '<div class="medallion" aria-hidden="true">' + (c.l != null ? arDig(c.l) : "•") + "</div>" +
       '<div class="card-body">' +
@@ -6390,7 +6436,7 @@ const ASMA = [
         const periode = s.deb ? (annee(s.deb) === annee(s.fin) ? annee(s.deb) : "de " + annee(s.deb) + " à " + annee(s.fin)) : "";
         const sub = plur(s.n, "séance") + (s.min ? " · " + dureeFr(s.min) : "") + (periode ? " · " + periode : "");
         const meta = s.lien ? "Avec résumés — dans la section " + (s.lien === "#sira" ? "Sīra" : "Noms d'Allah") + " ›" : (v ? v + " écoutée" + (v > 1 ? "s" : "") + " sur " + s.n : "");
-        return tuile(lienSerie(s), s.nom, s.ar, sub, meta, s.lien ? "cat-renvoi" : "");
+        return tuile(lienSerie(s), s.nom, s.ar, sub, meta, s.lien ? "cat-renvoi" : "", true);
       }).join("");
       liste.appendChild(grille);
     }
@@ -6430,7 +6476,7 @@ const ASMA = [
       grille.className = "cat-grid";
       grille.innerHTML = seriesTrouvees.slice(0, 60).map((s) => {
         const r = rubParId.get(s.rub) || {};
-        return tuile(lienSerie(s), s.nom, s.ar, plur(s.n, "séance") + (r.nom ? " · " + r.nom : ""), s.lien ? "Avec résumés ›" : "", s.lien ? "cat-renvoi" : "");
+        return tuile(lienSerie(s), s.nom, s.ar, plur(s.n, "séance") + (r.nom ? " · " + r.nom : ""), s.lien ? "Avec résumés ›" : "", s.lien ? "cat-renvoi" : "", true);
       }).join("");
       liste.appendChild(grille);
     }
@@ -6537,7 +6583,7 @@ const ASMA = [
       ? ASMA.length + " cours" + (aVus ? " · " + aVus + " écouté" + (aVus > 1 ? "s" : "") : "")
       : "Cours à venir";
 
-    /* Tous les cours (v27.1) : chiffres du catalogue et séances écoutées */
+    /* Tous les cours (v27.3) : chiffres du catalogue et séances écoutées */
     if ($("hub-meta-cours") && typeof CATALOGUE_STATS !== "undefined") {
       const cv = Object.keys(lire("cours-ecoutes")).length;
       $("hub-meta-cours").textContent =
@@ -6570,6 +6616,138 @@ const ASMA = [
       location.hash = "sira";
     }
   });
+
+  /* ---------- Recherche dans tout le site, depuis l'accueil (v27.3) ----------
+     Sīra (numéro, titres, résumés), catalogue (séries et séances), sourates,
+     noms d'Allah. Chaque résultat mène à sa section et fait défiler jusqu'à
+     la carte, qui s'allume un instant. */
+  const champ = $("hub-q");
+  if (champ) {
+    const esc = (t) => String(t == null ? "" : t).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+    const sans = (t) => String(t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    const avecCatalogue = typeof COURS !== "undefined";
+    const serieParSlug = avecCatalogue ? new Map(SERIES.map((x) => [x.slug, x])) : new Map();
+    const rubParId = avecCatalogue ? new Map(RUBRIQUES.map((x) => [x.id, x])) : new Map();
+    const cleCours = (c) => (window.__catalogueCle ? window.__catalogueCle(c) : "");
+
+    /* Aller à une section puis à une carte : on attend que la page ait changé
+       (et, pour le catalogue, qu'elle se soit dessinée) avant de défiler. */
+    function allerA(hash, apres) {
+      const faire = () => setTimeout(() => {
+        const el = apres && apres();
+        if (el) {
+          el.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "center" });
+          el.classList.remove("cible"); void el.offsetWidth; el.classList.add("cible");
+        }
+      }, 80);
+      if (location.hash === hash) { faire(); return; }
+      window.addEventListener("hashchange", function h() { window.removeEventListener("hashchange", h); faire(); });
+      location.hash = hash.slice(1);
+    }
+
+    function ligne(href, titre, sous, ar, action) {
+      const a = document.createElement("a");
+      a.className = "hub-res";
+      a.href = href;
+      a.innerHTML = '<span class="hub-res-txt"><span class="hub-res-t">' + esc(titre) + "</span>" +
+        (sous ? '<span class="hub-res-s">' + esc(sous) + "</span>" : "") + "</span>" +
+        (ar ? '<span class="hub-res-ar" lang="ar">' + esc(ar) + "</span>" : "") +
+        '<span class="hub-go" aria-hidden="true">›</span>';
+      if (action) a.addEventListener("click", (e) => { e.preventDefault(); action(); });
+      return a;
+    }
+    function groupe(zone, titre, note, lignes) {
+      if (!lignes.length) return;
+      const g = document.createElement("div");
+      g.className = "hub-res-grp";
+      const h = document.createElement("h3");
+      h.className = "cat-titre";
+      h.innerHTML = esc(titre) + (note ? "<small>" + esc(note) + "</small>" : "");
+      g.appendChild(h);
+      lignes.forEach((l) => g.appendChild(l));
+      zone.appendChild(g);
+    }
+
+    function chercher(q) {
+      const zone = $("hub-q-res");
+      const compte = $("hub-q-count");
+      zone.innerHTML = "";
+      const nq = sans(q.trim());
+      const ar = q.trim();
+      if (!nq) { compte.hidden = true; return; }
+      const fr = (t) => sans(t).includes(nq);
+      const arab = (t) => /[\u0600-\u06ff]/.test(ar) && String(t || "").includes(ar);
+      const num = /^\d+$/.test(nq) ? Number(nq) : null;
+      let total = 0;
+
+      /* Sīra : d'abord les titres, puis les résumés */
+      const vusNum = new Set();
+      const sira = [];
+      for (const l of LESSONS.slice().sort((a, b) => a.numero - b.numero)) {
+        if (vusNum.has(l.numero)) continue;
+        const titre = l.numero === num || fr(l.titreFr) || arab(l.titreAr);
+        const dansResume = !titre && nq.length >= 3 && fr(l.resume);
+        if (!titre && !dansResume) continue;
+        vusNum.add(l.numero);
+        sira.push(ligne("#sira", "Cours " + l.numero + " — " + (l.titreFr || ""), dansResume ? "dans le résumé" : "La Sīra du Prophète ﷺ", l.titreAr,
+          () => allerA("#sira", () => document.querySelector('#vue-sira .card[data-numero="' + l.numero + '"]'))));
+        if (sira.length >= 8) break;
+      }
+      total += sira.length;
+      groupe(zone, "La Sīra", "", sira);
+
+      if (avecCatalogue) {
+        const series = SERIES.filter((x) => fr(x.nom) || arab(x.ar)).slice(0, 8).map((x) => {
+          const r = rubParId.get(x.rub) || {};
+          const href = x.lien ? x.lien : "#cours/" + x.rub + "/" + x.slug;
+          return ligne(href, x.nom, x.n + " séance" + (x.n > 1 ? "s" : "") + (r.nom ? " · " + r.nom : ""), x.ar,
+            () => allerA(href, null));
+        });
+        total += series.length;
+        groupe(zone, "Séries", "", series);
+
+        const cours = [];
+        for (const c of COURS) {
+          if (!(fr(c.f) || arab(c.a))) continue;
+          const sr = c.ss ? serieParSlug.get(c.ss) : null;
+          const rub = sr ? sr.rub : c.r;
+          const href = sr ? "#cours/" + rub + "/" + sr.slug : "#cours/" + rub;
+          const k = cleCours(c);
+          cours.push(ligne(href, (c.l != null ? c.l + ". " : "") + c.f, (sr ? sr.nom : (rubParId.get(rub) || {}).nom || "") + (c.d ? " · " + c.d.slice(0, 4) : ""), c.a,
+            () => allerA(href, () => Array.from(document.querySelectorAll("#vue-cours .card[data-cle]")).find((el) => el.dataset.cle === k))));
+          if (cours.length >= 10) break;
+        }
+        total += cours.length;
+        groupe(zone, "Cours", cours.length >= 10 ? "les 10 premiers — affinez, ou cherchez dans « Tous les cours »" : "", cours);
+      }
+
+      const suras = SURAS.filter((x) => x.n === num || fr(x.fr) || fr(x.trad) || arab(x.ar)).slice(0, 6).map((x) =>
+        ligne("#sourates", x.n + ". " + x.fr + " — " + x.trad, "Fiche de la sourate", x.ar,
+          () => allerA("#sourates", () => {
+            const sel = $("sura-select");
+            if (sel) { sel.value = String(SURAS.indexOf(x)); sel.dispatchEvent(new Event("change")); }
+            return document.querySelector("#sourates .sura-title-panel");
+          })));
+      total += suras.length;
+      groupe(zone, "Sourates", "", suras);
+
+      const asma = ASMA.filter((x) => fr(x.titreFr) || arab(x.titreAr)).slice(0, 5).map((x) =>
+        ligne("#asma", x.titreFr || ("Cours n° " + x.numero), "Les noms d'Allah", x.titreAr,
+          () => allerA("#asma", () => document.querySelectorAll("#asma-list .card")[ASMA.indexOf(x)])));
+      total += asma.length;
+      groupe(zone, "Noms d'Allah", "", asma);
+
+      compte.hidden = false;
+      compte.textContent = total ? total + " résultat" + (total > 1 ? "s" : "") + " pour « " + q.trim() + " »" : "Rien trouvé pour « " + q.trim() + " » — essayez un autre mot, ou un numéro de cours.";
+    }
+
+    let minuteur = 0;
+    champ.addEventListener("input", () => { clearTimeout(minuteur); minuteur = setTimeout(() => chercher(champ.value), 120); });
+    champ.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") { const premier = $("hub-q-res").querySelector(".hub-res"); if (premier) { e.preventDefault(); premier.click(); } }
+      if (e.key === "Escape") { champ.value = ""; chercher(""); }
+    });
+  }
 
   /* Recalcule à chaque retour sur l'accueil (progression mise à jour) */
   document.addEventListener("vuechange", (e) => { if (e.detail === "accueil") renderAccueil(); });
