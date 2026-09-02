@@ -6,7 +6,7 @@
    ci-dessous avant de republier sur Netlify : cela force le remplacement
    de l'ancien cache. */
 
-const VERSION = "v30";
+const VERSION = "v37";
 const CACHE = "sira-" + VERSION;
 const FONT_CACHE = "sira-fonts";
 const AUDIO_CACHE = "sira-audio"; /* audios téléchargés — jamais purgé lors des mises à jour */
@@ -14,6 +14,7 @@ const AUDIO_CACHE = "sira-audio"; /* audios téléchargés — jamais purgé lor
 const PRECACHE = [
   "./",
   "./index.html",
+  "./resumes.js",
   "./catalogue.js",
   "./manifest.webmanifest",
   "./icon-192.png",
@@ -59,6 +60,22 @@ self.addEventListener("fetch", (event) => {
         .catch(() =>
           caches.match("./index.html").then((r) => r || caches.match("./"))
         )
+    );
+    return;
+  }
+
+  // 1b) Données qui changent à chaque livraison (résumés, catalogue) :
+  //     réseau d'abord, comme la page, repli sur le cache hors ligne. Ainsi
+  //     les nouveaux résumés apparaissent dès la première ouverture en ligne.
+  if (url.origin === self.location.origin && /\/(resumes|catalogue)\.js$/.test(url.pathname)) {
+    event.respondWith(
+      fetch(req)
+        .then((res) => {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy));
+          return res;
+        })
+        .catch(() => caches.match(req))
     );
     return;
   }

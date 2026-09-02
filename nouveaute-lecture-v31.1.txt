@@ -1,0 +1,175 @@
+NOUVEAUTÉ v31.1 — LECTURE, AFFICHAGE, PARTAGE (القراءة)
+Ajout réalisé sur la v31 (résumés 1-31, fiches, guides, noms d'Allah,
+catalogue et corrections audio inchangés). Aucun résumé n'est modifié.
+
+========================================================
+1. CE QUI CHANGE
+========================================================
+Lecture des résumés
+- Le résumé n'est plus un bloc de texte brut : à l'affichage, les
+  titres de sections (lignes terminées par « : ») deviennent des
+  titres en or, les puces « • » et les leçons « 1. 2. 3. » de vraies
+  listes, les citations « … » passent en italique, la ligne
+  « Prochain cours » est distinguée. Les premiers résumés (1 à 16),
+  qui séparent titres et puces par un simple retour à la ligne, sont
+  traités de la même façon.
+- Un SOMMAIRE cliquable est généré pour chaque cours (dès trois
+  sections), placé après le paragraphe d'introduction.
+- Sur téléphone, le résumé déployé occupe toute la largeur de la
+  carte (il reprend la colonne du médaillon).
+- Un bouton flottant « ↑ Réduire le résumé » apparaît pendant la
+  lecture d'un long résumé (le double-tap pour replier reste valable).
+- La liste des cours n'affiche qu'un extrait (début du résumé) ; le
+  texte complet est construit à l'ouverture (« Lire le résumé »).
+
+Affichage
+- Taille du texte : A− / A+ (88, 100, 112, 125, 140 %), dans le menu
+  latéral (bloc « Affichage ») et dans la barre de la Sīra.
+- Thème clair / sombre (☀ / ☾), mêmes endroits. Les sections « néon »
+  (manâsik, parcours animé) gardent leur fond sombre.
+- Réglages mémorisés sur l'appareil, appliqués dès l'en-tête de la
+  page pour éviter un éclair sombre au chargement.
+- Correction d'un défaut d'origine : sur téléphone, la barre de
+  recherche de la Sīra et les bandeaux de l'accueil touchaient les
+  bords de l'écran (.toolbar et .hub annulaient le retrait latéral du
+  .wrap) ; ils sont maintenant alignés sur les cartes.
+
+Reprendre la lecture
+- La position de lecture est mémorisée (cours et hauteur dans le
+  résumé). L'accueil affiche un second bandeau « REPRENDRE LA LECTURE
+  — Cours N — titre · 42 % », sous « Reprendre l'écoute » ; il rouvre
+  le résumé à l'endroit exact.
+
+Recherche
+- Dans la Sīra : quand le mot cherché est dans un résumé, la carte
+  montre l'extrait qui le contient, mot surligné ; le résumé ouvert
+  surligne toutes les occurrences.
+- Depuis l'accueil : les résultats « dans le résumé » affichent
+  l'extrait ; le clic ouvre le résumé sur le premier passage surligné.
+
+Partage, impression, notes (nouvelle ligne d'actions sous chaque cours)
+- « ↗ Partager » : partage natif du lien du cours ou copie dans le
+  presse-papiers. Nouvelle adresse par cours : #sira/31 ouvre la Sīra
+  sur le cours 31, résumé déployé. Les autres adresses sont inchangées.
+- « Imprimer / PDF » : imprime la seule carte du cours, résumé complet
+  (et les notes s'il y en a), noir sur blanc — sur téléphone, le menu
+  d'impression permet d'enregistrer en PDF.
+- « ✎ Mes notes » : un bloc de texte par cours, mémorisé sur
+  l'appareil (« ● » sur le bouton quand une note existe).
+
+Audio (prêt pour la migration décrite dans GUIDE-AUDIO.md)
+- Dès qu'un cours a un champ mp3 et qu'AUDIO_BASE est renseigné, le
+  lecteur natif propose la vitesse (1×, 1,25×, 1,5×, 1,75×, 2×,
+  mémorisée), reprend à la position exacte, s'affiche sur l'écran
+  verrouillé (Media Session : lecture, pause, ±15/30 s), met en pause
+  les autres lecteurs, et coche « écouté » à la fin du cours.
+  Rien ne change pour les liens Drive tant que la migration n'est pas
+  faite.
+
+Mise à jour du site
+- Quand une nouvelle version du service worker prend la main alors que
+  l'application est ouverte depuis plus d'une minute (app laissée
+  ouverte, retour depuis l'arrière-plan), un bandeau « Une nouvelle
+  version du site est disponible — Actualiser » apparaît. Le service
+  worker vérifie les mises à jour au retour au premier plan et toutes
+  les 30 minutes.
+
+========================================================
+2. TECHNIQUE
+========================================================
+- RÉSUMÉS SORTIS DE index.html : nouveau fichier resumes.js
+  (const RESUMES = { 1: "…", 2: "…", … }), chargé par
+  <script src="resumes.js"> juste avant le bloc 1. Au démarrage,
+  chaque entrée de LESSONS reçoit RESUMES[numero] si son champ resume
+  est vide (un résumé écrit dans LESSONS garde la priorité). Dans
+  LESSONS, tous les champs resume sont désormais "" ; numero, titreAr,
+  titreFr et audio sont inchangés. index.html passe de 908 à 440 Ko et
+  ne change plus d'une livraison de résumés à l'autre : une livraison
+  = resumes.js + VERSION de sw.js. Les règles d'écriture sont
+  rappelées en tête de resumes.js (apostrophes \', paragraphes \n\n,
+  guillemets droits \" si le texte en contient, jamais </script).
+- CATALOGUE À LA DEMANDE : la balise <script src="catalogue.js"> a été
+  retirée. Le bloc 1 expose chargerCatalogue() (insère la balise,
+  puis appelle window.__initCatalogue et émet l'événement
+  « cataloguecharge »). Le bloc 3 (catalogue) est devenu
+  window.__initCatalogue (gardé par window.__catalogueInit) ; il
+  s'exécute aussi de lui-même si COURS est déjà défini. Le catalogue
+  est chargé : à l'entrée dans #cours/… (y compris arrivée directe),
+  au premier mot tapé dans la recherche de l'accueil (relancée à
+  l'arrivée), ou 1,5 s après l'affichage de l'accueil (chiffres des
+  tuiles). Le bloc 4 ne suppose plus COURS défini au chargement.
+- BLOCS <script> DE index.html : un petit script dans <head> (thème
+  et taille appliqués avant le premier rendu), puis les quatre blocs
+  connus : 1 (LESSONS, SURAS, MANASIK, rendu Sīra/sourates/manâsik/
+  parcours, menu et navigation, lecture des résumés, affichage,
+  chargerCatalogue, service worker), 2 (ASMA), 3 (catalogue),
+  4 (accueil). Soit cinq blocs inline à vérifier avec node --check.
+- LECTURE (bloc 1, avant render()) : resumeHtml(l, terme) construit le
+  HTML depuis le texte (une ligne = un paragraphe ; « • » → li de
+  .r-ul ; « N. » → li de .r-ol avec value ; ligne ≤ 220 caractères
+  finissant par « : » → h3.r-h[data-sec] ; « Prochain cours » →
+  p.r-next ; « … » → span.r-q ; occurrences du terme → <mark>).
+  normaliser() produit la version sans accents avec la position
+  d'origine de chaque caractère (surlignage exact) ; mise en cache par
+  résumé (l._norm). extraitResume() donne l'extrait de la liste.
+  ouvrirResume(card, l, ouvrir, {terme}) remplit .resume-full à la
+  première ouverture. window.__siraOuvrir(numero, {terme, frac}) et
+  window.__siraExtrait(l, q) sont utilisés par l'accueil.
+- Lien profond : le bloc 1 écoute « vuechange » et lit le chemin
+  (#sira/NN) via cheminDepuisHash() ; showVue() n'a pas changé.
+- Position de lecture : clé localStorage "sira-lecture"
+  {numero, titre, frac, t}, écrite au défilement quand un résumé
+  ouvert occupe l'écran ; le bandeau de l'accueil ne s'affiche que si
+  0,02 < frac < 0,98. Notes : "sira-notes" {numero: texte}. Vitesse :
+  "sira-vitesse". Positions audio : "sira-audio-pos" {clé Drive/mp3:
+  secondes}. Affichage : "sira-taille" (pourcentage), "sira-theme"
+  ("clair" ou absent).
+- Thème clair : html[data-theme="clair"] redéfinit les variables
+  --ink/--surface/--line/--gold/--cream/--muted ; #vue-manasik et
+  #vue-parcours les rétablissent en sombre. Meta theme-color suit.
+- Taille : html{font-size:NN%} (toutes les tailles en rem suivent).
+- Impression : @media print + body.impression et card.print-target ;
+  seule la carte cible s'imprime, .resume-full forcé visible, marques
+  et actions masquées ; nettoyage sur afterprint (repli 3 s).
+- Filtres de la Sīra : les gestionnaires ne ciblent plus « .chip »
+  mais « .chip[data-f] » (les nouveaux chips A−/A+/☀ et de vitesse
+  n'y répondent pas). Règle CSS globale [hidden]{display:none
+  !important} (l'extrait replié gardait display:-webkit-box).
+- sw.js : VERSION "v31" → "v31.1" ; "./resumes.js" ajouté au
+  PRECACHE ; nouvelle règle 1b : resumes.js et catalogue.js sont
+  servis réseau d'abord (comme index.html), repli sur le cache hors
+  ligne — les nouveaux résumés apparaissent dès la première ouverture
+  en ligne, sans attendre le remplacement du cache. Le cache
+  "sira-audio" est toujours préservé.
+- La page connaît une mise à jour par « controllerchange » du service
+  worker ; le bandeau n'apparaît que si la page était déjà contrôlée
+  et ouverte depuis plus de 60 s (pas de fausse alerte au chargement,
+  puisque index.html et les données sont déjà réseau d'abord).
+- Fichiers inchangés octet pour octet : catalogue.js, manifest, icônes,
+  GUIDE-AUDIO.md (un paragraphe ajouté seulement), README, nouveaute-*
+  et correction-audio-* précédents. SURAS, MANASIK, ASMA identiques.
+
+========================================================
+3. VÉRIFICATIONS
+========================================================
+- node --check sur les cinq blocs <script> inline, sur sw.js,
+  resumes.js et catalogue.js.
+- Évaluation : LESSONS compte 156 entrées, mêmes numero/titreAr/
+  titreFr/audio qu'en v31, resume "" partout ; RESUMES compte 31
+  entrées, textes identiques caractère pour caractère aux résumés de
+  la v31 ; après fusion, 31 cours ont un résumé.
+- SURAS, MANASIK, ASMA, catalogue.js identiques au zip v31.
+- Rendu jsdom (serveur local) : arrivée par #accueil, #sira, #sira/12,
+  #cours/riyad ; 156 cartes ; résumé 31 → 15 titres, 15 entrées de
+  sommaire, 41 puces, 59 citations ; résumé 1 (ancien format) →
+  2 titres, 5 puces, 6 leçons ; recherche « jujubier » → 1 carte,
+  extrait et surlignage ; __siraOuvrir(30, {terme}) → 14 marques ;
+  thème et taille mémorisés ; notes enregistrées ; bandeau « Reprendre
+  la lecture » ; catalogue absent à 0,4 s puis présent (accueil et
+  #cours), jamais chargé quand on reste dans #sira ; recherche accueil
+  « prière » → groupes Sīra, Séries, Cours ; aucune erreur console
+  (hors polices Google, non joignables en test).
+- Captures Chromium (390 × 844 et 1200 × 900) : lien #sira/31 ouvre la
+  carte sous le bouton de menu, sommaire, titres, puces, bouton
+  flottant ; thème clair ; barre de la Sīra et bandeaux de l'accueil
+  alignés sur les cartes.
