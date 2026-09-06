@@ -1,0 +1,269 @@
+PROMPT DE LIVRAISON — SITE « LA SĪRA DU PROPHÈTE ﷺ » (dépôt GitHub sirafr)
+Version du prompt : adaptée à la livraison v57 (résumés 1 à 57 livrés ;
+la v57 a livré deux cours d'un coup, 56 et 57, sans passer par une v56).
+La prochaine livraison est la v58 (cours 58 : Le début de la 2ème année
+de l'Hégire), ou vNN si plusieurs cours sont livrés ensemble.
+
+NOTE : ce prompt reprend les règles appliquées aux livraisons v22 à v57,
+la règle sur la longueur des résumés (section 4), et ce qui a changé
+dans le site avec la v27.3 et la v31.1 (sections 1, 5 et 7). Depuis la
+v31.1, une livraison de résumés ne touche plus index.html : elle
+remplace resumes.js et incrémente VERSION dans sw.js. Depuis la v52,
+une livraison peut contenir un ou plusieurs cours (section 2) ; le
+numéro de la livraison est celui du dernier cours livré.
+
+========================================================
+1. CONTEXTE
+========================================================
+- Le site est une page unique, index.html, publiée depuis un dépôt
+  GitHub (sirafr) ; l'adresse canonique est
+  https://fero69220.github.io/sirafr/ (GUIDE-AUDIO.md parle encore de
+  Netlify : indiquer l'hébergeur réel si cela a changé). La liste des
+  cours est dans index.html, dans le tableau JavaScript LESSONS (une
+  entrée par cours : numero, titreAr, titreFr, resume, audio) — 156
+  entrées (cours 1 à 155, le cours 117 en deux parties). Le champ
+  resume de LESSONS est TOUJOURS "" : les résumés vivent dans le fichier
+  resumes.js (const RESUMES = { 1: "…", 2: "…", … }), chargé par
+  <script src="resumes.js"> juste avant le bloc 1 ; au démarrage, chaque
+  cours reçoit RESUMES[numero]. Les résumés 1 à 57 sont livrés.
+- index.html contient CINQ blocs <script> inline, dans cet ordre :
+    0. dans <head> : deux lignes qui appliquent le thème et la taille
+       du texte mémorisés (ne pas toucher) ;
+    1. LESSONS (la Sīra), SURAS (114 fiches), MANASIK ('umra et hajj),
+       le rendu de la Sīra (mise en forme des résumés, sommaire,
+       recherche et surlignage, notes, partage, impression, lecteur
+       MP3), des sourates, des manâsik et du parcours, le menu latéral
+       et la navigation (VUES, showVue, hash), l'affichage (taille,
+       thème), chargerCatalogue() et le service worker ;
+    2. ASMA (les noms d'Allah) et son rendu ;
+    3. la section « Tous les cours » (catalogue), window.__initCatalogue,
+       qui lit catalogue.js ;
+    4. la page d'accueil : chiffres des tuiles, « Reprendre l'écoute »,
+       « Reprendre la lecture », et la recherche dans tout le site.
+  Une livraison de résumés ne modifie AUCUN de ces blocs.
+- catalogue.js (RUBRIQUES, SERIES, COURS, CATALOGUE_STATS) — le
+  catalogue des 1 848 cours audio du sheikh (312 séries, 11 rubriques)
+  — est chargé À LA DEMANDE par chargerCatalogue() (entrée dans #cours,
+  recherche de l'accueil, ou 1,5 s après l'affichage de l'accueil) et
+  précaché par sw.js. Une livraison de résumés N'Y TOUCHE PAS. Dans le
+  catalogue, la série « La Sira » renvoie à la section Sīra (#sira) :
+  les résumés ne vivent qu'à un seul endroit, resumes.js.
+- Le site est une PWA : sw.js met le site en cache hors ligne. La
+  constante VERSION de sw.js doit être incrémentée à chaque livraison
+  ("v57" → "v58", puis "v59"…), sinon les utilisateurs gardent
+  l'ancienne version en cache. index.html, resumes.js et catalogue.js
+  sont servis réseau d'abord (repli cache hors ligne). Le cache
+  "sira-audio" (audios téléchargés) n'est jamais purgé.
+- Les audios des cours sont hébergés sur Google Drive (liens déjà
+  présents dans LESSONS, dans ASMA et dans catalogue.js) ; ne pas les
+  modifier. Un champ mp3 + AUDIO_BASE (voir GUIDE-AUDIO.md) activera le
+  lecteur natif (vitesse, reprise, écran verrouillé) — non fait.
+- Adresses des sections : #accueil (par défaut), #sira, #sira/<numéro>
+  (ouvre un cours, résumé déployé), #sourates, #manasik, #parcours,
+  #asma, #cours, #cours/<matière>, #cours/<matière>/<série>. Ne pas les
+  changer : elles sont partagées.
+- Le résumé est un TEXTE BRUT mis en forme à l'affichage : les lignes
+  terminées par « : » deviennent des titres (et alimentent le sommaire),
+  les « • » et les « 1. 2. 3. » deviennent des listes, les « … » sont
+  distinguées. Respecter la section 3 suffit pour que la mise en forme
+  soit correcte.
+- Poids : resumes.js fait environ 1,45 Mo avec 57 résumés (résumés
+  récents de 30 000 à 50 000 caractères). Ce n'est pas une raison pour
+  raccourcir les résumés (section 4) ; le jour où le fichier devient
+  gênant, il sera découpé en plusieurs fichiers dans une livraison
+  technique (section 8), pas dans une livraison de résumés.
+- Chaque livraison reçoit : le zip complet de la version précédente
+  (sirafr-vNN-complet.zip), la ou les transcriptions automatiques (ASR)
+  des cours à traiter (fichiers cours-NN.txt, segments horodatés
+  [hh:mm:ss - hh:mm:ss]), et ce prompt.
+
+========================================================
+2. TRAVAIL ATTENDU POUR CHAQUE COURS
+========================================================
+- Une livraison traite un cours (cas habituel) ou plusieurs cours
+  consécutifs si plusieurs transcriptions sont fournies. Dans tous les
+  cas : un résumé par cours dans resumes.js, un fichier
+  correction-audio-NN.txt par cours, une seule incrémentation de
+  VERSION au numéro du dernier cours livré (cours 58 et 59 ensemble →
+  "v59", fichiers correction-audio-58.txt et correction-audio-59.txt,
+  zip sirafr-v59-complet.zip).
+- Identifier le cours : le numéro et les titres (arabe/français) sont
+  déjà dans LESSONS (index.html) ; la transcription ASR doit être
+  rattachée au bon numéro (vérifier avec le contenu et la dernière ligne
+  « Prochain cours » du résumé précédent, dans resumes.js).
+- Lire la transcription en entier, en tenant compte de ses défauts :
+  noms propres déformés, citations arabes corrompues, boucles de
+  répétition, hallucinations (sous-titrage, publicités, passages
+  transcrits dans une autre langue — italien, anglais, turc…),
+  confusion professeur/Prophète, phrases françaises transcrites en
+  caractères arabes, blancs de plusieurs secondes sur les lectures
+  arabes, versets lus en arabe dont seule la traduction française
+  apparaît, noms propres remplacés par un autre nom (l'ASR a écrit
+  « al-Muttalib » pour Ibn Salâm, Ibn 'Awf, Ibn Ubayy et 'Abd al-Ashhal
+  dans les cours 51 à 57), dialogues transcrits sans locuteur, passages
+  de français transcrits en caractères arabes ou en phonétique,
+  hallucinations en anglais en fin de cours, réponses des élèves et
+  approbations du sheikh (« jamîl ») transcrites en boucle, versets lus
+  en arabe sans transcription (les rétablir d'après le Coran).
+- Les lapsus du sheikh (un nom pour un autre) se corrigent d'après le
+  texte arabe lu et le contexte, et se signalent en section 6 du
+  fichier de corrections.
+- Rédiger le résumé en français, fidèle au contenu du cours et à l'ordre
+  du sheikh : récits, citations coraniques et hadiths cités, commentaires
+  et leçons tirées, digressions utiles, questions posées à l'auditoire
+  quand elles portent le contenu. Restituer les citations d'après les
+  sources classiques (Ibn Hishâm, Bukhârî, Muslim, Musnad d'Ahmad, Abû
+  Dâwûd, at-Tirmidhî, al-Bayhaqî, Ibn Sa'd, al-Hâkim, Fath al-Bârî,
+  ar-Rawd al-unuf…) quand l'audio est corrompu ; le sheikh lit un texte
+  moderne (Muhammad al-Ghazâlî, Fiqh as-sîra) et Riyâd as-Sâlihîn en
+  parallèle : le dire quand il le cite.
+- Ne rien inventer : si un point n'est pas audible ou pas certain, le
+  signaler dans le fichier de corrections (section 6) plutôt que de
+  trancher. Ne pas ajouter de références (numéros de hadith, noms de
+  recueils) que le sheikh n'a pas données ; elles vont dans le fichier
+  de corrections.
+
+========================================================
+3. STYLE ET FORMAT DU RÉSUMÉ
+========================================================
+- Première phrase : « Le cours précédent s'était arrêté sur … », rappel
+  du point où s'était arrêté le cours précédent, puis « Aujourd'hui : … »,
+  annonce du sujet et du plan du cours.
+- Titres de sections en clair, terminés par « : » (220 caractères au
+  plus, sur une seule ligne, sans « • ») ; points en « • » ou listes
+  numérotées « 1. 2. 3. » pour les leçons ; paragraphes séparés par une
+  ligne vide — chaque puce « • » et chaque leçon numérotée est un
+  paragraphe à part (jamais de saut de ligne simple). Une section = un
+  titre puis une ou plusieurs puces longues, dans l'ordre du cours.
+- Dernière ligne : « Prochain cours : … » (titre français du cours
+  suivant tel qu'il figure dans LESSONS, initiale en minuscule après
+  les deux-points, comme dans les résumés précédents : « Prochain cours :
+  la conversion de 'Abdullâh ibn Salâm. »).
+- Conventions : « Sīra » (avec macron) ; « Coran » ; le Prophète ﷺ
+  (symbole, pas de formule romanisée) ; translittération avec accents
+  circonflexes pour les longues ('Umar, Abû Bakr, Ibn Ishâq, Sa'îd ibn
+  Zayd, al-Bukhârî, 'Abd ar-Rahmân ibn 'Awf, Sa'd ibn ar-Rabî'…) ;
+  références coraniques sous la forme (Tâ-Hâ 14), (al-An'âm 122),
+  (an-Nisâ' 33) ; guillemets français « … » (les citations arabes lues
+  par le sheikh sont données en traduction française entre « … ») ;
+  termes arabes techniques translittérés entre parenthèses (mu'âkhât,
+  fay', shuhh, îthâr…).
+- Pas de guillemets droits ("), pas d'antislash dans le texte brut.
+
+========================================================
+4. LONGUEUR DU RÉSUMÉ — AUCUNE LIMITE
+========================================================
+- Ne pas limiter le nombre de caractères du résumé. Il n'existe aucune
+  contrainte technique et aucune fourchette cible : la seule règle est
+  la complétude par rapport au cours.
+- Ne pas « resserrer » un résumé pour l'aligner sur la longueur des
+  résumés précédents. Un cours long ou dense donne un résumé long (les
+  résumés 47 à 57 font de 30 000 à 49 000 caractères pour des cours de
+  40 à 60 minutes).
+- Conserver en entier les versets, hadiths et récits lus par le sheikh,
+  ses commentaires, ses leçons et ses digressions ; ne couper que les
+  répétitions de l'ASR et les remarques sans lien avec le cours.
+- Si un doute existe entre deux formulations, garder la plus complète.
+- La recherche (accueil et Sīra) lit le texte des résumés et affiche
+  l'extrait trouvé : un résumé complet rend le cours trouvable par ses
+  propres mots.
+
+========================================================
+5. INSERTION DANS resumes.js
+========================================================
+- Ajouter, dans const RESUMES = { … }, la ligne de chaque cours à sa
+  place dans l'ordre des numéros :   NN: "…",   (deux espaces, numéro,
+  deux-points, espace, chaîne entre guillemets doubles, virgule), juste
+  après la ligne du cours précédent. Ne toucher à rien d'autre : ni à
+  index.html (LESSONS garde resume: "" pour ce cours), ni à
+  catalogue.js, ni au CSS, ni aux fins de ligne du fichier.
+- Échappement, une seule fois : apostrophes → \' ; sauts de paragraphe
+  → \n\n ; pas de retour à la ligne réel dans la chaîne ; pas de
+  guillemet droit ni d'antislash dans le texte ; jamais la séquence
+  </script dans un résumé. Le plus sûr : rédiger le résumé en texte
+  brut dans un fichier de travail, puis le convertir par script et
+  vérifier que la chaîne décodée est identique au texte brut.
+- Vérifications obligatoires avant livraison :
+  · node --check sur resumes.js, sur sw.js, sur catalogue.js et sur
+    chacun des cinq blocs <script> inline de index.html (extraits par
+    script : blocs <script> sans attribut src) ;
+  · évaluation de RESUMES pour confirmer que chaque résumé décodé est
+    identique à son texte brut, que les numéros 1 à NN sont tous
+    présents, et que le nombre d'entrées a augmenté du nombre de cours
+    livrés ; évaluation de LESSONS + fusion (comme le fait index.html :
+    l.resume = RESUMES[l.numero]) pour vérifier que chaque cours livré
+    reçoit bien son résumé et que le cours suivant reste vide ;
+  · index.html, catalogue.js, manifest.webmanifest, icônes,
+    GUIDE-AUDIO.md, README.md et tous les .txt précédents : identiques
+    octet pour octet au zip précédent (cmp fichier par fichier) ;
+  · diff avec le zip précédent : seules les lignes ajoutées dans
+    resumes.js et la ligne VERSION de sw.js doivent changer ;
+  · si possible, rendu headless (Playwright ou jsdom) de
+    index.html#sira/NN : vue Sīra visible, titre du cours, sommaire
+    alimenté par les titres du résumé, dernière ligne « Prochain
+    cours » présente, aucune erreur JS propre au site (les 403 des
+    ressources externes ne comptent pas).
+
+========================================================
+6. FICHIER DE CORRECTIONS (correction-audio-NN.txt)
+========================================================
+Un fichier par cours, même en-tête que les précédents :
+  CORRECTIONS DE LA TRANSCRIPTION AUTOMATIQUE — COURS NN
+  « Titre français »
+  (titre arabe)
+  Corrections apportées lors de la rédaction du résumé (livraison vNN).
+puis six sections encadrées de lignes de « = » :
+ 1. MENTIONS DU PROPHÈTE ﷺ (formules romanisées, « le professeur », « le
+    prof », noms parasites — Efendimiz, Hassama… — → ﷺ)
+ 2. NOMS PROPRES DÉFORMÉS → forme correcte, avec l'arabe
+ 3. CITATIONS ARABES CORROMPUES, RÉTABLIES D'APRÈS LES SOURCES (texte
+    de l'ASR → texte arabe rétabli, avec la référence : Bukhârî NNNN,
+    Muslim NNNN, Abû Dâwûd NNNN, sourate/verset, Ibn Hishâm, texte
+    moderne lu…)
+ 4. VOCABULAIRE / TERMES TECHNIQUES
+ 5. BOUCLES ET ARTEFACTS DE L'ASR (supprimés)
+ 6. POINTS AMBIGUS NON TRANCHÉS (à vérifier à l'écoute) — numérotés,
+    avec ce que le résumé a retenu
+Chaque entrée porte l'horodatage (m:ss) du segment ; « → » introduit
+la correction ; « ✓ » marque ce qui est confirmé. Ne pas y consigner
+ce qui n'a pas été entendu : lister les garbles réellement présents
+dans la transcription.
+
+========================================================
+7. sw.js ET LIVRAISON
+========================================================
+- Incrémenter VERSION dans sw.js au numéro de la livraison ("vNN").
+  Ne pas toucher au reste de sw.js (PRECACHE contient resumes.js et
+  catalogue.js ; règle 1b : réseau d'abord pour ces deux fichiers).
+- Livrer, séparément : resumes.js, sw.js, le ou les fichiers
+  correction-audio-NN.txt, le zip complet sirafr-vNN-complet.zip, et
+  le prompt mis à jour pour la livraison suivante
+  (prompt-livraison-github-vNN.txt, hors zip).
+- Le zip contient tous les fichiers du site, à plat, comme le zip reçu :
+  index.html, resumes.js, catalogue.js, sw.js, manifest.webmanifest,
+  apple-touch-icon.png, icon-192.png, icon-512.png,
+  icon-512-maskable.png, GUIDE-AUDIO.md, README.md, les douze fichiers
+  nouveaute-*.txt et tous les correction-audio-NN.txt (15 à NN, anciens
+  et nouveaux) : 66 fichiers pour la v57. Ne rien retirer, ne rien
+  renommer.
+- Message de livraison court : ce qui change par rapport à la version
+  précédente, longueur des résumés, et les points à vérifier à l'écoute
+  (repris de la section 6 des corrections).
+
+========================================================
+8. SI LA LIVRAISON N'EST PAS UNE LIVRAISON DE RÉSUMÉS
+========================================================
+(Ajout d'une section, correction du site, mise à jour du catalogue,
+découpage de resumes.js, migration des audios vers un champ mp3.)
+- Le catalogue se met à jour en remplaçant catalogue.js en entier ;
+  index.html n'a rien à savoir de son contenu.
+- Une nouvelle section suit la marche à suivre commentée dans
+  index.html (« MENU LATÉRAL ET NAVIGATION ») : bouton .drawer-item,
+  bloc <div class="vue" id="vue-…" hidden>, entrée dans VUES, tuile
+  .hub-tile sur l'accueil.
+- Documenter dans un fichier nouveaute-<sujet>-vNN.txt, comme les
+  précédents : ce qui change, la technique, les vérifications.
+- Mêmes vérifications qu'en section 5, plus un rendu headless des
+  sections touchées (arrivée par chaque adresse, menu actif, aucune
+  erreur dans la console). LESSONS et resumes.js restent identiques
+  octet pour octet.
