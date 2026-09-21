@@ -10,7 +10,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="La Sīra du Prophète ﷺ">
 <meta property="og:title" content="La Sīra du Prophète ﷺ — 155 leçons">
-<meta property="og:description" content="Résumés des 155 leçons audio sur la Sīra, fiches des 114 sourates, guide interactif de la 'Umra et du Hajj, les noms d'Allah — et le catalogue des 1 848 cours audio du sheikh depuis 2018.">
+<meta property="og:description" content="Résumés des 155 leçons audio sur la Sīra, fiches des 114 sourates, guide interactif de la 'Umra et du Hajj, les 99 noms d'Allah en fiches, les adhkâr de la journée et les invocations du Prophète ﷺ — et le catalogue des 1 848 cours audio du sheikh depuis 2018.">
 <meta property="og:url" content="https://fero69220.github.io/sirafr/">
 <meta property="og:image" content="https://fero69220.github.io/sirafr/icon-512.png">
 <meta property="og:image:width" content="512">
@@ -761,6 +761,164 @@ try{if(localStorage.getItem("sira-theme")==="clair")document.documentElement.dat
   }
   html[data-theme="clair"] mark{background:#F3DE8A;color:#1E2A26}
 
+  /* ============ v58.1 — la journée du musulman, fiches des noms d'Allah, invocations ============ */
+  .jr-entete .mk-title-ar,#vue-asma .mk-title-ar{font-family:'Amiri',serif;font-weight:700;font-size:clamp(1.9rem,6vw,2.6rem);color:var(--gold);direction:rtl;line-height:1.5}
+  #vue-routine .wrap,#vue-duas .wrap,#vue-asma .wrap{padding-bottom:70px}
+  .ar-txt{font-family:'Amiri',serif;direction:rtl;text-align:right;unicode-bidi:isolate}
+
+  /* --- Accueil : « Ma journée » --- */
+  .jr{margin-bottom:26px}
+  .jr-lab{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:block}
+  .jr-now{
+    display:block;text-decoration:none;color:var(--cream);
+    background:
+      radial-gradient(ellipse 90% 120% at 100% 0%, rgba(201,164,85,.16), transparent 60%),
+      var(--surface);
+    border:1.5px solid var(--gold-dim);border-radius:18px;padding:18px 20px 16px;
+    transition:border-color .2s ease;
+  }
+  .jr-now:hover{border-color:var(--gold)}
+  .jr-now:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .jr-now-top{display:flex;align-items:flex-start;justify-content:space-between;gap:14px}
+  .jr-now-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.55rem;line-height:1.2;display:block;margin-top:4px}
+  .jr-now-ar{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:1.5rem;line-height:1.3;direction:rtl;flex:none}
+  .jr-now-s{color:var(--muted);font-size:.86rem;margin-top:6px;display:block}
+  .jr-bar{height:5px;border-radius:999px;background:var(--line);margin-top:13px;overflow:hidden}
+  .jr-bar i{display:block;height:100%;width:0;background:var(--gold);border-radius:999px;transition:width .35s ease}
+  .jr-now-cta{display:flex;justify-content:space-between;align-items:center;margin-top:11px;font-size:.8rem;color:var(--gold)}
+  .jr-etat{color:var(--muted);font-size:.78rem}
+  .jr-etat b{color:var(--gold);font-weight:500}
+  .jr-strip{
+    display:flex;gap:8px;overflow-x:auto;padding:12px 2px 6px;margin:0 -2px;
+    scrollbar-width:none;-webkit-overflow-scrolling:touch;scroll-snap-type:x proximity;position:relative;
+  }
+  .jr-strip::-webkit-scrollbar{display:none}
+  .jr-chip{
+    flex:none;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;gap:3px;
+    min-width:76px;padding:9px 10px 8px;border-radius:14px;text-decoration:none;
+    background:transparent;border:1px solid var(--line);color:var(--muted);
+    font-family:'Lora',serif;font-size:.72rem;line-height:1.25;text-align:center;cursor:pointer;
+  }
+  .jr-chip .ic{font-size:1.05rem;color:var(--gold-dim);line-height:1}
+  .jr-chip:hover{border-color:var(--gold-dim);color:var(--cream)}
+  .jr-chip.now{border-color:var(--gold);color:var(--cream);background:rgba(201,164,85,.08)}
+  .jr-chip.now .ic{color:var(--gold)}
+  .jr-chip.fait .ic{color:var(--gold)}
+  .jr-chip.fait::after{content:"✓";font-size:.62rem;color:var(--gold);line-height:1}
+  .jr-chip.active{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:600}
+  .jr-chip.active .ic,.jr-chip.active::after{color:var(--ink)}
+  .jr-chip:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .jr-duo{display:grid;gap:12px;margin-top:10px}
+  @media(min-width:640px){.jr-duo{grid-template-columns:1fr 1fr}}
+  .jr-mini{
+    display:block;text-decoration:none;color:var(--cream);
+    background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+  }
+  .jr-mini:hover{border-color:var(--gold-dim);background:var(--surface-2)}
+  .jr-mini:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .jr-mini-ar{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:1.7rem;line-height:1.5;direction:rtl;text-align:center;display:block;margin-top:4px}
+  .jr-mini-ar.long{font-size:1.12rem;font-weight:400;line-height:1.95;text-align:right}
+  .jr-mini-t{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.08rem;line-height:1.3;display:block;text-align:center}
+  .jr-mini-s{color:var(--muted);font-size:.84rem;line-height:1.55;display:block;margin-top:5px}
+  .jr-mini-s.c{text-align:center}
+
+  /* --- Noms d'Allah : grille et fiche --- */
+  .nm-intro{margin-top:26px}
+  .nm-tools{margin-top:22px}
+  .nm-tools .filters{justify-content:flex-start}
+  .nm-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;margin-top:16px}
+  .nm-tile{
+    position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    min-height:104px;padding:12px 6px 10px;border-radius:14px;text-decoration:none;text-align:center;
+    background:var(--surface);border:1px solid var(--line);color:var(--cream);
+  }
+  .nm-tile:hover{border-color:var(--gold-dim);background:var(--surface-2)}
+  .nm-tile:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .nm-tile .a{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:1.5rem;line-height:1.55;direction:rtl}
+  .nm-tile .f{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:.98rem;line-height:1.2}
+  .nm-tile .t{color:var(--muted);font-size:.68rem;line-height:1.3;margin-top:2px}
+  .nm-tile .k{position:absolute;top:6px;left:8px;font-size:.62rem;color:var(--gold-dim);letter-spacing:.04em}
+  .nm-tile.medite{border-color:var(--gold-dim)}
+  .nm-tile.medite::after{content:"✓";position:absolute;top:5px;right:8px;font-size:.7rem;color:var(--gold)}
+  .nm-tile.cible{animation:cible 1.8s ease-out}
+  .nm-retour{display:inline-block;margin-top:22px;color:var(--muted);text-decoration:none;font-size:.86rem;border-bottom:1px solid transparent}
+  .nm-retour:hover{color:var(--gold);border-bottom-color:var(--gold-dim)}
+  #nm-fiche .sura-nav{margin-top:12px}
+  #nm-view{display:grid;grid-template-columns:1fr;gap:14px;margin-top:18px}
+  .nm-names{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 22px;direction:rtl}
+  .nm-names .sura-ar{direction:rtl}
+  .nm-theme{display:inline-block;margin-top:9px;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold-dim);border-radius:999px;padding:2px 10px}
+  .squote-ar{font-family:'Amiri',serif;font-style:normal;font-size:1.28rem;line-height:2;direction:rtl;text-align:center;color:var(--hue);margin-top:13px}
+  .squote-ar + .squote{margin-top:4px}
+  .squote small,.nm-ref{display:block;font-style:normal;font-size:.76rem;color:var(--muted);margin-top:4px}
+  .c-dua{--hue:var(--gold);background:rgba(201,164,85,.07);border-color:var(--gold-dim)}
+  .c-dua .dk-ar{margin-top:4px}
+  .nm-sira{
+    display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--cream);
+    border:1px dashed var(--gold-dim);border-radius:14px;padding:13px 16px;
+  }
+  .nm-sira:hover{border-style:solid;background:rgba(201,164,85,.06)}
+  .nm-sira .jr-lab{margin-bottom:2px}
+  .nm-sira-t{font-size:.9rem;line-height:1.55;display:block}
+  .nm-actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+  @media(min-width:640px){
+    #nm-view{grid-template-columns:1fr 1fr}
+    #nm-view .sura-title-panel,#nm-view .c-contexte,#nm-view .c-dua,#nm-view .nm-sira,#nm-view .nm-actions{grid-column:1/-1}
+  }
+
+  /* --- Adhkâr et invocations : cartes et compteur --- */
+  .dk-tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-top:6px}
+  .dk-moment-tete{margin-top:20px;text-align:center}
+  .dk-moment-tete .a{font-family:'Amiri',serif;font-weight:700;color:var(--gold);font-size:1.7rem;line-height:1.4;direction:rtl}
+  .dk-moment-tete h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.5rem;line-height:1.25}
+  .dk-moment-tete .q{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold)}
+  .dk-moment-tete p{color:var(--muted);font-size:.9rem;line-height:1.65;max-width:560px;margin:8px auto 0}
+  .dk-liste{display:grid;gap:14px;margin-top:18px}
+  .dk-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px 14px;
+    scroll-margin-top:72px;transition:border-color .25s ease,opacity .25s ease;
+  }
+  .dk-card.done{border-color:var(--gold-dim)}
+  .dk-card.done .dk-ar,.dk-card.done .dk-tr,.dk-card.done .dk-fr{opacity:.62}
+  .dk-card.cible{animation:cible 1.8s ease-out}
+  .dk-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:10px}
+  .dk-head h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.12rem;line-height:1.3;color:var(--cream)}
+  .dk-n{flex:none;font-size:.72rem;letter-spacing:.06em;color:var(--gold);border:1px solid var(--gold-dim);border-radius:999px;padding:1px 9px;white-space:nowrap}
+  .dk-ar{font-family:'Amiri',serif;font-size:1.42rem;line-height:2.15;direction:rtl;text-align:right;color:var(--cream);unicode-bidi:isolate}
+  .dk-tr{font-style:italic;color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:8px}
+  body.sans-phonetique .dk-tr{display:none}
+  .dk-fr{font-size:.95rem;line-height:1.7;margin-top:8px}
+  .dk-note{font-size:.85rem;line-height:1.65;color:var(--muted);margin-top:9px;padding-left:12px;border-left:2px solid var(--gold-dim)}
+  .dk-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-top:12px}
+  .dk-src{font-size:.74rem;color:var(--muted);letter-spacing:.02em;flex:1;min-width:150px}
+  .dk-btns{display:flex;gap:6px;align-items:center;flex:none}
+  .dk-count{
+    font-family:'Lora',serif;font-size:.85rem;cursor:pointer;
+    border:1px solid var(--gold-dim);color:var(--gold);background:transparent;border-radius:999px;padding:7px 16px;min-width:92px;
+    -webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none;
+  }
+  .dk-count:hover{background:rgba(201,164,85,.1)}
+  .dk-count:active{transform:scale(.97)}
+  .dk-count.on{background:var(--gold);color:var(--ink);border-color:var(--gold);font-weight:600}
+  .dk-count.grand{display:block;width:100%;margin-top:12px;padding:16px;border-radius:14px;font-size:1rem}
+  .dk-count.grand b{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;display:block;line-height:1.1}
+  .dk-count:focus-visible,.dk-mini:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .dk-mini{font-family:'Lora',serif;font-size:.8rem;cursor:pointer;border:1px solid transparent;color:var(--muted);background:transparent;border-radius:8px;padding:5px 8px}
+  .dk-mini:hover{color:var(--gold);border-color:var(--line)}
+  .dk-mini.on{color:var(--gold)}
+  .dk-sira{display:inline-block;margin-top:9px;font-size:.82rem;color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-dim)}
+  .dk-pied{display:flex;justify-content:space-between;gap:10px;margin-top:22px}
+  .dk-pied .btn{flex:1;text-align:center;text-decoration:none}
+  .dk-fin{text-align:center;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-top:20px}
+  .du-adab{display:grid;gap:14px;margin-top:14px}
+  @media(min-width:640px){.du-adab{grid-template-columns:1fr 1fr}}
+  .du-cats{margin-top:18px}
+  .du-groupe{margin-top:30px;scroll-margin-top:70px}
+  .du-groupe > .cat-titre{margin-top:0;display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+  .du-groupe > .cat-titre .ar-txt{font-size:1.15rem;text-transform:none;letter-spacing:0;white-space:nowrap;flex:none}
+  .du-intro{color:var(--muted);font-size:.88rem;line-height:1.65;margin-top:10px}
+  @media (prefers-reduced-motion:reduce){.jr-bar i,.dk-card,.jr-now{transition:none}}
+
   /* hidden l'emporte toujours sur les règles d'affichage (extrait replié, bandeaux…) */
   [hidden]{display:none!important}
 
@@ -906,6 +1064,20 @@ try{if(localStorage.getItem("sira-theme")==="clair")document.documentElement.dat
     </span>
     <span class="di-ar">الرئيسية</span>
   </button>
+  <button class="drawer-item" data-view="routine">
+    <span class="di-txt">
+      <span class="di-fr">Ma journée <span class="badge">Nouveau</span></span>
+      <span class="di-sub">Les adhkâr du réveil au coucher, avec compteur</span>
+    </span>
+    <span class="di-ar">يوم المسلم</span>
+  </button>
+  <button class="drawer-item" data-view="duas">
+    <span class="di-txt">
+      <span class="di-fr">Les invocations du Prophète ﷺ <span class="badge">Nouveau</span></span>
+      <span class="di-sub">Par thème : pardon, détresse, protection, Coran, Sīra…</span>
+    </span>
+    <span class="di-ar">الأدعية</span>
+  </button>
   <button class="drawer-item" data-view="sira">
     <span class="di-txt">
       <span class="di-fr">La Sīra du Prophète ﷺ</span>
@@ -937,7 +1109,7 @@ try{if(localStorage.getItem("sira-theme")==="clair")document.documentElement.dat
   <button class="drawer-item" data-view="asma">
     <span class="di-txt">
       <span class="di-fr">Les noms d'Allah <span class="badge">Nouveau</span></span>
-      <span class="di-sub">Cours audio sur les plus beaux noms d'Allah</span>
+      <span class="di-sub">Les 99 noms en fiches de méditation — et la série audio</span>
     </span>
     <span class="di-ar">أسماء الله</span>
   </button>
@@ -985,6 +1157,29 @@ try{if(localStorage.getItem("sira-theme")==="clair")document.documentElement.dat
 </header>
 
 <div class="wrap hub">
+  <!-- ★ MA JOURNÉE (v58.1) : le moment présent, les moments de la journée, le nom et
+       l'invocation du jour. Rempli par le dernier bloc de script, depuis adhkar.js et noms.js ;
+       reste masqué si ces fichiers ne sont pas chargés. -->
+  <section class="jr" id="jr" aria-label="Ma journée" hidden>
+    <a class="jr-now" id="jr-now" href="#routine">
+      <span class="jr-now-top">
+        <span>
+          <span class="jr-lab" id="jr-now-lab"></span>
+          <span class="jr-now-t" id="jr-now-t"></span>
+        </span>
+        <span class="jr-now-ar" id="jr-now-ar" lang="ar"></span>
+      </span>
+      <span class="jr-now-s" id="jr-now-s"></span>
+      <span class="jr-bar" aria-hidden="true"><i id="jr-now-bar"></i></span>
+      <span class="jr-now-cta"><span class="jr-etat" id="jr-etat"></span><span>Ouvrir ›</span></span>
+    </a>
+    <nav class="jr-strip" id="jr-strip" aria-label="Les moments de la journée"></nav>
+    <div class="jr-duo">
+      <a class="jr-mini" id="jr-nom" href="#asma"></a>
+      <a class="jr-mini" id="jr-dua" href="#duas"></a>
+    </div>
+  </section>
+
   <a class="hub-resume" id="hub-resume" href="#sira" hidden>
     <span>
       <span class="hub-resume-lab" id="hub-resume-lab">Reprendre l'écoute</span>
@@ -1004,7 +1199,7 @@ try{if(localStorage.getItem("sira-theme")==="clair")document.documentElement.dat
   <!-- Recherche dans tout le site (v27.3) : Sīra, catalogue, sourates, noms d'Allah -->
   <div class="hub-search" role="search">
     <input type="search" id="hub-q" class="search"
-           placeholder="Rechercher un cours, une série, une sourate…"
+           placeholder="Rechercher un cours, une sourate, un nom d'Allah, une invocation…"
            aria-label="Rechercher dans tout le site" autocomplete="off">
     <p class="count-line" id="hub-q-count" hidden></p>
     <div id="hub-q-res"></div>
@@ -1020,6 +1215,24 @@ try{if(localStorage.getItem("sira-theme")==="clair")document.documentElement.dat
       <span class="hub-ar">السيرة</span>
       <span class="hub-go" aria-hidden="true">›</span>
     </a>
+    <a class="hub-tile" href="#routine">
+      <span class="hub-txt">
+        <span class="hub-fr">Ma journée <span class="badge">Nouveau</span></span>
+        <span class="hub-sub">Du réveil au coucher : les adhkâr du matin et du soir, après la prière, avant de dormir — arabe, phonétique, traduction et compteur.</span>
+        <span class="hub-meta" id="hub-meta-routine"></span>
+      </span>
+      <span class="hub-ar">يوم المسلم</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
+    <a class="hub-tile" href="#duas">
+      <span class="hub-txt">
+        <span class="hub-fr">Les invocations du Prophète ﷺ <span class="badge">Nouveau</span></span>
+        <span class="hub-sub">Celles qu'il répétait le plus, le pardon, la détresse, la protection, les invocations du Coran et celles de la Sīra.</span>
+        <span class="hub-meta" id="hub-meta-duas"></span>
+      </span>
+      <span class="hub-ar">الأدعية</span>
+      <span class="hub-go" aria-hidden="true">›</span>
+    </a>
     <a class="hub-tile hub-wide" href="#cours">
       <span class="hub-txt">
         <span class="hub-fr">Tous les cours du sheikh <span class="badge">Nouveau</span></span>
@@ -1032,7 +1245,7 @@ try{if(localStorage.getItem("sira-theme")==="clair")document.documentElement.dat
     <a class="hub-tile" href="#asma">
       <span class="hub-txt">
         <span class="hub-fr">Les noms d'Allah <span class="badge">Nouveau</span></span>
-        <span class="hub-sub">La série de cours sur les plus beaux noms d'Allah.</span>
+        <span class="hub-sub">Les 99 noms en fiches : sens, versets, méditation, invocation — et la série de cours audio.</span>
         <span class="hub-meta" id="hub-meta-asma"></span>
       </span>
       <span class="hub-ar">أسماء الله</span>
@@ -1235,11 +1448,86 @@ try{if(localStorage.getItem("sira-theme")==="clair")document.documentElement.dat
       <div class="ornament" aria-hidden="true">۞</div>
       <div class="mk-title-ar">أسماء الله الحسنى</div>
       <h2 class="fr-title">Les noms d'Allah</h2>
-      <p class="suras-sub">Série de cours audio consacrée aux plus beaux noms d'Allah : leur sens, leurs effets sur le cœur et leur invocation.</p>
+      <p class="suras-sub">« C'est à Allah qu'appartiennent les plus beaux noms : invoquez-Le par eux » (al-A'râf 180). Une fiche par nom, pour le connaître, le méditer et invoquer par lui.</p>
     </div>
 
+    <!-- ★ FICHES DES NOMS D'ALLAH (v58.1) : lues depuis noms.js. Adresses : #asma (tous les noms), #asma/<id> (une fiche). -->
+    <div id="nm-zone" hidden>
+      <div id="nm-liste">
+        <div class="nm-tools">
+          <input type="search" id="nm-q" class="search" placeholder="Chercher un nom : Rahmân, pardon, الغفور…" aria-label="Chercher un nom d'Allah" autocomplete="off">
+          <div class="filters" id="nm-themes" role="group" aria-label="Filtrer par thème"></div>
+          <p class="count-line" id="nm-count"></p>
+        </div>
+        <div class="nm-grid" id="nm-grid"></div>
+        <p class="empty" id="nm-vide" hidden>Aucun nom ne correspond à cette recherche.</p>
+        <section class="scard c-contexte nm-intro">
+          <h3>Pourquoi ces quatre-vingt-dix-neuf noms ?</h3>
+          <ul>
+            <li>« Allah a quatre-vingt-dix-neuf noms, cent moins un : <b>celui qui les recense (ahsâhâ) entre au Paradis</b>. Il est Witr et Il aime l'impair » (Bukhârî et Muslim). Les savants expliquent « recenser » par trois degrés : les <b>connaître</b>, en <b>comprendre le sens</b>, et <b>invoquer et vivre</b> par eux.</li>
+            <li>Ses noms ne se limitent pas à ce nombre : le Prophète ﷺ invoquait « par tout nom… que Tu as gardé auprès de Toi dans la science de l'invisible » (Ahmad).</li>
+            <li>Le hadith ne dit pas lesquels. La liste récitée partout vient d'une version d'at-Tirmidhî ; des savants du hadith — Ibn Taymiyya, Ibn Kathîr, Ibn Hajar — expliquent que cette énumération n'est pas une parole du Prophète ﷺ mais l'ajout d'un rapporteur. Les fiches retiennent donc <b>99 noms établis par un verset ou un hadith authentique</b>, chacun avec sa preuve ; les noms de même racine partagent une fiche. C'est une liste possible parmi celles que les savants ont proposées, non une liste révélée.</li>
+          </ul>
+        </section>
+      </div>
+      <div id="nm-fiche" hidden>
+        <a class="nm-retour" href="#asma">← Tous les noms</a>
+        <div class="sura-nav">
+          <button class="btn sura-arrow" id="nm-prev" aria-label="Fiche précédente">‹</button>
+          <select id="nm-select" class="sura-select" aria-label="Choisir un nom"></select>
+          <button class="btn sura-arrow" id="nm-next" aria-label="Fiche suivante">›</button>
+        </div>
+        <div id="nm-view"></div>
+      </div>
+    </div>
+
+    <div id="asma-cours">
+    <h3 class="cat-titre" id="asma-cours-titre" hidden>La série de cours audio <small>leur sens, leurs effets sur le cœur et leur invocation</small></h3>
     <div id="asma-list"></div>
     <p id="asma-empty" class="count-line" style="text-align:center;margin-top:18px" hidden>Les cours individuels apparaîtront ici prochainement, in shâ' Allâh.</p>
+    </div><!-- /asma-cours -->
+  </div>
+</div>
+
+<!-- ★ MA JOURNÉE (v58.1) : les adhkâr du réveil au coucher, lus depuis adhkar.js (ROUTINE).
+     Adresses : #routine (le moment présent), #routine/matin, #routine/soir, #routine/coucher… -->
+<div class="vue" id="vue-routine" hidden>
+  <div class="wrap">
+    <div class="cat-entete jr-entete">
+      <div class="ornament" aria-hidden="true">۞</div>
+      <div class="mk-title-ar">يوم المسلم</div>
+      <h2 class="fr-title">La journée du musulman</h2>
+      <p class="suras-sub">Du réveil au coucher, ce que le Prophète ﷺ disait à chaque moment. Touchez le compteur à chaque parole dite : la page se souvient de votre journée.</p>
+    </div>
+    <nav class="jr-strip" id="rt-strip" aria-label="Les moments de la journée"></nav>
+    <div class="dk-tools">
+      <button type="button" class="dk-mini phon-toggle" aria-pressed="true">Phonétique : affichée</button>
+      <button type="button" class="dk-mini" id="rt-reset">↺ Remettre ce moment à zéro</button>
+    </div>
+    <div id="rt-zone"></div>
+  </div>
+</div>
+
+<!-- ★ LES INVOCATIONS DU PROPHÈTE ﷺ (v58.1) : lues depuis adhkar.js (DUAS).
+     Adresses : #duas, #duas/<thème>, #duas/favoris. -->
+<div class="vue" id="vue-duas" hidden>
+  <div class="wrap">
+    <div class="cat-entete jr-entete">
+      <div class="ornament" aria-hidden="true">۞</div>
+      <div class="mk-title-ar">أدعية النبي ﷺ</div>
+      <h2 class="fr-title">Les invocations du Prophète ﷺ</h2>
+      <p class="suras-sub">« L'invocation, c'est l'adoration » (Abû Dâwûd, at-Tirmidhî). Ses mots à lui, rangés par besoin.</p>
+    </div>
+    <div class="du-cats">
+      <div class="filters" id="du-cats" role="group" aria-label="Choisir un thème"></div>
+      <div class="dk-tools">
+        <button type="button" class="dk-mini phon-toggle" aria-pressed="true">Phonétique : affichée</button>
+        <span class="count-line" id="du-count" style="margin-top:0"></span>
+      </div>
+    </div>
+    <div id="du-zone"></div>
+    <h3 class="cat-titre" style="margin-top:34px">Bien invoquer <small>les règles et les moments de l'exaucement</small></h3>
+    <div class="du-adab" id="du-adab"></div>
   </div>
 </div>
 
@@ -1284,6 +1572,9 @@ try{if(localStorage.getItem("sira-theme")==="clair")document.documentElement.dat
 
 <!-- v31.1 : les résumés de la Sīra vivent dans resumes.js (un texte par numéro de cours) -->
 <script src="resumes.js"></script>
+<!-- v58.1 : les fiches des noms d'Allah (NOMS) et les adhkâr et invocations (ROUTINE, DUAS) -->
+<script src="noms.js"></script>
+<script src="adhkar.js"></script>
 <script>
 /* ============================================================
    ★ VOS COURS — C'EST ICI QUE VOUS AJOUTEZ CHAQUE LEÇON ★
@@ -6605,7 +6896,7 @@ hajj: [
    4. Ajoutez une tuile <a class="hub-tile" href="#monsujet"> dans la
       page d'accueil (id="vue-accueil"), sur le modèle des autres.
    ============================================================ */
-const VUES = { accueil: "vue-accueil", sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", parcours: "vue-parcours", asma: "vue-asma", cours: "vue-cours" };
+const VUES = { accueil: "vue-accueil", sira: "vue-sira", sourates: "sourates", manasik: "vue-manasik", parcours: "vue-parcours", asma: "vue-asma", cours: "vue-cours", routine: "vue-routine", duas: "vue-duas" };
 
 /* Une adresse peut porter un chemin : « cours/fiqh/la-priere-20250620 » désigne
    la vue « cours », qui lit elle-même la suite du chemin. « fiqh » seul (ancienne
@@ -7408,7 +7699,10 @@ if (typeof COURS !== "undefined") window.__initCatalogue();
         ligne("#asma", x.titreFr || ("Cours n° " + x.numero), "Les noms d'Allah", x.titreAr,
           () => allerA("#asma", () => document.querySelectorAll("#asma-list .card")[ASMA.indexOf(x)])));
       total += asma.length;
-      groupe(zone, "Noms d'Allah", "", asma);
+      groupe(zone, "Noms d'Allah — cours audio", "", asma);
+
+      /* v58.1 : fiches des noms d'Allah, adhkâr et invocations (fournis par le dernier bloc de script) */
+      if (window.__recherchePlus) total += window.__recherchePlus({ q, nq, fr, arab, ligne, groupe, zone, allerA });
 
       compte.hidden = false;
       compte.textContent = total ? total + " résultat" + (total > 1 ? "s" : "") + " pour « " + q.trim() + " »" : "Rien trouvé pour « " + q.trim() + " » — essayez un autre mot, ou un numéro de cours.";
@@ -7431,6 +7725,505 @@ if (typeof COURS !== "undefined") window.__initCatalogue();
   }
   renderAccueil();
   if (!$("vue-accueil").hidden) differerCatalogue();
+})();
+</script>
+
+<script>
+/* ============================================================
+   ★ MA JOURNÉE, FICHES DES NOMS D'ALLAH, INVOCATIONS (v58.1) ★
+   Rien à modifier ici pour corriger un texte : les fiches sont dans
+   noms.js (NOMS), les adhkâr et invocations dans adhkar.js (ROUTINE,
+   DUAS). Ce bloc ne fait que les afficher :
+     · accueil  : le moment présent, les moments de la journée,
+                  le nom du jour, l'invocation du jour ;
+     · #asma    : la grille des 99 noms, et #asma/<id> une fiche ;
+     · #routine : les adhkâr d'un moment (#routine/matin…), avec un
+                  compteur par parole, remis à zéro chaque jour ;
+     · #duas    : les invocations par thème, favoris, partage.
+   Mémoire locale (localStorage) : "routine-jour" (compteurs du jour),
+   "noms-medites", "noms-dernier", "duas-favoris", "sira-phonetique".
+   ============================================================ */
+(function () {
+  const aNoms = typeof NOMS !== "undefined" && Array.isArray(NOMS) && NOMS.length;
+  const aRoutine = typeof ROUTINE !== "undefined" && Array.isArray(ROUTINE) && ROUTINE.length;
+  const aDuas = typeof DUAS !== "undefined" && Array.isArray(DUAS) && DUAS.length;
+  if (!aNoms && !aRoutine && !aDuas) return;
+
+  const $ = (id) => document.getElementById(id);
+  const esc = (t) => String(t == null ? "" : t).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const sans = (t) => String(t || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/['’ʿʾ`-]/g, "");
+  const sansHarakat = (t) => String(t || "").replace(/[\u064B-\u0652\u0670\u0640]/g, "").replace(/[أإآٱ]/g, "ا");
+  const RM = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const lire = (k, d) => { try { const v = JSON.parse(localStorage.getItem(k) || "null"); return v == null ? d : v; } catch (e) { return d; } };
+  const ecrire = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  const dire = (m) => { if (typeof toast === "function") toast(m); };
+  const chemin = () => (typeof cheminDepuisHash === "function" ? cheminDepuisHash() : (location.hash || "#accueil").slice(1)).split("/");
+
+  /* ---------- le jour et le moment ---------- */
+  const pad = (n) => (n < 10 ? "0" : "") + n;
+  const dateDuJour = () => { const d = new Date(); return d.getFullYear() + "-" + pad(d.getMonth() + 1) + "-" + pad(d.getDate()); };
+  const numeroDuJour = () => { const d = new Date(); return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000); };
+  /* Sans horaires de prière (il faudrait la position) : on se règle sur l'heure de l'appareil. */
+  function momentPresent() {
+    const h = new Date().getHours();
+    if (h >= 3 && h < 6) return { id: "reveil", lab: "Avant l'aube" };
+    if (h >= 6 && h < 11) return { id: "matin", lab: "Ce matin" };
+    if (h >= 11 && h < 15) return { id: "priere", lab: "À la mi-journée" };
+    if (h >= 15 && h < 20) return { id: "soir", lab: "Cet après-midi" };
+    return { id: "coucher", lab: h >= 20 ? "Ce soir" : "Cette nuit" };
+  }
+  const estVendredi = () => new Date().getDay() === 5;
+
+  /* ---------- compteurs du jour ---------- */
+  let jour = lire("routine-jour", null);
+  function etatJour() {
+    const d = dateDuJour();
+    if (!jour || jour.d !== d || typeof jour.c !== "object") { jour = { d: d, c: {} }; }
+    return jour;
+  }
+  const compte = (id) => etatJour().c[id] || 0;
+  function poser(id, v) { const e = etatJour(); if (v > 0) e.c[id] = v; else delete e.c[id]; ecrire("routine-jour", e); }
+  const cible = (x) => Math.max(1, x.n || 1);
+  const fait = (x) => compte(x.id) >= cible(x);
+  const avancement = (m) => { const t = m.items.length; const f = m.items.filter(fait).length; return { f: f, t: t, p: t ? f / t : 0 }; };
+
+  /* ---------- phonétique : affichée ou non (mémorisé) ---------- */
+  function appliquerPhonetique() {
+    const on = lire("sira-phonetique", true) !== false;
+    document.body.classList.toggle("sans-phonetique", !on);
+    document.querySelectorAll(".phon-toggle").forEach((b) => {
+      b.textContent = on ? "Phonétique : affichée" : "Phonétique : masquée";
+      b.setAttribute("aria-pressed", on);
+      b.classList.toggle("on", on);
+    });
+  }
+  document.querySelectorAll(".phon-toggle").forEach((b) => b.addEventListener("click", () => {
+    ecrire("sira-phonetique", lire("sira-phonetique", true) === false);
+    appliquerPhonetique();
+  }));
+  appliquerPhonetique();
+
+  /* ---------- une parole (dhikr ou invocation) ---------- */
+  function lienSira(n) {
+    if (!n || typeof LESSONS === "undefined") return "";
+    const l = LESSONS.find((x) => x.numero === n);
+    return '<a class="dk-sira" href="#sira/' + n + '">Dans la Sīra — cours ' + n + (l && l.titreFr ? " : " + esc(l.titreFr) : "") + " ›</a>";
+  }
+  function carte(x, opt) {
+    opt = opt || {};
+    const n = cible(x), c = Math.min(compte(x.id), n), ok = c >= n;
+    const grand = n >= 10;
+    const art = document.createElement("article");
+    art.className = "dk-card" + (ok ? " done" : "");
+    art.dataset.id = x.id;
+    const libelle = () => {
+      const v = Math.min(compte(x.id), n);
+      if (grand) return "<b>" + v + " / " + n + "</b>" + (v >= n ? "✓ Terminé" : "Toucher pour compter");
+      if (n > 1) return (v >= n ? "✓ " : "") + v + " / " + n;
+      return v >= n ? (x.geste ? "✓ Fait" : "✓ Dit") : (x.geste ? "Fait" : "Dit");
+    };
+    const favori = opt.favoris ? '<button type="button" class="dk-mini dk-fav" aria-pressed="false">☆ Favori</button>' : "";
+    const partage = opt.partage ? '<button type="button" class="dk-mini dk-share">↗ Partager</button>' : "";
+    const compteur = (opt.compteur === false && n === 1) ? "" :
+      '<button type="button" class="dk-count' + (grand ? " grand" : "") + (ok ? " on" : "") + '">' + libelle() + "</button>";
+    art.innerHTML =
+      '<div class="dk-head"><h4>' + esc(x.titre) + "</h4>" + (n > 1 ? '<span class="dk-n">× ' + n + "</span>" : "") + "</div>" +
+      (x.ar ? '<p class="dk-ar" lang="ar" dir="rtl">' + esc(x.ar) + "</p>" : "") +
+      (x.tr ? '<p class="dk-tr">' + esc(x.tr) + "</p>" : "") +
+      '<p class="dk-fr">' + esc(x.fr) + "</p>" +
+      ((x.note || x.quand) ? '<p class="dk-note">' + esc(x.note || x.quand) + "</p>" : "") +
+      lienSira(x.sira) +
+      '<div class="dk-foot"><span class="dk-src">' + esc(x.src || "") + '</span><span class="dk-btns">' + favori + partage +
+        '<button type="button" class="dk-mini dk-raz" aria-label="Remettre à zéro"' + (c ? "" : " hidden") + ">↺</button>" +
+        (grand ? "" : compteur) + "</span></div>" + (grand ? compteur : "");
+
+    const bouton = art.querySelector(".dk-count"), raz = art.querySelector(".dk-raz");
+    const peindre = () => {
+      const v = compte(x.id), termine = v >= n;
+      if (bouton) { bouton.innerHTML = libelle(); bouton.classList.toggle("on", termine); }
+      art.classList.toggle("done", termine);
+      if (raz) raz.hidden = !v;
+    };
+    if (bouton) bouton.addEventListener("click", () => {
+      const v = compte(x.id);
+      if (v >= n) return;
+      poser(x.id, v + 1);
+      peindre();
+      if (v + 1 >= n) {
+        if (navigator.vibrate) { try { navigator.vibrate(n > 1 ? [18, 40, 18] : 12); } catch (e) {} }
+        if (opt.apresFait) opt.apresFait(art);
+      } else if (n >= 10 && navigator.vibrate && (v + 1) % 33 === 0) { try { navigator.vibrate(10); } catch (e) {} }
+    });
+    if (raz) raz.addEventListener("click", () => { poser(x.id, 0); peindre(); if (opt.apresFait) opt.apresFait(null); });
+
+    const fav = art.querySelector(".dk-fav");
+    if (fav) {
+      const peindreFav = () => { const on = !!lire("duas-favoris", {})[x.id]; fav.textContent = on ? "★ Favori" : "☆ Favori"; fav.classList.toggle("on", on); fav.setAttribute("aria-pressed", on); };
+      fav.addEventListener("click", () => { const f = lire("duas-favoris", {}); if (f[x.id]) delete f[x.id]; else f[x.id] = 1; ecrire("duas-favoris", f); peindreFav(); if (opt.apresFavori) opt.apresFavori(); });
+      peindreFav();
+    }
+    const sh = art.querySelector(".dk-share");
+    if (sh) sh.addEventListener("click", () => {
+      const url = location.origin + location.pathname + "#duas/" + (opt.groupe || "");
+      const texte = x.titre + "\n\n" + (x.ar ? x.ar + "\n\n" : "") + "« " + x.fr + " »\n(" + (x.src || "") + ")";
+      if (navigator.share) navigator.share({ title: x.titre, text: texte, url: url }).catch(() => {});
+      else if (navigator.clipboard) navigator.clipboard.writeText(texte + "\n" + url).then(() => dire("Invocation copiée")).catch(() => {});
+    });
+    return art;
+  }
+
+  /* ============================================================
+     MA JOURNÉE — #routine, #routine/<moment>
+     ============================================================ */
+  let momentAffiche = null;
+  function bande(zone, actif, base) {
+    if (!zone) return;
+    const present = momentPresent().id;
+    zone.innerHTML = "";
+    ROUTINE.forEach((m) => {
+      if (m.id === "vendredi" && !estVendredi() && actif !== "vendredi" && base === "accueil") return;
+      const a = document.createElement("a");
+      const av = avancement(m);
+      a.className = "jr-chip" + (m.id === present ? " now" : "") + (av.t && av.f === av.t ? " fait" : "") + (m.id === actif ? " active" : "");
+      a.href = "#routine/" + m.id;
+      a.innerHTML = '<span class="ic" aria-hidden="true">' + esc(m.icone || "•") + "</span><span>" + esc(m.fr) + "</span>";
+      if (m.id === actif) a.setAttribute("aria-current", "true");
+      zone.appendChild(a);
+    });
+    const cur = zone.querySelector(".active") || zone.querySelector(".now");
+    if (cur && zone.scrollTo) zone.scrollTo({ left: Math.max(0, cur.offsetLeft - 60) });
+  }
+  function renderRoutine(id) {
+    if (!aRoutine || !$("rt-zone")) return;
+    let m = ROUTINE.find((x) => x.id === id);
+    if (!m) m = ROUTINE.find((x) => x.id === momentPresent().id) || ROUTINE[0];
+    momentAffiche = m.id;
+    const zone = $("rt-zone");
+    zone.innerHTML = "";
+    bande($("rt-strip"), m.id, "routine");
+
+    const tete = document.createElement("div");
+    tete.className = "dk-moment-tete";
+    tete.innerHTML = '<div class="a" lang="ar">' + esc(m.ar) + '</div><div class="q">' + esc(m.quand || "") + "</div><h3>" + esc(m.fr) + "</h3>" +
+      (m.intro ? "<p>" + esc(m.intro) + "</p>" : "") +
+      '<div class="jr-bar" aria-hidden="true"><i id="rt-bar"></i></div><p class="count-line" id="rt-count" style="margin-top:8px"></p>';
+    zone.appendChild(tete);
+
+    const liste = document.createElement("div");
+    liste.className = "dk-liste";
+    const majTete = () => {
+      const av = avancement(m);
+      $("rt-bar").style.width = Math.round(av.p * 100) + "%";
+      $("rt-count").textContent = av.f + " / " + av.t + (av.f === av.t ? " — terminé, al-hamdu lillâh" : " paroles dites aujourd'hui");
+      bande($("rt-strip"), m.id, "routine");
+      const fin = $("rt-fin"); if (fin) fin.hidden = av.f !== av.t;
+    };
+    m.items.forEach((x) => liste.appendChild(carte(x, {
+      apresFait: (art) => {
+        majTete();
+        if (!art) return;
+        let s = art.nextElementSibling;
+        while (s && s.classList.contains("done")) s = s.nextElementSibling;
+        if (s) setTimeout(() => s.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" }), 260);
+      }
+    })));
+    zone.appendChild(liste);
+
+    const fin = document.createElement("p");
+    fin.className = "dk-fin"; fin.id = "rt-fin"; fin.hidden = true;
+    fin.textContent = "تقبّل الله — Qu'Allah accepte.";
+    zone.appendChild(fin);
+
+    const i = ROUTINE.indexOf(m), prec = ROUTINE[i - 1], suiv = ROUTINE[i + 1];
+    const pied = document.createElement("div");
+    pied.className = "dk-pied";
+    pied.innerHTML = (prec ? '<a class="btn" href="#routine/' + prec.id + '">‹ ' + esc(prec.fr) + "</a>" : "<span></span>") +
+      (suiv ? '<a class="btn" href="#routine/' + suiv.id + '">' + esc(suiv.fr) + " ›</a>" : "<span></span>");
+    zone.appendChild(pied);
+    majTete();
+  }
+  if ($("rt-reset")) $("rt-reset").addEventListener("click", () => {
+    const m = ROUTINE.find((x) => x.id === momentAffiche);
+    if (!m) return;
+    m.items.forEach((x) => poser(x.id, 0));
+    renderRoutine(m.id);
+    dire("Compteurs remis à zéro");
+  });
+
+  /* ============================================================
+     LES INVOCATIONS — #duas, #duas/<thème>, #duas/favoris
+     ============================================================ */
+  let adabFait = false;
+  function renderDuas(id) {
+    if (!aDuas || !$("du-zone")) return;
+    if (!adabFait && typeof DUAS_ADAB !== "undefined" && $("du-adab")) {
+      const li = (a) => a.map((t) => "<li>" + t + "</li>").join("");
+      $("du-adab").innerHTML =
+        '<section class="scard c-sens"><h3>Comment invoquer</h3><ul>' + li(DUAS_ADAB.regles) + "</ul></section>" +
+        '<section class="scard c-merites"><h3>Les moments où l\'invocation est exaucée</h3><ul>' + li(DUAS_ADAB.moments) + "</ul></section>";
+      adabFait = true;
+    }
+    const favs = lire("duas-favoris", {});
+    const nbFav = DUAS.reduce((t, g) => t + g.items.filter((x) => favs[x.id]).length, 0);
+    const voirFav = id === "favoris";
+    const groupe = voirFav ? null : DUAS.find((g) => g.id === id);
+
+    const cats = $("du-cats");
+    cats.innerHTML = "";
+    const puce = (href, txt, on) => { const a = document.createElement("a"); a.className = "chip" + (on ? " active" : ""); a.href = href; a.textContent = txt; a.style.textDecoration = "none"; cats.appendChild(a); };
+    puce("#duas", "Toutes", !groupe && !voirFav);
+    DUAS.forEach((g) => puce("#duas/" + g.id, g.fr, groupe === g));
+    puce("#duas/favoris", "★ Mes favorites" + (nbFav ? " (" + nbFav + ")" : ""), voirFav);
+
+    const zone = $("du-zone");
+    zone.innerHTML = "";
+    let total = 0;
+    (groupe ? [groupe] : DUAS).forEach((g) => {
+      const items = voirFav ? g.items.filter((x) => favs[x.id]) : g.items;
+      if (!items.length) return;
+      total += items.length;
+      const sec = document.createElement("section");
+      sec.className = "du-groupe"; sec.id = "du-" + g.id;
+      sec.innerHTML = '<h3 class="cat-titre"><span>' + esc(g.fr) + '</span><span class="ar-txt" lang="ar">' + esc(g.ar || "") + "</span></h3>" +
+        (g.intro && !voirFav ? '<p class="du-intro">' + esc(g.intro) + "</p>" : "");
+      const liste = document.createElement("div");
+      liste.className = "dk-liste";
+      items.forEach((x) => liste.appendChild(carte(x, { compteur: false, favoris: true, partage: true, groupe: g.id, apresFavori: () => { if (voirFav) renderDuas("favoris"); } })));
+      sec.appendChild(liste);
+      zone.appendChild(sec);
+    });
+    if (!total) zone.innerHTML = '<p class="empty">Aucune favorite pour l\'instant : touchez « ☆ Favori » sous une invocation pour la retrouver ici.</p>';
+    $("du-count").textContent = total + " invocation" + (total > 1 ? "s" : "");
+  }
+
+  /* ============================================================
+     LES NOMS D'ALLAH — #asma (grille), #asma/<id> (fiche)
+     ============================================================ */
+  let numeroDe = new Map(), themeActif = "tous";
+  if (aNoms) { let k = 0; NOMS.forEach((f) => f.noms.forEach((nm) => numeroDe.set(nm, ++k))); }
+  const totalNoms = () => numeroDe.size;
+  const themeDe = (f) => (typeof NOMS_THEMES !== "undefined" ? NOMS_THEMES.find((t) => t.id === f.theme) : null) || { fr: "" };
+  const titreFiche = (f) => f.noms.map((x) => x.fr).join(", ");
+
+  function grilleNoms() {
+    const grille = $("nm-grid"); if (!grille) return;
+    const q = ($("nm-q").value || "").trim(), nq = sans(q), arq = sansHarakat(q);
+    const med = lire("noms-medites", {});
+    grille.innerHTML = "";
+    let vus = 0;
+    NOMS.forEach((f) => {
+      if (themeActif !== "tous" && f.theme !== themeActif) return;
+      f.noms.forEach((nm) => {
+        if (nq && !(sans(nm.fr).includes(nq) || sans(nm.trad).includes(nq) || (nq.length >= 4 && sans(themeDe(f).fr).includes(nq)) || (/[\u0600-\u06ff]/.test(q) && sansHarakat(nm.ar).includes(arq)) || String(numeroDe.get(nm)) === nq)) return;
+        vus++;
+        const a = document.createElement("a");
+        a.className = "nm-tile" + (med[f.id] ? " medite" : "");
+        a.href = "#asma/" + f.id;
+        a.dataset.fiche = f.id;
+        a.innerHTML = '<span class="k">' + numeroDe.get(nm) + '</span><span class="a" lang="ar">' + esc(nm.ar) + '</span><span class="f">' + esc(nm.fr) + '</span><span class="t">' + esc(nm.trad) + "</span>";
+        grille.appendChild(a);
+      });
+    });
+    $("nm-vide").hidden = vus > 0;
+    const nbMed = NOMS.filter((f) => med[f.id]).reduce((t, f) => t + f.noms.length, 0);
+    $("nm-count").textContent = vus + " nom" + (vus > 1 ? "s" : "") + (nbMed ? " · " + nbMed + " médité" + (nbMed > 1 ? "s" : "") + " sur " + totalNoms() : "");
+  }
+  function prepareNoms() {
+    const zone = $("nm-zone"); if (!zone || zone.dataset.pret) return;
+    zone.dataset.pret = "1"; zone.hidden = false;
+    if ($("asma-cours-titre")) $("asma-cours-titre").hidden = false;
+    const th = $("nm-themes");
+    const puce = (id, txt) => { const b = document.createElement("button"); b.type = "button"; b.className = "chip" + (id === themeActif ? " active" : ""); b.dataset.t = id; b.textContent = txt; th.appendChild(b); };
+    puce("tous", "Tous");
+    (typeof NOMS_THEMES !== "undefined" ? NOMS_THEMES : []).forEach((t) => puce(t.id, t.fr));
+    const hasard = document.createElement("button");
+    hasard.type = "button"; hasard.className = "chip"; hasard.textContent = "✦ Un nom au hasard";
+    hasard.addEventListener("click", () => { location.hash = "asma/" + NOMS[Math.floor(Math.random() * NOMS.length)].id; });
+    th.appendChild(hasard);
+    th.addEventListener("click", (e) => {
+      const b = e.target.closest("[data-t]"); if (!b) return;
+      themeActif = b.dataset.t;
+      th.querySelectorAll("[data-t]").forEach((x) => x.classList.toggle("active", x === b));
+      grilleNoms();
+    });
+    $("nm-q").addEventListener("input", grilleNoms);
+    const sel = $("nm-select");
+    NOMS.forEach((f, i) => { const o = document.createElement("option"); o.value = i; o.textContent = numeroDe.get(f.noms[0]) + ". " + titreFiche(f); sel.appendChild(o); });
+    sel.addEventListener("change", () => { location.hash = "asma/" + NOMS[+sel.value].id; });
+    $("nm-prev").addEventListener("click", () => { location.hash = "asma/" + NOMS[(+sel.value + NOMS.length - 1) % NOMS.length].id; });
+    $("nm-next").addEventListener("click", () => { location.hash = "asma/" + NOMS[(+sel.value + 1) % NOMS.length].id; });
+  }
+  function ficheNom(f) {
+    const puces = (a) => (a || []).map((t) => "<li>" + t + "</li>").join("");
+    const t = themeDe(f);
+    const med = !!lire("noms-medites", {})[f.id];
+    const v = f.verset || {};
+    let sira = "";
+    if (f.sira && typeof LESSONS !== "undefined") {
+      const l = LESSONS.find((x) => x.numero === f.sira.n);
+      sira = '<a class="nm-sira" href="#sira/' + f.sira.n + '"><span style="flex:1"><span class="jr-lab">Dans la Sīra — cours ' + f.sira.n + (l ? " · " + esc(l.titreFr) : "") + '</span><span class="nm-sira-t">' + esc(f.sira.txt) + '</span></span><span class="hub-go" aria-hidden="true">›</span></a>';
+    }
+    $("nm-view").innerHTML =
+      '<div class="sura-title-panel">' +
+        '<div class="nm-names">' + f.noms.map((x) => '<div class="sura-ar" lang="ar">' + esc(x.ar) + "</div>").join("") + "</div>" +
+        f.noms.map((x) => '<div class="sura-frname">' + esc(x.fr) + " — « " + esc(x.trad) + " »</div>").join("") +
+        '<div class="sura-meta">' + f.noms.map((x) => "n° " + numeroDe.get(x)).join(" · ") + " sur " + totalNoms() + " • " + esc(f.preuve || "") + "</div>" +
+        (t.fr ? '<span class="nm-theme">' + esc(t.fr) + "</span>" : "") +
+      "</div>" +
+      '<section class="scard c-contexte"><h3>Le sens</h3><ul>' + puces(f.sens) + "</ul>" +
+        (v.ar ? '<p class="squote-ar" lang="ar">' + esc(v.ar) + "</p>" : "") +
+        (v.fr ? '<p class="squote">« ' + esc(v.fr) + " »<small>" + esc(v.ref || "") + "</small></p>" : "") +
+      "</section>" +
+      '<section class="scard c-infos"><h3>Repères</h3><ul>' +
+        "<li><b>Racine :</b> " + esc(f.racine || "") + "</li>" +
+        "<li><b>Où le nom est établi :</b> " + esc(f.preuve || "") + "</li>" +
+        (f.voisins ? "<li><b>Noms voisins :</b> " + esc(f.voisins) + "</li>" : "") +
+      "</ul></section>" +
+      '<section class="scard c-merites"><h3>Dans le Coran et la Sunna</h3><ul>' + puces(f.textes) + "</ul></section>" +
+      '<section class="scard c-sens"><h3>Méditer</h3><ul>' + puces(f.mediter) + "</ul></section>" +
+      '<section class="scard c-social"><h3>Vivre ce nom</h3><ul>' + puces(f.vivre) + "</ul></section>" +
+      (f.dua ? '<section class="scard c-dua"><h3>Invoquer par ce nom</h3>' +
+        (f.dua.ar ? '<p class="dk-ar" lang="ar" dir="rtl">' + esc(f.dua.ar) + "</p>" : "") +
+        '<p class="dk-fr">' + esc(f.dua.fr) + '</p><p class="nm-ref">' + esc(f.dua.ref || "") + "</p></section>" : "") +
+      sira +
+      '<div class="nm-actions">' +
+        '<button type="button" class="btn check' + (med ? " on" : "") + '" id="nm-medite" aria-pressed="' + med + '">' + (med ? "✓ Médité" : "Marquer comme médité") + "</button>" +
+        '<button type="button" class="btn" id="nm-partager">↗ Partager</button>' +
+      "</div>";
+    $("nm-medite").addEventListener("click", () => {
+      const m = lire("noms-medites", {});
+      if (m[f.id]) delete m[f.id]; else m[f.id] = 1;
+      ecrire("noms-medites", m);
+      const on = !!m[f.id], b = $("nm-medite");
+      b.classList.toggle("on", on); b.textContent = on ? "✓ Médité" : "Marquer comme médité"; b.setAttribute("aria-pressed", on);
+    });
+    $("nm-partager").addEventListener("click", () => {
+      const url = location.origin + location.pathname + "#asma/" + f.id, titre = titreFiche(f) + " — les noms d'Allah";
+      if (navigator.share) navigator.share({ title: titre, text: titre, url: url }).catch(() => {});
+      else if (navigator.clipboard) navigator.clipboard.writeText(url).then(() => dire("Lien copié")).catch(() => {});
+    });
+  }
+  function renderAsma(id) {
+    if (!aNoms || !$("nm-zone")) return;
+    prepareNoms();
+    const f = id ? NOMS.find((x) => x.id === id) : null;
+    $("nm-liste").hidden = !!f;
+    $("nm-fiche").hidden = !f;
+    if ($("asma-cours")) $("asma-cours").hidden = !!f;
+    if (f) {
+      $("nm-select").value = String(NOMS.indexOf(f));
+      ficheNom(f);
+      ecrire("noms-dernier", f.id);
+    } else grilleNoms();
+  }
+
+  /* ============================================================
+     L'ACCUEIL — le moment présent, le nom du jour, l'invocation du jour
+     ============================================================ */
+  function renderJournee() {
+    const bloc = $("jr"); if (!bloc) return;
+    bloc.hidden = false;
+    if (aRoutine) {
+      const mp = momentPresent(), m = ROUTINE.find((x) => x.id === mp.id) || ROUTINE[0], av = avancement(m);
+      $("jr-now").href = "#routine/" + m.id;
+      $("jr-now-lab").textContent = mp.lab + (estVendredi() ? " · vendredi" : "");
+      $("jr-now-t").textContent = m.fr;
+      $("jr-now-ar").textContent = m.ar;
+      $("jr-now-s").textContent = av.f === av.t ? "Terminé pour aujourd'hui — al-hamdu lillâh." : (av.f ? av.f + " / " + av.t + " paroles dites" : av.t + " paroles · " + (m.quand || ""));
+      $("jr-now-bar").style.width = Math.round(av.p * 100) + "%";
+      const etat = (id, txt) => { const x = ROUTINE.find((y) => y.id === id); if (!x) return ""; const a = avancement(x); return a.f === a.t ? "<b>" + txt + " ✓</b>" : (a.f ? "<b>" + txt + " " + a.f + "/" + a.t + "</b>" : txt); };
+      $("jr-etat").innerHTML = [etat("matin", "matin"), etat("soir", "soir"), etat("coucher", "coucher")].join(" · ");
+      bande($("jr-strip"), null, "accueil");
+    } else { $("jr-now").hidden = true; $("jr-strip").hidden = true; }
+
+    const j = numeroDuJour();
+    if (aNoms && $("jr-nom")) {
+      const f = NOMS[j % NOMS.length];
+      $("jr-nom").href = "#asma/" + f.id;
+      $("jr-nom").innerHTML = '<span class="jr-lab">Le nom du jour</span><span class="jr-mini-ar" lang="ar">' + f.noms.map((x) => esc(x.ar)).join(" · ") + '</span>' +
+        '<span class="jr-mini-t">' + esc(titreFiche(f)) + '</span><span class="jr-mini-s c">' + esc(f.noms.map((x) => x.trad).join(" · ")) + " — ouvrir la fiche ›</span>";
+    } else if ($("jr-nom")) $("jr-nom").hidden = true;
+    if (aDuas && $("jr-dua")) {
+      const tout = []; DUAS.forEach((g) => g.items.forEach((x) => { if ((x.ar || "").length < 230) tout.push({ g: g, x: x }); }));
+      const c = tout[(j * 7) % tout.length];
+      $("jr-dua").href = "#duas/" + c.g.id;
+      $("jr-dua").dataset.id = c.x.id;
+      $("jr-dua").innerHTML = '<span class="jr-lab">L\'invocation du jour</span><span class="jr-mini-ar long" lang="ar">' + esc(c.x.ar) + '</span><span class="jr-mini-s">« ' + esc(c.x.fr) + " » — " + esc(c.x.src || "") + "</span>";
+    } else if ($("jr-dua")) $("jr-dua").hidden = true;
+
+    /* tuiles */
+    if ($("hub-meta-routine") && aRoutine) {
+      const nb = ROUTINE.reduce((t, m) => t + m.items.length, 0);
+      const dits = ROUTINE.reduce((t, m) => t + m.items.filter(fait).length, 0);
+      $("hub-meta-routine").textContent = ROUTINE.length + " moments · " + nb + " paroles" + (dits ? " · " + dits + " dite" + (dits > 1 ? "s" : "") + " aujourd'hui" : "");
+    }
+    if ($("hub-meta-duas") && aDuas) {
+      const nb = DUAS.reduce((t, g) => t + g.items.length, 0), nf = Object.keys(lire("duas-favoris", {})).length;
+      $("hub-meta-duas").textContent = nb + " invocations · " + DUAS.length + " thèmes" + (nf ? " · " + nf + " favorite" + (nf > 1 ? "s" : "") : "");
+    }
+    const ma = $("hub-meta-asma");
+    if (ma && aNoms && ma.textContent.indexOf("fiches") < 0) {
+      const med = lire("noms-medites", {}), nbMed = NOMS.filter((f) => med[f.id]).reduce((t, f) => t + f.noms.length, 0);
+      ma.textContent = totalNoms() + " noms en " + NOMS.length + " fiches" + (nbMed ? " · " + nbMed + " médité" + (nbMed > 1 ? "s" : "") : "") + " · " + ma.textContent;
+    }
+  }
+  /* l'invocation du jour : ouvrir son thème puis faire défiler jusqu'à elle */
+  let ciblerApres = null;
+  if ($("jr-dua")) $("jr-dua").addEventListener("click", () => { ciblerApres = $("jr-dua").dataset.id || null; });
+
+  /* ============================================================
+     Recherche de l'accueil : noms, adhkâr, invocations
+     ============================================================ */
+  window.__recherchePlus = function (o) {
+    let total = 0;
+    const arq = sansHarakat(o.q.trim()), enArabe = /[\u0600-\u06ff]/.test(o.q);
+    const dans = (t) => o.nq.length >= 2 && sans(t).includes(sans(o.nq));
+    const dansAr = (t) => enArabe && sansHarakat(t).includes(arq);
+    if (aNoms) {
+      const l = [];
+      NOMS.forEach((f) => {
+        if (l.length >= 8) return;
+        const nm = f.noms.find((x) => dans(x.fr) || dans(x.trad) || dansAr(x.ar));
+        if (!nm) return;
+        l.push(o.ligne("#asma/" + f.id, titreFiche(f), f.noms.map((x) => x.trad).join(" · "), f.noms.map((x) => x.ar).join(" · "), () => o.allerA("#asma/" + f.id, () => document.querySelector("#nm-view .sura-title-panel"))));
+      });
+      total += l.length; o.groupe(o.zone, "Noms d'Allah — fiches", "", l);
+    }
+    const paroles = [];
+    if (aRoutine) ROUTINE.forEach((m) => m.items.forEach((x) => paroles.push({ x: x, href: "#routine/" + m.id, ou: m.fr })));
+    if (aDuas) DUAS.forEach((g) => g.items.forEach((x) => paroles.push({ x: x, href: "#duas/" + g.id, ou: "Invocations · " + g.fr })));
+    const l2 = [];
+    for (const p of paroles) {
+      if (l2.length >= 8) break;
+      if (!(dans(p.x.titre) || (o.nq.length >= 4 && (dans(p.x.fr) || dans(p.x.tr))) || dansAr(p.x.ar))) continue;
+      l2.push(o.ligne(p.href, p.x.titre, p.ou, "", () => o.allerA(p.href, () => document.querySelector('.dk-card[data-id="' + p.x.id + '"]'))));
+    }
+    total += l2.length; o.groupe(o.zone, "Adhkâr et invocations", "", l2);
+    return total;
+  };
+
+  /* ============================================================
+     Aiguillage : arrivée directe, menu, bouton retour
+     ============================================================ */
+  function aiguiller() {
+    const c = chemin(), vue = c[0] || "accueil";
+    if (vue === "routine") renderRoutine(c[1]);
+    else if (vue === "duas") {
+      renderDuas(c[1]);
+      if (ciblerApres) {
+        const id = ciblerApres; ciblerApres = null;
+        setTimeout(() => { const el = document.querySelector('#du-zone .dk-card[data-id="' + id + '"]'); if (el) { el.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "center" }); el.classList.add("cible"); } }, 120);
+      }
+    }
+    else if (vue === "asma") renderAsma(c[1]);
+    else if (!document.getElementById("vue-accueil").hidden) renderJournee();
+  }
+  window.addEventListener("hashchange", aiguiller);
+  document.addEventListener("vuechange", (e) => { if (e.detail === "accueil") renderJournee(); });
+  /* au retour sur l'onglet : le jour a pu changer, le moment aussi */
+  document.addEventListener("visibilitychange", () => { if (document.visibilityState === "visible") aiguiller(); });
+  aiguiller();
+  if (aNoms) prepareNoms();
 })();
 </script>
 </body>

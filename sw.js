@@ -1,12 +1,14 @@
 /* Service worker — La Sīra du Prophète ﷺ
-   Rôle : rendre le site (et donc tous les résumés, intégrés dans index.html)
-   disponible hors ligne quand il est ajouté à l'écran d'accueil.
+   Rôle : rendre le site disponible hors ligne quand il est ajouté à l'écran
+   d'accueil — index.html et ses fichiers de données : resumes.js (résumés),
+   catalogue.js (cours audio), noms.js (fiches des noms d'Allah) et adhkar.js
+   (adhkâr de la journée et invocations).
 
-   ⚠️ À chaque mise à jour du site (nouveaux résumés), incrémentez VERSION
-   ci-dessous avant de republier sur Netlify : cela force le remplacement
+   ⚠️ À chaque mise à jour du site (nouveaux résumés, correction…), incrémentez
+   VERSION ci-dessous avant de republier sur GitHub : cela force le remplacement
    de l'ancien cache. */
 
-const VERSION = "v57";
+const VERSION = "v58.1";
 const CACHE = "sira-" + VERSION;
 const FONT_CACHE = "sira-fonts";
 const AUDIO_CACHE = "sira-audio"; /* audios téléchargés — jamais purgé lors des mises à jour */
@@ -16,6 +18,8 @@ const PRECACHE = [
   "./index.html",
   "./resumes.js",
   "./catalogue.js",
+  "./noms.js",
+  "./adhkar.js",
   "./manifest.webmanifest",
   "./icon-192.png",
   "./icon-512.png",
@@ -64,10 +68,10 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // 1b) Données qui changent à chaque livraison (résumés, catalogue) :
+  // 1b) Fichiers de données (résumés, catalogue, noms d'Allah, adhkâr) :
   //     réseau d'abord, comme la page, repli sur le cache hors ligne. Ainsi
   //     les nouveaux résumés apparaissent dès la première ouverture en ligne.
-  if (url.origin === self.location.origin && /\/(resumes|catalogue)\.js$/.test(url.pathname)) {
+  if (url.origin === self.location.origin && /\/(resumes|catalogue|noms|adhkar)\.js$/.test(url.pathname)) {
     event.respondWith(
       fetch(req)
         .then((res) => {

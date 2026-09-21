@@ -1,0 +1,253 @@
+NOUVEAUTÉ v58.1 — MA JOURNÉE, FICHES DES NOMS D'ALLAH, INVOCATIONS
+(يوم المسلم — أسماء الله الحسنى — أدعية النبي ﷺ)
+Ajout réalisé sur la v58 (résumés 1-58, LESSONS, fiches des sourates,
+guides, catalogue et corrections audio inchangés). Aucun résumé n'est
+modifié : resumes.js et catalogue.js sont identiques octet pour octet.
+
+========================================================
+1. CE QUI CHANGE
+========================================================
+Les noms d'Allah en fiches (#asma, #asma/<id>)
+- La section « Les noms d'Allah » ne contenait que la série de 7 cours
+  audio. Elle s'ouvre maintenant sur une GRILLE DES 99 NOMS (arabe,
+  translittération, traduction, numéro), avec une recherche (français,
+  translittération, arabe avec ou sans voyelles, numéro, thème), un
+  filtre par thème et un bouton « Un nom au hasard ». Les cours audio
+  restent en dessous, inchangés.
+- Chaque nom ouvre une FICHE dans le style des fiches de sourates
+  (mêmes cartes colorées, même navigation ‹ liste ›) :
+    · panneau de titre : le nom en arabe, sa traduction, son numéro,
+      l'endroit où il est établi, son thème ;
+    · Le sens (avec un verset en arabe et en français) ;
+    · Repères : racine arabe, preuve, noms voisins ;
+    · Dans le Coran et la Sunna ;
+    · Méditer ;
+    · Vivre ce nom (ce que le nom change dans le comportement) ;
+    · Invoquer par ce nom (une invocation du Coran ou du Prophète ﷺ,
+      en arabe et en français, avec sa source) ;
+    · Dans la Sīra : pour 15 fiches, un lien vers le cours où le nom
+      « se voit » (ar-Rahmân → Tâ'if, cours 30 ; al-Hâfiz → la grotte
+      de Thawr, cours 42 ; al-Wâhid al-Ahad → Bilâl, cours 17…) ;
+    · « Marquer comme médité » (la tuile porte alors une coche et
+      l'accueil compte les noms médités) et « Partager ».
+- 77 fiches pour 99 noms : les noms de même racine partagent une fiche
+  (ar-Rahmân et ar-Rahîm ; al-Ghafûr, al-Ghaffâr et al-Ghâfir ; al-Qâdir,
+  al-Qadîr et al-Muqtadir…). Sept thèmes : L'Unique (16 noms),
+  Miséricorde et générosité (22), Pardon et pudeur (8), Science et
+  proximité (11), Majesté et grandeur (19), Création et puissance (14),
+  Protection et guidance (9).
+
+Ma journée (#routine, #routine/<moment>)
+- Les adhkâr du réveil au coucher, en ONZE MOMENTS : au réveil ;
+  toilettes et ablutions ; l'adhân et la mosquée ; après chaque prière ;
+  les adhkâr du matin ; s'habiller, sortir, rentrer ; les repas ; les
+  adhkâr du soir ; avant de dormir ; la nuit et le witr ; le vendredi.
+  83 paroles, chacune avec l'arabe vocalisé, la phonétique, la
+  traduction, le nombre de répétitions, la source (recueil et
+  rapporteur) et, souvent, son mérite ou sa circonstance.
+- Un COMPTEUR par parole : on touche, il avance (× 3, × 7, × 33,
+  × 100…) ; arrivé au bout, le téléphone vibre, la carte s'estompe et
+  la page défile jusqu'à la parole suivante. Les longues séries (33,
+  100) ont un grand bouton, facile à toucher sans regarder. Une barre
+  indique l'avancement du moment ; la pastille d'un moment terminé
+  porte une coche.
+- La page SE SOUVIENT DE LA JOURNÉE : les compteurs sont gardés sur
+  l'appareil et repartent de zéro le lendemain. « ↺ Remettre ce moment
+  à zéro » sert aux adhkâr d'après la prière, dits cinq fois par jour.
+- La phonétique peut être masquée (choix mémorisé).
+- #routine sans précision ouvre le moment présent.
+
+Les invocations du Prophète ﷺ (#duas, #duas/<thème>, #duas/favoris)
+- 45 invocations en HUIT THÈMES : celles qu'il répétait le plus ;
+  demander pardon ; angoisse, tristesse, dette ; chercher refuge ; dans
+  la prière (dont l'istikhâra complète) ; au fil de la vie (éternuement,
+  voyage, pluie, colère, malade, douleur, mariage…) ; les invocations du
+  Coran ; dans la Sīra (Tâ'if → cours 30, l'émigration → cours 42,
+  Badr → cours 60).
+- Chaque invocation : arabe, phonétique, traduction, source, et la
+  circonstance où le Prophète ﷺ l'a dite ou enseignée. Boutons
+  « ☆ Favori » (retrouvées dans « Mes favorites ») et « ↗ Partager ».
+- En bas de page : « Bien invoquer » — les règles de l'invocation et les
+  moments de l'exaucement, avec leurs sources.
+
+L'accueil
+- En tête de page, un bloc « MA JOURNÉE » :
+    · le MOMENT PRÉSENT, d'après l'heure de l'appareil (avant l'aube →
+      au réveil ; matin → adhkâr du matin ; mi-journée → après la
+      prière ; après-midi → adhkâr du soir ; soir et nuit → avant de
+      dormir), avec l'avancement du jour et l'état « matin · soir ·
+      coucher » ; le vendredi est signalé ;
+    · la bande des moments de la journée (défilement horizontal) ;
+    · LE NOM DU JOUR et L'INVOCATION DU JOUR (ils changent chaque jour,
+      les mêmes pour tout le monde).
+- Deux nouvelles tuiles (« Ma journée », « Les invocations du
+  Prophète ﷺ ») et deux entrées dans le menu latéral ; la tuile des
+  noms d'Allah annonce les fiches.
+- La recherche de l'accueil trouve aussi les noms d'Allah (fiches),
+  les adhkâr et les invocations ; le résultat ouvre la page et allume
+  la carte visée.
+
+========================================================
+2. LE CHOIX DES 99 NOMS — À FAIRE VALIDER
+========================================================
+Le hadith des 99 noms (Bukhârî et Muslim) ne les énumère pas. La liste
+récitée partout vient d'une version d'at-Tirmidhî dont l'énumération
+est jugée « mudraj » (ajout d'un rapporteur) par Ibn Taymiyya, Ibn
+Kathîr et Ibn Hajar. Les fiches retiennent donc 99 noms ÉTABLIS PAR UN
+VERSET OU UN HADITH AUTHENTIQUE (81 par le Coran, 18 par la Sunna), en
+suivant la démarche d'Ibn 'Uthaymîn dans al-Qawâ'id al-muthlâ — SANS
+reprendre sa liste à l'identique : elle a été composée pour ce site
+(as-Sittîr et al-Hâdî, par exemple, y figurent ; ar-Rabb y est établi
+par le Coran). C'est donc UNE liste possible, pas « la » liste : les
+savants qui ont tenté le recensement (Ibn Hazm, Ibn Hajar, Ibn
+'Uthaymîn…) n'aboutissent pas tous aux mêmes 99 noms.
+Ce choix est expliqué au lecteur dans la carte « Pourquoi ces
+quatre-vingt-dix-neuf noms ? », sous la grille.
+- Conséquence : certains noms de la liste courante n'ont PAS de fiche
+  (ar-Rashîd, as-Sabûr, al-Mâjid, al-Wâjid, ad-Dârr, an-Nâfi', al-Bâqî,
+  al-Muntaqim, al-Khâfid, ar-Râfi', al-Mu'izz, al-Mudhill, al-Muhyî,
+  al-Mumît, al-Mubdi', al-Mu'îd, al-Muqsit, al-Jâmi', al-Mughnî,
+  al-Mâni', an-Nûr, al-Badî', al-Jalîl, al-'Adl, al-Wâlî, Mâlik
+  al-Mulk, Dhû l-Jalâl wa l-Ikrâm…) ; d'autres, absents de la liste
+  courante, en ont une (ar-Rabb, al-Ilâh, al-Witr, al-Jamîl, ash-Shâfî,
+  ar-Rafîq, at-Tayyib, al-Mannân, al-Muhsin, as-Sayyid, al-Hayiyy,
+  as-Sittîr, as-Subbûh, al-Hafiyy, al-Mu'tî, al-Jawâd…).
+- Noms établis par la Sunna dans les fiches : al-Witr, ar-Rafîq,
+  al-Jawâd, al-Mannân, al-Muhsin, al-Mu'tî, al-Qâbid, al-Bâsit,
+  ash-Shâfî, at-Tayyib, al-Jamîl, al-Hayiyy, as-Sittîr, al-Hakam,
+  as-Subbûh, as-Sayyid, al-Muqaddim, al-Mu'akhkhir.
+- Si le sheikh suit une autre liste (celle de sa série audio, par
+  exemple), il suffit de modifier noms.js : ajouter, retirer ou
+  regrouper des fiches ; les numéros, la grille et le compteur se
+  recalculent seuls.
+
+========================================================
+3. POINTS À FAIRE RELIRE
+========================================================
+Ces textes n'ont pas été relus par le sheikh. À vérifier en priorité :
+ 1. Le choix de la liste des noms (section 2) et le rangement par thème.
+ 2. L'ARABE VOCALISÉ des versets et des invocations (noms.js, adhkar.js)
+    et les PHONÉTIQUES : saisis avec soin, contrôlés par script (aucune
+    lettre latine dans l'arabe, aucune lettre arabe dans la phonétique),
+    mais une relecture humaine reste nécessaire.
+ 3. Les sources sont données par recueil et rapporteur, sans numéro de
+    hadith (comme dans les fiches de sourates). Textes dont la chaîne
+    est discutée, signalés comme tels à l'écran :
+      · l'invocation de Tâ'if (Ibn Ishâq, at-Tabarânî) — présentée comme
+        texte de Sīra, avec la mention de la faiblesse de sa chaîne ;
+      · « hasbiya llâhu… » sept fois matin et soir — parole d'Abû
+        d-Dardâ' (Abû Dâwûd), présentée comme telle ;
+      · la sourate al-Kahf le vendredi (al-Hâkim, al-Bayhaqî) ;
+      · le nom al-Jawâd (at-Tirmidhî et autres, authentifié par
+        al-Albânî).
+    Le nombre de cent pour la prière sur le Prophète ﷺ le vendredi n'est
+    qu'un repère pour le compteur (c'est écrit dans la note).
+ 4. Quelques invocations des fiches sont des versets choisis pour leur
+    lien avec le nom, et non des invocations « par ce nom » au sens
+    strict (fiches as-Samad, al-Latîf, al-Hafiyy…) : la référence
+    l'indique.
+ 5. LES MOMENTS DE L'ACCUEIL sont réglés sur l'heure de l'appareil
+    (3 h, 6 h, 11 h, 15 h, 20 h), sans horaires de prière : il faudrait
+    la position de l'utilisateur. En plein été ou en plein hiver, le
+    moment proposé peut être en avance ou en retard ; la bande des
+    moments permet toujours de choisir.
+ 6. Traductions des noms : choisies pour être lisibles ; plusieurs noms
+    n'ont pas d'équivalent exact (al-Jabbâr, as-Samad, al-Muhaymin).
+
+========================================================
+4. LA TECHNIQUE
+========================================================
+Fichiers
+- noms.js (NOUVEAU, 172 Ko, 55 Ko compressé) : NOMS_THEMES (7 thèmes) et
+  NOMS (77 fiches). Une fiche : id, theme, noms [{ar, fr, trad}],
+  racine, preuve, verset {ar, fr, ref}, sens [], textes [], mediter [],
+  vivre [], dua {ar, fr, ref}, et, au besoin, voisins, sira {n, txt}.
+  Les champs en liste acceptent <b>…</b>. L'id sert d'adresse
+  (#asma/<id>) : ne pas le changer.
+- adhkar.js (NOUVEAU, 101 Ko, 29 Ko compressé) : ADHKAR_MATIN_SOIR (la
+  liste commune, avec pour chaque parole sa variante du soir ; les
+  moments « matin » et « soir » en sont tirés à la fin du fichier),
+  ROUTINE (11 moments), DUAS (8 thèmes), DUAS_ADAB. Une parole : id,
+  titre, ar, tr, fr, n (répétitions), src, note ou quand, geste (sunna
+  d'action sans texte), sira (numéro de cours). L'id sert au compteur
+  et aux favoris : ne pas le changer.
+- index.html :
+    · deux balises <script src="noms.js"> et <script src="adhkar.js">
+      après resumes.js (chargement normal : il faut les données dès
+      l'accueil ; 84 Ko compressés à eux deux) ;
+    · CSS : un bloc « v58.1 » avant la règle [hidden] (classes .jr-*
+      pour l'accueil, .nm-* pour les noms, .dk-* pour les paroles,
+      .du-* pour les invocations, .c-dua, .squote-ar) ; variables de
+      couleur du site uniquement, donc thème clair pris en charge ;
+    · menu : deux .drawer-item (routine, duas), sous-titre de « Les
+      noms d'Allah » ;
+    · accueil : section #jr en tête de .wrap.hub, deux .hub-tile ;
+    · #vue-asma : zone #nm-zone (grille et fiche) au-dessus de la liste
+      des cours, désormais dans #asma-cours ;
+    · deux vues : #vue-routine et #vue-duas ; VUES reçoit routine et
+      duas (bloc 1) ;
+    · bloc 4 (accueil) : la recherche appelle window.__recherchePlus
+      s'il existe (une ligne) ; le groupe existant devient « Noms
+      d'Allah — cours audio » ;
+    · UN SIXIÈME BLOC <script> inline (bloc 5), en fin de page : tout
+      le rendu des trois sections et du bloc « Ma journée ». Il ne
+      contient aucun texte à corriger : tout est dans noms.js et
+      adhkar.js. Sans ces fichiers, il ne fait rien et le bloc de
+      l'accueil reste masqué.
+    · le bloc 2 (ASMA, cours audio) n'est pas modifié.
+- sw.js : VERSION "v58.1" ; noms.js et adhkar.js ajoutés à PRECACHE
+  (disponibles hors ligne) et à la règle 1b (réseau d'abord) ;
+  commentaire d'en-tête mis à jour (il parlait encore de Netlify et de
+  résumés « intégrés dans index.html »).
+- Mémoire locale (localStorage) : "routine-jour" {d: date, c: {id: n}},
+  "noms-medites", "noms-dernier", "duas-favoris", "sira-phonetique".
+  Rien n'est envoyé nulle part.
+- Adresses nouvelles : #routine, #routine/<moment> (reveil,
+  purification, mosquee, priere, matin, maison, repas, soir, coucher,
+  nuit, vendredi), #duas, #duas/<thème> (essentielles, pardon,
+  detresse, protection, priere, vie, coran, sira), #duas/favoris,
+  #asma/<id>. #asma est inchangée.
+
+========================================================
+5. VÉRIFICATIONS FAITES
+========================================================
+- node --check : noms.js, adhkar.js, sw.js, resumes.js, catalogue.js et
+  les SIX blocs <script> inline de index.html.
+- Données : 77 fiches, 99 noms, aucun identifiant ni nom en double,
+  thèmes valides, champs obligatoires présents ; 128 paroles (83 + 45),
+  identifiants uniques, chaque parole a texte, traduction et source ;
+  aucun guillemet droit dans les textes ; contrôle des alphabets (une
+  coquille trouvée et corrigée ainsi). Liens « Dans la Sīra » vérifiés
+  dans les résumés (mots-clés présents dans le cours visé).
+- Identiques octet pour octet à la v58 : resumes.js, catalogue.js,
+  manifest.webmanifest, icônes, GUIDE-AUDIO.md, README.md, tous les
+  .txt ; le tableau LESSONS (156 entrées) est inchangé.
+- Rendu dans Chromium (Playwright), 390 px et 1100 px, thèmes sombre et
+  clair, aucune erreur JavaScript (seuls les 403 des polices externes) :
+    · accueil à 7 h et à 21 h un vendredi : bon moment, bande
+      positionnée, nom et invocation du jour, chiffres des tuiles ;
+    · #routine/reveil : 4 paroles, compteur, barre, message de fin,
+      coche de la pastille, mémoire après rechargement, remise à zéro,
+      compteurs d'un autre jour ignorés ; × 3 bloqué à 3, × 33, « ↺ »
+      sur une parole, phonétique masquée, adresse inconnue → moment
+      présent ;
+    · #duas : 45 invocations, thèmes, favoris (ajout, page, retrait),
+      lien vers le cours 30 ;
+    · #asma : 99 tuiles, cours audio toujours présents, recherche
+      (français, arabe sans voyelles, thème), filtre, fiche (6 cartes),
+      suivant / retour, « médité », identifiant inconnu → grille ;
+    · recherche de l'accueil : « jabbar » → fiche, « istikhara » →
+      invocation (carte allumée), « hijra » → résultats de la Sīra
+      toujours là ; l'invocation du jour ouvre son thème et la carte ;
+    · non-régression : #sira/58 (résumé déployé), #sourates, #cours.
+
+========================================================
+6. POUR LA SUITE
+========================================================
+- Une livraison de résumés ne touche ni noms.js ni adhkar.js.
+- Pour corriger un texte : modifier noms.js ou adhkar.js, incrémenter
+  VERSION dans sw.js. Pour ajouter une invocation : une entrée de plus
+  dans le bon thème de DUAS, avec un id nouveau.
+- Pistes : horaires de prière (avec la position) pour régler les
+  moments ; lecture audio des adhkâr ; fiches pour les noms de la liste
+  courante non retenus, si le sheikh le souhaite.
