@@ -1,0 +1,85 @@
+NOUVEAUTÉ v58.2 — POLICE DE L'ARABE : SCHEHERAZADE NEW
+(الخط العربي)
+Livraison technique sur la v58.1 (résumés 1-58, LESSONS, fiches des
+sourates, noms d'Allah, adhkâr, invocations, catalogue et corrections
+audio inchangés). Aucun texte n'est modifié : resumes.js, catalogue.js,
+noms.js et adhkar.js sont identiques octet pour octet à la v58.1.
+
+========================================================
+1. CE QUI CHANGE
+========================================================
+- Tout l'arabe du site (titres des sourates, versets, noms d'Allah,
+  adhkâr, invocations, manâsik, menu, accueil) était affiché avec la
+  police Amiri. Dans cette police, le mîm au milieu d'un mot est un
+  tout petit nœud posé sur la ligne, et le groupe حم est empilé en
+  ligature (le mîm passe sous le hâ') : avec les voyelles, le mîm de
+  الْمُلْكُ, de الْحَمْدُ ou de الرَّحْمَن devenait presque invisible.
+- La police devient Scheherazade New (SIL), naskh traditionnel très
+  répandu dans les applications de Coran : le mîm médian y est un
+  bouclage bien rond, les ligatures n'empilent pas les lettres, les
+  voyelles restent lisibles. Les polices latines (Cormorant Garamond
+  pour les titres, Lora pour le texte) ne changent pas.
+- Rien n'est modifié dans les textes arabes : le mîm était bien présent
+  dans les fichiers, seul son dessin change.
+
+========================================================
+2. LA TECHNIQUE
+========================================================
+- index.html — 27 lignes changées, rien d'autre :
+    · ligne 34 : le lien Google Fonts charge
+      family=Scheherazade+New:wght@400;700 à la place de
+      family=Amiri:wght@400;700 (mêmes graisses, mêmes autres familles) ;
+    · 25 règles CSS : font-family:'Amiri',serif →
+      font-family:'Scheherazade New',serif (.sura-ar, .mk-title-ar,
+      .hub-res-ar, .drawer-title-ar, .di-ar, .coming-ar, .mk-t-ar,
+      .mk-dua-ar, .ar-txt, .jr-now-ar, .jr-mini-ar, .nm-tile .a,
+      .squote-ar, .dk-moment-tete .a, .dk-ar, et les règles du CSS du
+      début de page) ;
+    · ligne 1409 : le style inline du titre arabe du parcours.
+  Aucun bloc <script> n'est touché ; LESSONS est identique.
+- sw.js : VERSION "v58.1" → "v58.2". Le cache "sira-fonts" (règle 3,
+  cache d'abord) garde les anciens fichiers Amiri, sans effet : la
+  nouvelle feuille Google Fonts a une autre adresse et est donc
+  téléchargée, puis mise en cache ; le site hors ligne affiche la
+  nouvelle police dès la première visite en ligne.
+- Le nom de famille CSS est « Scheherazade New » (avec l'espace) ;
+  Google Fonts propose les graisses 400 à 700 ; le site n'utilise que
+  400 et 700.
+
+========================================================
+3. VÉRIFICATIONS FAITES
+========================================================
+- node --check : resumes.js, sw.js, catalogue.js, noms.js, adhkar.js
+  et les SIX blocs <script> inline de index.html.
+- Identiques octet pour octet à la v58.1 : les 68 autres fichiers du zip
+  (resumes.js, catalogue.js, noms.js, adhkar.js, manifest, icônes,
+  GUIDE-AUDIO.md, README.md, tous les .txt) ; le tableau LESSONS
+  (156 entrées) est inchangé ; plus aucune occurrence d'« Amiri » dans
+  index.html ni dans les fichiers de données.
+- diff avec la v58.1 : 27 lignes de index.html (lien + font-family) et
+  la ligne VERSION de sw.js, rien d'autre.
+- Rendu dans Chromium (Playwright, police installée localement),
+  390 px, thèmes sombre et clair, aucune erreur JavaScript :
+    · avant/après sur #routine/matin (أَصْبَحْنَا… : الْمُلْكُ et
+      الْحَمْدُ lisibles), #asma/ar-rahman-ar-rahim (الرَّحْمَن),
+      #asma/al-hamid (الحَمِيد), #duas/essentielles (الْآخِرَةِ),
+      #sourates (سورة الفاتحة) ; getComputedStyle confirme
+      "Scheherazade New" sur chaque élément arabe ;
+    · grille des 99 noms : les tuiles gardent leur hauteur, rien ne
+      déborde ; bloc « Ma journée » de l'accueil en place ;
+    · non-régression : #accueil, #sira/58 (titre, sommaire de 32 titres,
+      « Prochain cours » présent), #sourates, #manasik, #parcours, #asma,
+      #routine, #routine/reveil, #duas, #duas/favoris, #cours — bonne
+      vue, entrée de menu active.
+
+========================================================
+4. POUR LA SUITE
+========================================================
+- Une livraison de résumés ne touche pas à la police : elle remplace
+  resumes.js et incrémente VERSION ("v58.2" → "v59").
+- Pour revenir à Amiri ou essayer une autre police (Noto Naskh Arabic,
+  par exemple) : changer le nom de famille dans le lien Google Fonts et
+  dans les 26 font-family de index.html, incrémenter VERSION.
+- Si un mot arabe paraît trop grand ou trop serré dans un endroit
+  précis, ajuster font-size ou line-height de la règle concernée
+  (Scheherazade New est un peu plus large qu'Amiri à taille égale).

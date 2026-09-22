@@ -8,7 +8,7 @@
    VERSION ci-dessous avant de republier sur GitHub : cela force le remplacement
    de l'ancien cache. */
 
-const VERSION = "v58.1";
+const VERSION = "v58.2";
 const CACHE = "sira-" + VERSION;
 const FONT_CACHE = "sira-fonts";
 const AUDIO_CACHE = "sira-audio"; /* audios téléchargés — jamais purgé lors des mises à jour */
